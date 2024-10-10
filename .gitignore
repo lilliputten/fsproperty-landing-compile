@@ -19,6 +19,8 @@ yarn-error.log*
 
 .env.*
 
+.gitmodules
+
 # Temporariy, swap & ignored files
 pnpm-lock.*
 package-lock.*

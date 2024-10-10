@@ -5,9 +5,7 @@
   $heroHeight: 540px;
   $heroHeightSmall: 240px;
 
-  background-color: #2f2b27;
-
-  background: radial-gradient(
+  background-color: radial-gradient(
     70% 60% at 80% 30%,
     rgba(var(--goldRGB) / 30%) 0%,
     rgba(var(--goldRGB) / 0%) 100%
@@ -21,8 +19,6 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-  }
-  .HeroRow {
   }
 
   // Reset basic styles

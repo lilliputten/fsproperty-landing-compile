@@ -62,7 +62,7 @@
     "prettier": "echo --Run prettier-- && prettier --write --cache . | grep -v '(unchanged)' || true",
     "stylelint": "echo --Lint styles-- && stylelint ./**/*.{css,scss,less}",
     "stylelint-fix": "echo --Lint styles-- && stylelint ./**/*.{css,scss,less} --fix",
-    "lint": "echo --Lint sources-- && eslint . --ext js",
+    "lint": "echo --Lint sources-- && eslint . --ext js,ts,tsx",
     "type-check": "echo --Run typescript linter-- && tsc --pretty --noEmit",
     "check-all": "echo --Run all pre-commit check-ups-- && npm-run-all prettier stylelint lint type-check && echo --All check-ups are passed--",
     "serve": "serve build",

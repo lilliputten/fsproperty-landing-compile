@@ -18,5 +18,8 @@
 /types
 /utils
 
+/preview-public
+/src/*.html
+
 package-lock.*
 **/*_

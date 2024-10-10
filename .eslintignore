@@ -22,6 +22,8 @@
 /types
 /utils
 
+/preview-public
+
 # Log files
 
 npm-debug.log*

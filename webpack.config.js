@@ -13,7 +13,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { getCompilationScriptsContent, getIncludeFragment } = require('./webpack.helpers');
+const { getIncludeFragment } = require('./webpack.helpers');
 const {
   isDev,
   isDebug,
@@ -156,17 +156,6 @@ module.exports = {
         /** @type {webpack.Compilation} */
         const compilation = args.compilation;
         // Get scripts chunk content...
-        // const includeContent = getCompilationScriptsContent(compilation, {
-        //   isDev,
-        //   isDebug,
-        //   useLocalServedScripts,
-        // });
-        // const content = fs
-        //   .readFileSync(path.resolve(__dirname, includeTemplateFile), {
-        //     encoding: 'utf8',
-        //   })
-        //   .trim()
-        //   .replace('{{CONTENT}}', includeContent);
         // Get scripts chunk content...
         const includeFragment = getIncludeFragment(compilation, {
           isDev,

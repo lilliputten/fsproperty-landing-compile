@@ -20,3 +20,6 @@
 /tests
 /types
 /utils
+
+/preview-public
+/src/*.html
