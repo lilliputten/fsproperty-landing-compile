@@ -8,7 +8,7 @@ import './variables/variables-expose.scss';
 
 import './misc-styles';
 
-import { initTopMenu } from './TopMenu';
+import { initRootNode } from './RootNode';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;
@@ -21,7 +21,7 @@ consoleMethod.call(console, appVersion);
 function initPage() {
   // console.log('[root:initPage]');
   // Start subcomponents...
-  initTopMenu();
+  initRootNode();
 }
 
 window.addEventListener('load', initPage);
