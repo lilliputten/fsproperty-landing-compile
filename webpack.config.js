@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 15:15
+ *  @changed 2024.10.10, 20:02
  */
 
 const webpack = require('webpack');
@@ -21,7 +21,8 @@ const {
   useLocalServedScripts,
   appVersionHash,
   outPath,
-  templateHeaderFile,
+  includeTemplateFile,
+  previewTemplateFile,
   devtool,
   minimizeAssets,
 } = require('./webpack.params');
@@ -135,34 +136,72 @@ module.exports = {
       filename: 'styles.css',
     }),
     new CopyPlugin({
-      patterns: [{ from: appInfoFile }],
+      patterns: [
+        // Files to copy...
+        { from: appInfoFile },
+        { from: 'preview-public' },
+      ],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/template-header.html',
+      template: includeTemplateFile,
       filename: 'include.html',
       inject: false,
       minify: false,
       templateContent: (args) => {
-        const headerContent = fs
-          .readFileSync(path.resolve(__dirname, templateHeaderFile), {
-            encoding: 'utf8',
-          })
-          .trim();
         /** @type {webpack.Compilation} */
         const compilation = args.compilation;
         // Get scripts chunk content...
-        const scriptsContent = getCompilationScriptsContent(compilation, {
+        const includeContent = getCompilationScriptsContent(compilation, {
           isDev,
           isDebug,
           useLocalServedScripts,
         });
+        const content = fs
+          .readFileSync(path.resolve(__dirname, includeTemplateFile), {
+            encoding: 'utf8',
+          })
+          .trim()
+          .replace('{{CONTENT}}', includeContent);
         return [
           // Combine template...
           '<!-- ' + appVersionHash + ' -->',
           '',
-          headerContent,
+          content,
           '',
-          scriptsContent,
+        ].join('\n');
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: includeTemplateFile,
+      filename: 'index.html',
+      inject: false,
+      minify: false,
+      templateContent: (args) => {
+        /** @type {webpack.Compilation} */
+        const compilation = args.compilation;
+        // Get scripts chunk content...
+        const includeContent = getCompilationScriptsContent(compilation, {
+          isDev,
+          isDebug,
+          useLocalServedScripts,
+        });
+        const includeFragment = fs
+          .readFileSync(path.resolve(__dirname, includeTemplateFile), {
+            encoding: 'utf8',
+          })
+          .trim()
+          .replace('{{CONTENT}}', includeContent);
+        const previewFragment = fs
+          .readFileSync(path.resolve(__dirname, previewTemplateFile), {
+            encoding: 'utf8',
+          })
+          .trim()
+          .replace('{{CONTENT}}', includeFragment);
+        return [
+          // Combine template...
+          '<!-- ' + appVersionHash + ' -->',
+          '',
+          previewFragment,
           '',
         ].join('\n');
       },

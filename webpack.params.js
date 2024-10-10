@@ -2,7 +2,7 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 16:04
+ *  @changed 2024.10.10, 20:10
  */
 
 const fs = require('fs');
@@ -19,7 +19,8 @@ const useInlineScripts = !useLocalServedScripts;
 /** Create source maps for production mode (not dev) */
 const generateSourcesForProduction = true;
 
-const templateHeaderFile = 'src/template-header.html';
+const includeTemplateFile = 'src/include-template.html';
+const previewTemplateFile = 'src/preview-template-with-column.html';
 
 const appInfoFile = 'src/app-info.json';
 const appInfoContent = fs.readFileSync(path.resolve(__dirname, appInfoFile), {
@@ -82,7 +83,9 @@ module.exports = {
   useLocalServedScripts,
   useInlineScripts,
 
-  templateHeaderFile,
+  includeTemplateFile,
+  previewTemplateFile,
+
   generateSourcesForProduction,
 
   appInfoFile,
