@@ -1,277 +1,496 @@
-<!-- DEBUG: fsproperty-landing-compile v.0.0.1 / 2024.10.10 15:41 +0300 -->
+<!-- DEBUG: fsproperty-landing-compile v.0.0.2 / 2024.10.11 01:23 +0300 -->
 
 <!--
-@desc Preview template
+@desc Preview
 @module preview-template-with-column
 @changed 2024.10.10, 20:02
 -->
 <html lang="ru" class="">
-    <head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta http-equiv="Content-Language" content="ru-RU">
-<link rel="shortcut icon" href="root/favicon.ico">
-<link rel="stylesheet" type="text/css" href="assets/d78853e5/jquery.fancybox.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/libraries/Font-Awesome/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/libraries/bootstrap-select/dist/css/bootstrap-select.min.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/libraries/awesome-bootstrap-checkbox.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/libraries/bootstrap-fileinput/css/fileinput.min.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/libraries/nvd3/nv.d3.min.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/libraries/OwlCarousel/owl-carousel/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/css/realsite.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/css/custom.css">
-<link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/css/media.css">
-<script type="text/javascript" src="assets/e40d29d4/jquery.min.js"></script>
-<script type="text/javascript" src="assets/d78853e5/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" src="assets/d78853e5/fancyBox.js"></script>
-<script type="text/javascript" src="assets/d78853e5/jquery.mousewheel-3.0.6.pack.js"></script>
-<script type="text/javascript">
-/*<![CDATA[*/
-var baseUrl = ''
-/*]]>*/
-</script>
-<title>Продать элитную недвижимость в Москве</title>
-<meta name="description" content="Мы предлагаем свои услуги владельцам, которые хотят выгодно и быстро продать свою элитную недвижимость в Москве.  20 лет опыта, более 1200 сделок."><meta name="keywords" content="Продать элитную недвижимость">
-<meta property="og:title" content="Продать элитную недвижимость в Москве">
-<meta property="og:description" content="Мы предлагаем свои услуги владельцам, которые хотят выгодно и быстро продать свою элитную недвижимость в Москве.  20 лет опыта, более 1200 сделок.">
-<meta property="og:image" content="root/logo.fs.jpg">
-<meta property="og:type" content="website">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&amp;subset=latin,latin-ext">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-<link rel="shortcut icon" href="root/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Language" content="ru-RU" />
+    <link rel="shortcut icon" href="root/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="assets/d78853e5/jquery.fancybox.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/b7f4f2a8/libraries/Font-Awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/b7f4f2a8/libraries/bootstrap-select/dist/css/bootstrap-select.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/b7f4f2a8/libraries/awesome-bootstrap-checkbox.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/b7f4f2a8/libraries/bootstrap-fileinput/css/fileinput.min.css"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/libraries/nvd3/nv.d3.min.css"> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/b7f4f2a8/libraries/OwlCarousel/owl-carousel/owl.carousel.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/css/realsite.css" />
+    <link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="assets/b7f4f2a8/css/media.css" />
+    <script type="text/javascript" src="assets/e40d29d4/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/d78853e5/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="assets/d78853e5/fancyBox.js"></script>
+    <script type="text/javascript" src="assets/d78853e5/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript">
+      /*<![CDATA[*/
+      var baseUrl = '';
+      /*]]>*/
+    </script>
+    <title>Продать элитную недвижимость в Москве</title>
+    <meta
+      name="description"
+      content="Мы предлагаем свои услуги владельцам, которые хотят выгодно и быстро продать свою элитную недвижимость в Москве.  20 лет опыта, более 1200 сделок."
+    />
+    <meta name="keywords" content="Продать элитную недвижимость" />
+    <meta property="og:title" content="Продать элитную недвижимость в Москве" />
+    <meta
+      property="og:description"
+      content="Мы предлагаем свои услуги владельцам, которые хотят выгодно и быстро продать свою элитную недвижимость в Москве.  20 лет опыта, более 1200 сделок."
+    />
+    <meta property="og:image" content="root/logo.fs.jpg" />
+    <meta property="og:type" content="website" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&amp;subset=latin,latin-ext"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+    />
+    <link rel="shortcut icon" href="root/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
+    <style>
       body {
-        position: relative!important;
-        width: 100%!important;
-        height: auto!important;
-        top: 0!important;
-        left: 0!important;
-        overflow: auto!important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        overflow: auto !important;
       }
       .ohota_banner {
-          display: none;
+        display: none;
       }
       .baner_block_tw {
-          width: 100%;
-          height: 45px;
-          background-color: lightgray;
-          padding: 5px 10px;
+        width: 100%;
+        height: 45px;
+        background-color: lightgray;
+        padding: 5px 10px;
       }
       @media (min-width: 1400px) {
-          .ohota_bannerXL {
-              display: block;
-          }
-          .baner_block_tw {
-              padding: 5px 18%;
-          }
+        .ohota_bannerXL {
+          display: block;
+        }
+        .baner_block_tw {
+          padding: 5px 18%;
+        }
       }
       @media (min-width: 769px) and (max-width: 1399px) {
-          .ohota_bannerL {
-              display: block;
-          }
+        .ohota_bannerL {
+          display: block;
+        }
       }
       @media (max-width: 768px) {
-          .ohota_bannerS {
-              display: block;
-          }
-          div.page-wrapper.ohota > div.header.header-standard > div.container {
-              display: none;
-          }
-      }
-      .ohota .map-wrapper, .ohota #filter-container {
+        .ohota_bannerS {
+          display: block;
+        }
+        div.page-wrapper.ohota > div.header.header-standard > div.container {
           display: none;
+        }
       }
-
-</style>
-<style type="text/css">
-.fancybox-margin{margin-right:17px;}
-.country-list.hide { display: none; }
-</style>
-<link type="text/css" rel="stylesheet" href="https://web.redhelper.ru/connect/v2/css/common.css?v=3.2.1.1606353591205">
-<link rel="stylesheet" type="text/css" href="https://web.redhelper.ru/container/css/skins/material.css?version=3.1.539.1630063113444">
-</head>
-<body class="rh-copy-show redhlp_offline redhlp_ready">
-<div class="page-wrapper">
-    <div class="header header-standard">
-    <div class="header-topbar">
-        <div class="container">
+      .ohota .map-wrapper,
+      .ohota #filter-container {
+        display: none;
+      }
+    </style>
+    <style type="text/css">
+      .fancybox-margin {
+        margin-right: 17px;
+      }
+      .country-list.hide {
+        display: none;
+      }
+    </style>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://web.redhelper.ru/connect/v2/css/common.css?v=3.2.1.1606353591205"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://web.redhelper.ru/container/css/skins/material.css?version=3.1.539.1630063113444"
+    />
+  </head>
+  <body class="rh-copy-show redhlp_offline redhlp_ready">
+    <div class="page-wrapper">
+      <div class="header header-standard">
+        <div class="header-topbar">
+          <div class="container">
             <div class="header-topbar-left">
-                <div class="row">
-                    <div class="col-sm-12 col-xs-12">
-                        <div class="header-title" style="padding-left: 40px;">
-                            <a href="" class="logo">
-                                <img src="uploads/nlogo.webp?v=2" alt="Realsite" style="height: 70px; width: auto;">
-                                                            </a>
-                        </div>
-                    </div>
+              <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="header-title" style="padding-left: 40px">
+                    <a href="" class="logo">
+                      <img
+                        src="uploads/nlogo.webp?v=2"
+                        alt="Realsite"
+                        style="height: 70px; width: auto"
+                      />
+                    </a>
+                  </div>
                 </div>
-            </div><!-- /.header-topbar-left -->
+              </div>
+            </div>
+            <!-- /.header-topbar-left -->
             <div class="header-topbar-right">
-                <div class="row">
-                    <div class="col-sm-8 col-xs-12">
-                        <ul class="header-topbar-links" id="yw0">
-                            <li class="listItem"><a class="listItemLink" href="page/about/">О компании</a></li>
-                            <li class="listItem"><a class="listItemLink" href="team/">Команда</a></li>
-                            <li class="listItem"><a class="listItemLink" href="partners/">Партнеры</a></li>
-                            <li class="listItem"><a class="listItemLink" href="publications/">Новости</a></li>
-                            <li class="listItem"><a class="listItemLink" href="page/services/">Услуги</a></li>
-                            <li class="listItem"><a class="listItemLink" href="page/contacts/">Контакты</a></li>
-                            <li class="listItem"><a class="listItemLink" href="realty/favorite">Избранное</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-xs-12">
-                        <div class="header-contacts header-contacts-phone">
-                            <a href="tel:84951345699"><small>+7(495) 1-3456-99</small></a>
-                            <br>
-                            <a href="https://wa.me/79168610317" target="_blank"><img src="uploads/icons/wp.png" width="24"></a>&nbsp;
-                            <a href="https://t.me/FS_PROPERTY_ELITE" target="_blank"><img src="uploads/icons/tg.png" width="24"></a>
-                        </div>
-                    </div>
+              <div class="row">
+                <div class="col-sm-8 col-xs-12">
+                  <ul class="header-topbar-links" id="yw0">
+                    <li class="listItem">
+                      <a class="listItemLink" href="page/about/">О компании</a>
+                    </li>
+                    <li class="listItem"><a class="listItemLink" href="team/">Команда</a></li>
+                    <li class="listItem"><a class="listItemLink" href="partners/">Партнеры</a></li>
+                    <li class="listItem">
+                      <a class="listItemLink" href="publications/">Новости</a>
+                    </li>
+                    <li class="listItem">
+                      <a class="listItemLink" href="page/services/">Услуги</a>
+                    </li>
+                    <li class="listItem">
+                      <a class="listItemLink" href="page/contacts/">Контакты</a>
+                    </li>
+                    <li class="listItem">
+                      <a class="listItemLink" href="realty/favorite">Избранное</a>
+                    </li>
+                  </ul>
                 </div>
-            </div><!-- /.header-topbar-right -->
-        </div><!-- /.container -->
-    </div><!-- /.header-topbar -->
-   <div class="container">
-        <div class="header-inner">
+                <div class="col-sm-4 col-xs-12">
+                  <div class="header-contacts header-contacts-phone">
+                    <a href="tel:84951345699"><small>+7(495) 1-3456-99</small></a>
+                    <br />
+                    <a href="https://wa.me/79168610317" target="_blank"
+                      ><img src="uploads/icons/wp.png" width="24" /></a
+                    >&nbsp;
+                    <a href="https://t.me/FS_PROPERTY_ELITE" target="_blank"
+                      ><img src="uploads/icons/tg.png" width="24"
+                    /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.header-topbar-right -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.header-topbar -->
+        <div class="container">
+          <div class="header-inner">
             <div class="header-main">
-                <!-- div class="header-title">
+              <!-- div class="header-title">
                     <a href="" class="logo">
                         <img src="assets/b7f4f2a8/img/logo.png" alt="Realsite">
                     </a>
                 </div -->
-                <!-- /.header-title -->
-                <div class="header-navigation">
-                    <div class="row header-nav">
-                        <div class="col-sm-12 nav-main-wrapper">
-                            <div class="nav-main-title visible-xs">
-                                <a href="">
-                                    <img src="assets/b7f4f2a8/img/logo-blue.png" alt="Realsite">
-                                </a>
-                            </div><!-- /.nav-main-title -->
-                            <div class="row">
-                                <div class="col-sm-11">
-                                                                            <div class="nav-main-inner">
-    <nav>
-        <ul class="nav nav-pills" id="nav-main">
-<li class="listItem has-children"><a class="listItemLink" href="realty/elite/">Городская<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<div>
-<a class="listItemLink" href="realty/elite/">Городская<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<ul class="sub-menu">
-<li class="listItem"><a class="listItemLink" href="realty/elite/condos/">Элитные новостройки</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/elite/apartments/">Элитные квартиры</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/elite/rent/">Аренда</a></li>
-</ul>
-</div>
-</li>
-<li class="listItem has-children"><a class="listItemLink" href="realty/country/">Загородная<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<div>
-<a class="listItemLink" href="realty/country/">Загородная<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<ul class="sub-menu">
-<li class="listItem"><a class="listItemLink" href="realty/country/cottages/">Загородные дома, поселки</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/country/lands/">Земельные участки</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/country/cottages-rent/">	Коттеджи в аренду</a></li>
-</ul>
-</div>
-</li>
-<li class="listItem has-children"><a class="listItemLink" href="realty/commercial/">Коммерческая<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<div>
-<a class="listItemLink" href="realty/commercial/">Коммерческая<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<ul class="sub-menu">
-<li class="listItem"><a class="listItemLink" href="realty/page/offices-rent/">Аренда офисов</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/offices-sale/">Продажа офисов</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/trading-space-rent/">Аренда торговых помещений</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/trading-space-sale/">Продажа торговых помещений</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/rental-business-sale/">Продажа арендного бизнеса</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/mansions-rent/">Аренда особняков</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/mansions-sale/">Продажа особняков</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/free_purpose/">Помещения свободного назначения</a></li>
-</ul>
-</div>
-</li>
-<li class="listItem has-children"><a class="listItemLink" href="realty/abroad/">Курортная<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<div>
-<a class="listItemLink" href="realty/abroad/">Курортная<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<ul class="sub-menu">
-<li class="listItem"><a class="listItemLink" href="realty/abroad/houses/">Дома, виллы, резиденции</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/abroad/flats/">Апартаменты, квартиры, пентхаусы</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/abroad/commercial/">Коммерческая недвижимость</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/abroad/abroad-rent">Аренда</a></li>
-</ul>
-</div>
-</li>
-<li class="listItem has-children"><a class="listItemLink" href="realty/region/">Региональная<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<div>
-<a class="listItemLink" href="realty/region/">Региональная<br> недвижимость<i class="fa fa-caret-down"></i></a>
-<ul class="sub-menu">
-<li class="listItem"><a class="listItemLink" href="realty/region/krym/">Крым</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/region/sochi/">Сочи</a></li>
-</ul>
-</div>
-</li>
-</ul>    </nav>
-</div><!-- /.nav-main-inner -->                                                                    </div>
-                                <div class="col-sm-1" style="padding-top: 17px;">
-                                    <img src="uploads/area_light2.png" width="120" style="position: relative; right: 35px;" alt="">
-                                </div>
-                            </div>
-                        </div><!-- /.nav-main-wrapper -->
-                        <button type="button" class="navbar-toggle">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+              <!-- /.header-title -->
+              <div class="header-navigation">
+                <div class="row header-nav">
+                  <div class="col-sm-12 nav-main-wrapper">
+                    <div class="nav-main-title visible-xs">
+                      <a href="">
+                        <img src="assets/b7f4f2a8/img/logo-blue.png" alt="Realsite" />
+                      </a>
                     </div>
-                </div><!-- /.header-navigation -->
-            </div><!-- /.header-main -->
-                    </div><!-- /.header-inner -->
-   </div><!-- /.container -->
-</div><!-- /.header-->
-    <div class="main">
-<div class="container">
-    <div class="row">
-        <div class="content col-sm-8 col-md-9">
-            <ol class="path" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
+                    <!-- /.nav-main-title -->
+                    <div class="row">
+                      <div class="col-sm-11">
+                        <div class="nav-main-inner">
+                          <nav>
+                            <ul class="nav nav-pills" id="nav-main">
+                              <li class="listItem has-children">
+                                <a class="listItemLink" href="realty/elite/"
+                                  >Городская<br />
+                                  недвижимость<i class="fa fa-caret-down"></i
+                                ></a>
+                                <div>
+                                  <a class="listItemLink" href="realty/elite/"
+                                    >Городская<br />
+                                    недвижимость<i class="fa fa-caret-down"></i
+                                  ></a>
+                                  <ul class="sub-menu">
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/elite/condos/"
+                                        >Элитные новостройки</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/elite/apartments/"
+                                        >Элитные квартиры</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/elite/rent/">Аренда</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li class="listItem has-children">
+                                <a class="listItemLink" href="realty/country/"
+                                  >Загородная<br />
+                                  недвижимость<i class="fa fa-caret-down"></i
+                                ></a>
+                                <div>
+                                  <a class="listItemLink" href="realty/country/"
+                                    >Загородная<br />
+                                    недвижимость<i class="fa fa-caret-down"></i
+                                  ></a>
+                                  <ul class="sub-menu">
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/country/cottages/"
+                                        >Загородные дома, поселки</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/country/lands/"
+                                        >Земельные участки</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/country/cottages-rent/">
+                                        Коттеджи в аренду</a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li class="listItem has-children">
+                                <a class="listItemLink" href="realty/commercial/"
+                                  >Коммерческая<br />
+                                  недвижимость<i class="fa fa-caret-down"></i
+                                ></a>
+                                <div>
+                                  <a class="listItemLink" href="realty/commercial/"
+                                    >Коммерческая<br />
+                                    недвижимость<i class="fa fa-caret-down"></i
+                                  ></a>
+                                  <ul class="sub-menu">
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/page/offices-rent/"
+                                        >Аренда офисов</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/page/offices-sale/"
+                                        >Продажа офисов</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/page/trading-space-rent/"
+                                        >Аренда торговых помещений</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/page/trading-space-sale/"
+                                        >Продажа торговых помещений</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a
+                                        class="listItemLink"
+                                        href="realty/page/rental-business-sale/"
+                                        >Продажа арендного бизнеса</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/page/mansions-rent/"
+                                        >Аренда особняков</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/page/mansions-sale/"
+                                        >Продажа особняков</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/page/free_purpose/"
+                                        >Помещения свободного назначения</a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li class="listItem has-children">
+                                <a class="listItemLink" href="realty/abroad/"
+                                  >Курортная<br />
+                                  недвижимость<i class="fa fa-caret-down"></i
+                                ></a>
+                                <div>
+                                  <a class="listItemLink" href="realty/abroad/"
+                                    >Курортная<br />
+                                    недвижимость<i class="fa fa-caret-down"></i
+                                  ></a>
+                                  <ul class="sub-menu">
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/abroad/houses/"
+                                        >Дома, виллы, резиденции</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/abroad/flats/"
+                                        >Апартаменты, квартиры, пентхаусы</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/abroad/commercial/"
+                                        >Коммерческая недвижимость</a
+                                      >
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/abroad/abroad-rent"
+                                        >Аренда</a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li class="listItem has-children">
+                                <a class="listItemLink" href="realty/region/"
+                                  >Региональная<br />
+                                  недвижимость<i class="fa fa-caret-down"></i
+                                ></a>
+                                <div>
+                                  <a class="listItemLink" href="realty/region/"
+                                    >Региональная<br />
+                                    недвижимость<i class="fa fa-caret-down"></i
+                                  ></a>
+                                  <ul class="sub-menu">
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/region/krym/">Крым</a>
+                                    </li>
+                                    <li class="listItem">
+                                      <a class="listItemLink" href="realty/region/sochi/">Сочи</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                        <!-- /.nav-main-inner -->
+                      </div>
+                      <div class="col-sm-1" style="padding-top: 17px">
+                        <img
+                          src="uploads/area_light2.png"
+                          width="120"
+                          style="position: relative; right: 35px"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.nav-main-wrapper -->
+                  <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+              </div>
+              <!-- /.header-navigation -->
+            </div>
+            <!-- /.header-main -->
+          </div>
+          <!-- /.header-inner -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.header-->
+      <div class="main">
+        <div class="container">
+          <div class="row">
+            <div class="content col-sm-8 col-md-9">
+              <ol class="path" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <a href="" itemprop="item">
-                        <span itemprop="name">Главная</span>
-                        <meta itemprop="position" content="1">
-                    </a>
+                  <a href="" itemprop="item">
+                    <span itemprop="name">Главная</span>
+                    <meta itemprop="position" content="1" />
+                  </a>
                 </li>
-            </ol>
+              </ol>
 
-<!-- CONTENT BEGIN {{{ -->
+              <!-- CONTENT BEGIN {{{ -->
 
+              
+<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">
 <!--
-@desc Include template
-@changed 2024.10.10, 01:38
+@desc Include content
+@changed 2024.10.10, 21:50
+vim: ft=html
 -->
 
+<!-- Resources begin -->
 <!-- DEBUG: Injected scripts begin (scripts.js) -->
-<script src="data:text/javascript;base64,KCgpPT57InVzZSBzdHJpY3QiO2NvbnNvbGUud2Fybi5jYWxsKGNvbnNvbGUsIkRFQlVHOiBmc3Byb3BlcnR5LWxhbmRpbmctY29tcGlsZSB2LjAuMC4xIC8gMjAyNC4xMC4xMCAxNTo0MSArMDMwMCIpLHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCJsb2FkIiwoZnVuY3Rpb24oKXt2YXIgZSxvLHIscyx0LGM7ZT1kb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIuc2lkZWJhciIpLG89ZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiLm1haW4iKSxyPW8ucXVlcnlTZWxlY3RvcigiLmNvbnRhaW5lciIpLHM9by5xdWVyeVNlbGVjdG9yKCIucm93IiksdD1vLnF1ZXJ5U2VsZWN0b3IoIi5yb3cgPiAuY29udGVudCIpLGM9dC5xdWVyeVNlbGVjdG9yKCIucGF0aCIpLGUmJmUucmVtb3ZlKCksYyYmYy5yZW1vdmUoKSxvLmNsYXNzTGlzdC5hZGQoIkhlcm9NYWluIiksci5jbGFzc0xpc3QuYWRkKCJIZXJvQ29udGFpbmVyIikscy5jbGFzc0xpc3QuYWRkKCJIZXJvUm93IiksdC5jbGFzc0xpc3QucmVtb3ZlKCJjb2wtc20tOCIpLHQuY2xhc3NMaXN0LnJlbW92ZSgiY29sLW1kLTkiKSx0LmNsYXNzTGlzdC5hZGQoImNvbC0xMiIpLHQuY2xhc3NMaXN0LmFkZCgiSGVyb0NvbnRlbnQiKX0pKX0pKCk7Ci8vIyBzb3VyY2VNYXBwaW5nVVJMPWRhdGE6YXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04O2Jhc2U2NCxleUoyWlhKemFXOXVJam96TENKbWFXeGxJam9pYzJOeWFYQjBjeTVxY3lJc0ltMWhjSEJwYm1keklqb2liVUpCYVVKNVEwRXNVVUZCVVVNc1MwRkRia05ETEV0QlFVdEdMRkZCVEVFc2MwVkJZVzVDUnl4UFFVRlBReXhwUWtGQmFVSXNVVUZPZUVJc1YwTm9RazhzU1VGRFEwTXNSVUZEUVVNc1JVRkRRVU1zUlVGRFFVTXNSVUZEUVVNc1JVRkRRVU1zUlVGTVFVd3NSVUZCWTAwc1UwRkJVME1zWTBGQll5eFpRVU55UTA0c1JVRkJWMHNzVTBGQlUwTXNZMEZCWXl4VFFVTnNRMHdzUlVGQmIwSkVMRVZCUVZOTkxHTkJRV01zWTBGRE0wTktMRVZCUVdOR0xFVkJRVk5OTEdOQlFXTXNVVUZEY2tOSUxFVkJRV3RDU0N4RlFVRlRUU3hqUVVGakxHMUNRVU42UTBZc1JVRkJWMFFzUlVGQlowSkhMR05CUVdNc1UwRlhNME5RTEVkQlEwWkJMRVZCUVZsUkxGTkJSVlpJTEVkQlEwWkJMRVZCUVZOSExGTkJSMWhRTEVWQlFWTlJMRlZCUVZWRExFbEJRVWtzV1VGRGRrSlNMRVZCUVd0Q1R5eFZRVUZWUXl4SlFVRkpMR2xDUVVOb1ExQXNSVUZCV1Uwc1ZVRkJWVU1zU1VGQlNTeFhRVVV4UWs0c1JVRkJaMEpMTEZWQlFWVkVMRTlCUVU4c1dVRkRha05LTEVWQlFXZENTeXhWUVVGVlJDeFBRVUZQTEZsQlEycERTaXhGUVVGblFrc3NWVUZCVlVNc1NVRkJTU3hWUVVNNVFrNHNSVUZCWjBKTExGVkJRVlZETEVsQlFVa3NZMFJZYUVNc1J5SXNJbk52ZFhKalpYTWlPbHNpZDJWaWNHRmphem92TDJaemNISnZjR1Z5ZEhrdGJHRnVaR2x1WnkxamIyMXdhV3hsTHk0dmMzSmpMM0p2YjNRdWRITWlMQ0ozWldKd1lXTnJPaTh2Wm5Od2NtOXdaWEowZVMxc1lXNWthVzVuTFdOdmJYQnBiR1V2TGk5emNtTXZVbTl2ZEU1dlpHVXZVbTl2ZEU1dlpHVXVkSE1pWFN3aWMyOTFjbU5sYzBOdmJuUmxiblFpT2xzaUx5b3FJRUJ0YjJSMWJHVWdVMk55YVhCMGN5QnliMjkwSUcxdlpIVnNaVnh1SUNvZ0lFQnphVzVqWlNBeU1ESTBMakV3TGpFd0xDQXhOVG95Tmx4dUlDb2dJRUJqYUdGdVoyVmtJREl3TWpRdU1UQXVNVEFzSURFMU9qSTJYRzRnS2k5Y2JseHVhVzF3YjNKMElDY3VMMkZ3Y0MxcGJtWnZMbk5qYzNNbk8xeHVhVzF3YjNKMElDY3VMM1poY21saFlteGxjeTkyWVhKcFlXSnNaWE10Wlhod2IzTmxMbk5qYzNNbk8xeHVYRzVwYlhCdmNuUWdKeTR2Yldsell5MXpkSGxzWlhNbk8xeHVYRzVwYlhCdmNuUWdleUJwYm1sMFVtOXZkRTV2WkdVZ2ZTQm1jbTl0SUNjdUwxSnZiM1JPYjJSbEp6dGNibHh1THk4Z1VISnBiblFnWVhCd0lHbHVabTh1TGk1Y2JtTnZibk4wSUdGd2NGWmxjbk5wYjI0Z1BTQndjbTlqWlhOekxtVnVkaTVCVUZCZlZrVlNVMGxQVGp0Y2JtTnZibk4wSUdselJHVmlkV2NnUFNCd2NtOWpaWE56TG1WdWRpNUVSVUpWUnp0Y2JtTnZibk4wSUdselJHVjJJRDBnY0hKdlkyVnpjeTVsYm5ZdVJFVldPMXh1THk4Z1pYTnNhVzUwTFdScGMyRmliR1V0Ym1WNGRDMXNhVzVsSUc1dkxXTnZibk52YkdWY2JtTnZibk4wSUdOdmJuTnZiR1ZOWlhSb2IyUWdQU0JwYzBSbFluVm5JSHg4SUdselJHVjJJRDhnWTI5dWMyOXNaUzUzWVhKdUlEb2dZMjl1YzI5c1pTNXNiMmM3WEc1amIyNXpiMnhsVFdWMGFHOWtMbU5oYkd3b1kyOXVjMjlzWlN3Z1lYQndWbVZ5YzJsdmJpazdYRzVjYm1aMWJtTjBhVzl1SUdsdWFYUlFZV2RsS0NrZ2UxeHVJQ0F2THlCamIyNXpiMnhsTG14dlp5Z25XM0p2YjNRNmFXNXBkRkJoWjJWZEp5azdYRzRnSUM4dklGTjBZWEowSUhOMVltTnZiWEJ2Ym1WdWRITXVMaTVjYmlBZ2FXNXBkRkp2YjNST2IyUmxLQ2s3WEc1OVhHNWNibmRwYm1SdmR5NWhaR1JGZG1WdWRFeHBjM1JsYm1WeUtDZHNiMkZrSnl3Z2FXNXBkRkJoWjJVcE8xeHVJaXdpTHk4Z2FXMXdiM0owSUhzZ1lteHZZMnRTYjI5MFRtOWtaU0I5SUdaeWIyMGdKeTR1TDNaaGNtbGhZbXhsY3ljN1hHNWNibWx0Y0c5eWRDQW5MaTlTYjI5MFRtOWtaUzV6ZEhsc1pYTXVjMk56Y3ljN1hHNWNibVY0Y0c5eWRDQm1kVzVqZEdsdmJpQnBibWwwVW05dmRFNXZaR1VvS1NCN1hHNGdJR052Ym5OMElITnBaR1ZpWVhKT2IyUmxJRDBnWkc5amRXMWxiblF1Y1hWbGNubFRaV3hsWTNSdmNpZ25Mbk5wWkdWaVlYSW5LVHRjYmlBZ1kyOXVjM1FnYldGcGJrNXZaR1VnUFNCa2IyTjFiV1Z1ZEM1eGRXVnllVk5sYkdWamRHOXlLQ2N1YldGcGJpY3BPMXh1SUNCamIyNXpkQ0J0WVdsdVEyOXVkR0ZwYm1WeVRtOWtaU0E5SUcxaGFXNU9iMlJsTG5GMVpYSjVVMlZzWldOMGIzSW9KeTVqYjI1MFlXbHVaWEluS1R0Y2JpQWdZMjl1YzNRZ2JXRnBibEp2ZDA1dlpHVWdQU0J0WVdsdVRtOWtaUzV4ZFdWeWVWTmxiR1ZqZEc5eUtDY3VjbTkzSnlrN1hHNGdJR052Ym5OMElHMWhhVzVEYjI1MFpXNTBUbTlrWlNBOUlHMWhhVzVPYjJSbExuRjFaWEo1VTJWc1pXTjBiM0lvSnk1eWIzY2dQaUF1WTI5dWRHVnVkQ2NwTzF4dUlDQmpiMjV6ZENCd1lYUm9UbTlrWlNBOUlHMWhhVzVEYjI1MFpXNTBUbTlrWlM1eGRXVnllVk5sYkdWamRHOXlLQ2N1Y0dGMGFDY3BPMXh1SUNBdktpQmpiMjV6YjJ4bExteHZaeWduVzFKdmIzUk9iMlJsT21sdWFYUlNiMjkwVG05a1pWMG5MQ0I3WEc0Z0lDQXFJQ0FnYldGcGJrNXZaR1VzWEc0Z0lDQXFJQ0FnYldGcGJrTnZiblJoYVc1bGNrNXZaR1VzWEc0Z0lDQXFJQ0FnYldGcGJsSnZkMDV2WkdVc1hHNGdJQ0FxSUNBZ2JXRnBia052Ym5SbGJuUk9iMlJsTEZ4dUlDQWdLaUFnSUhCaGRHaE9iMlJsTEZ4dUlDQWdLaUFnSUhOcFpHVmlZWEpPYjJSbExGeHVJQ0FnS2lCOUtUdGNiaUFnSUNvdlhHNGdJQzh2SUZKbGJXOTJaU0IxYm5WelpXUWdibTlrWlhNdUxpNWNiaUFnYVdZZ0tITnBaR1ZpWVhKT2IyUmxLU0I3WEc0Z0lDQWdjMmxrWldKaGNrNXZaR1V1Y21WdGIzWmxLQ2s3WEc0Z0lIMWNiaUFnYVdZZ0tIQmhkR2hPYjJSbEtTQjdYRzRnSUNBZ2NHRjBhRTV2WkdVdWNtVnRiM1psS0NrN1hHNGdJSDFjYmlBZ0x5OGdVR0Z5Wlc1MElHNXZaR1Z6TGk0dVhHNGdJRzFoYVc1T2IyUmxMbU5zWVhOelRHbHpkQzVoWkdRb0owaGxjbTlOWVdsdUp5azdYRzRnSUcxaGFXNURiMjUwWVdsdVpYSk9iMlJsTG1Oc1lYTnpUR2x6ZEM1aFpHUW9KMGhsY205RGIyNTBZV2x1WlhJbktUdGNiaUFnYldGcGJsSnZkMDV2WkdVdVkyeGhjM05NYVhOMExtRmtaQ2duU0dWeWIxSnZkeWNwTzF4dUlDQXZMeUJEYjI1MFpXNTBJRzV2WkdVdUxpNWNiaUFnYldGcGJrTnZiblJsYm5ST2IyUmxMbU5zWVhOelRHbHpkQzV5WlcxdmRtVW9KMk52YkMxemJTMDRKeWs3WEc0Z0lHMWhhVzVEYjI1MFpXNTBUbTlrWlM1amJHRnpjMHhwYzNRdWNtVnRiM1psS0NkamIyd3RiV1F0T1NjcE8xeHVJQ0J0WVdsdVEyOXVkR1Z1ZEU1dlpHVXVZMnhoYzNOTWFYTjBMbUZrWkNnblkyOXNMVEV5SnlrN0lDOHZJRDgvUDF4dUlDQnRZV2x1UTI5dWRHVnVkRTV2WkdVdVkyeGhjM05NYVhOMExtRmtaQ2duU0dWeWIwTnZiblJsYm5RbktUdGNibjFjYmlKZExDSnVZVzFsY3lJNld5SmpiMjV6YjJ4bElpd2lkMkZ5YmlJc0ltTmhiR3dpTENKM2FXNWtiM2NpTENKaFpHUkZkbVZ1ZEV4cGMzUmxibVZ5SWl3aWMybGtaV0poY2s1dlpHVWlMQ0p0WVdsdVRtOWtaU0lzSW0xaGFXNURiMjUwWVdsdVpYSk9iMlJsSWl3aWJXRnBibEp2ZDA1dlpHVWlMQ0p0WVdsdVEyOXVkR1Z1ZEU1dlpHVWlMQ0p3WVhSb1RtOWtaU0lzSW1SdlkzVnRaVzUwSWl3aWNYVmxjbmxUWld4bFkzUnZjaUlzSW5KbGJXOTJaU0lzSW1Oc1lYTnpUR2x6ZENJc0ltRmtaQ0pkTENKemIzVnlZMlZTYjI5MElqb2lJbjA9"></script>
+<script type="text/javascript" src="data:text/javascript;base64,KCgpPT57InVzZSBzdHJpY3QiO2NvbnNvbGUud2Fybi5jYWxsKGNvbnNvbGUsIkRFQlVHOiBmc3Byb3BlcnR5LWxhbmRpbmctY29tcGlsZSB2LjAuMC4yIC8gMjAyNC4xMC4xMSAwMToyMyArMDMwMCIpLHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCJsb2FkIiwoZnVuY3Rpb24oKXt2YXIgZSxvLHIscyxjLHQ7ZT1kb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIuc2lkZWJhciIpLG89ZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiLm1haW4iKSxyPW8ucXVlcnlTZWxlY3RvcigiLmNvbnRhaW5lciIpLHM9by5xdWVyeVNlbGVjdG9yKCIucm93IiksYz1vLnF1ZXJ5U2VsZWN0b3IoIi5yb3cgPiAuY29udGVudCIpLHQ9Yy5xdWVyeVNlbGVjdG9yKCIucGF0aCIpLGUmJmUucmVtb3ZlKCksdCYmdC5yZW1vdmUoKSxvLmNsYXNzTGlzdC5hZGQoIkhlcm9NYWluIiksci5jbGFzc0xpc3QuYWRkKCJIZXJvQ29udGFpbmVyIikscy5jbGFzc0xpc3QuYWRkKCJIZXJvUm93IiksYy5jbGFzc0xpc3QucmVtb3ZlKCJjb2wtc20tOCIpLGMuY2xhc3NMaXN0LnJlbW92ZSgiY29sLW1kLTkiKSxjLmNsYXNzTGlzdC5hZGQoIkhlcm9WaXN1YWxCbG9jayIpfSkpfSkoKTsKLy8jIHNvdXJjZU1hcHBpbmdVUkw9ZGF0YTphcHBsaWNhdGlvbi9qc29uO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LGV5SjJaWEp6YVc5dUlqb3pMQ0ptYVd4bElqb2ljMk55YVhCMGN5NXFjeUlzSW0xaGNIQnBibWR6SWpvaWJVSkJjVUo1UTBFc1VVRkJVVU1zUzBGRGJrTkRMRXRCUVV0R0xGRkJURUVzYzBWQlkyNUNSeXhQUVVGUFF5eHBRa0ZCYVVJc1VVRlFlRUlzVjBOd1FrOHNTVUZEUTBNc1JVRkRRVU1zUlVGRFFVTXNSVUZEUVVNc1JVRkRRVU1zUlVGRFFVTXNSVUZNUVV3c1JVRkJZMDBzVTBGQlUwTXNZMEZCWXl4WlFVTnlRMDRzUlVGQlYwc3NVMEZCVTBNc1kwRkJZeXhUUVVOc1Ewd3NSVUZCYjBKRUxFVkJRVk5OTEdOQlFXTXNZMEZETTBOS0xFVkJRV05HTEVWQlFWTk5MR05CUVdNc1VVRkRja05JTEVWQlFXdENTQ3hGUVVGVFRTeGpRVUZqTEcxQ1FVTjZRMFlzUlVGQlYwUXNSVUZCWjBKSExHTkJRV01zVTBGWE0wTlFMRWRCUTBaQkxFVkJRVmxSTEZOQlJWWklMRWRCUTBaQkxFVkJRVk5ITEZOQlIxaFFMRVZCUVZOUkxGVkJRVlZETEVsQlFVa3NXVUZEZGtKU0xFVkJRV3RDVHl4VlFVRlZReXhKUVVGSkxHbENRVVZvUTFBc1JVRkJXVTBzVlVGQlZVTXNTVUZCU1N4WFFVY3hRazRzUlVGQlowSkxMRlZCUVZWRUxFOUJRVThzV1VGRGFrTktMRVZCUVdkQ1N5eFZRVUZWUkN4UFFVRlBMRmxCUldwRFNpeEZRVUZuUWtzc1ZVRkJWVU1zU1VGQlNTeHJRa1JTYUVNc1J5SXNJbk52ZFhKalpYTWlPbHNpZDJWaWNHRmphem92TDJaemNISnZjR1Z5ZEhrdGJHRnVaR2x1WnkxamIyMXdhV3hsTHk0dmMzSmpMM0p2YjNRdWRITWlMQ0ozWldKd1lXTnJPaTh2Wm5Od2NtOXdaWEowZVMxc1lXNWthVzVuTFdOdmJYQnBiR1V2TGk5emNtTXZVbTl2ZEU1dlpHVXZVbTl2ZEU1dlpHVXVkSE1pWFN3aWMyOTFjbU5sYzBOdmJuUmxiblFpT2xzaUx5b3FJRUJ0YjJSMWJHVWdVMk55YVhCMGN5QnliMjkwSUcxdlpIVnNaVnh1SUNvZ0lFQnphVzVqWlNBeU1ESTBMakV3TGpFd0xDQXhOVG95Tmx4dUlDb2dJRUJqYUdGdVoyVmtJREl3TWpRdU1UQXVNVEFzSURJeE9qVXhYRzRnS2k5Y2JseHVMeThnVGs5VVJUb2dWR1Z0Y0d4aGRHVnpJR0Z5WlNCcGJtTnNkV1JwYm1jZ2IyNXNlU0JtYjNJZ1pHVjJMVzF2WkdVZ2RYQmtZWFJsWEc1cGJYQnZjblFnSnk0dmFXNWpiSFZrWlMxMFpXMXdiR0YwWlM1b2RHMXNKenRjYmx4dWFXMXdiM0owSUNjdUwyRndjQzFwYm1adkxuTmpjM01uTzF4dWFXMXdiM0owSUNjdUwzWmhjbWxoWW14bGN5OTJZWEpwWVdKc1pYTXRaWGh3YjNObExuTmpjM01uTzF4dVhHNXBiWEJ2Y25RZ0p5NHZiV2x6WXkxemRIbHNaWE1uTzF4dVhHNXBiWEJ2Y25RZ2V5QnBibWwwVW05dmRFNXZaR1VnZlNCbWNtOXRJQ2N1TDFKdmIzUk9iMlJsSnp0Y2JtbHRjRzl5ZENCN0lHbHVhWFJJWlhKdklIMGdabkp2YlNBbkxpOUlaWEp2Snp0Y2JseHVMeThnVUhKcGJuUWdZWEJ3SUdsdVptOHVMaTVjYm1OdmJuTjBJR0Z3Y0ZabGNuTnBiMjRnUFNCd2NtOWpaWE56TG1WdWRpNUJVRkJmVmtWU1UwbFBUanRjYm1OdmJuTjBJR2x6UkdWaWRXY2dQU0J3Y205alpYTnpMbVZ1ZGk1RVJVSlZSenRjYm1OdmJuTjBJR2x6UkdWMklEMGdjSEp2WTJWemN5NWxibll1UkVWV08xeHVMeThnWlhOc2FXNTBMV1JwYzJGaWJHVXRibVY0ZEMxc2FXNWxJRzV2TFdOdmJuTnZiR1ZjYm1OdmJuTjBJR052Ym5OdmJHVk5aWFJvYjJRZ1BTQnBjMFJsWW5WbklIeDhJR2x6UkdWMklEOGdZMjl1YzI5c1pTNTNZWEp1SURvZ1kyOXVjMjlzWlM1c2IyYzdYRzVqYjI1emIyeGxUV1YwYUc5a0xtTmhiR3dvWTI5dWMyOXNaU3dnWVhCd1ZtVnljMmx2YmlrN1hHNWNibVoxYm1OMGFXOXVJR2x1YVhSUVlXZGxLQ2tnZTF4dUlDQXZMeUJqYjI1emIyeGxMbXh2WnlnblczSnZiM1E2YVc1cGRGQmhaMlZkSnlrN1hHNGdJQzh2SUZOMFlYSjBJSE4xWW1OdmJYQnZibVZ1ZEhNdUxpNWNiaUFnYVc1cGRGSnZiM1JPYjJSbEtDazdYRzRnSUdsdWFYUklaWEp2S0NrN1hHNTlYRzVjYm5kcGJtUnZkeTVoWkdSRmRtVnVkRXhwYzNSbGJtVnlLQ2RzYjJGa0p5d2dhVzVwZEZCaFoyVXBPMXh1SWl3aUx5OGdhVzF3YjNKMElIc2dZbXh2WTJ0U2IyOTBUbTlrWlNCOUlHWnliMjBnSnk0dUwzWmhjbWxoWW14bGN5YzdYRzVjYmk4dklHbHRjRzl5ZENBbkxpOVNiMjkwVG05a1pTNXpkSGxzWlhNdWMyTnpjeWM3WEc1Y2JtVjRjRzl5ZENCbWRXNWpkR2x2YmlCcGJtbDBVbTl2ZEU1dlpHVW9LU0I3WEc0Z0lHTnZibk4wSUhOcFpHVmlZWEpPYjJSbElEMGdaRzlqZFcxbGJuUXVjWFZsY25sVFpXeGxZM1J2Y2lnbkxuTnBaR1ZpWVhJbktUdGNiaUFnWTI5dWMzUWdiV0ZwYms1dlpHVWdQU0JrYjJOMWJXVnVkQzV4ZFdWeWVWTmxiR1ZqZEc5eUtDY3ViV0ZwYmljcE8xeHVJQ0JqYjI1emRDQnRZV2x1UTI5dWRHRnBibVZ5VG05a1pTQTlJRzFoYVc1T2IyUmxMbkYxWlhKNVUyVnNaV04wYjNJb0p5NWpiMjUwWVdsdVpYSW5LVHRjYmlBZ1kyOXVjM1FnYldGcGJsSnZkMDV2WkdVZ1BTQnRZV2x1VG05a1pTNXhkV1Z5ZVZObGJHVmpkRzl5S0NjdWNtOTNKeWs3WEc0Z0lHTnZibk4wSUcxaGFXNURiMjUwWlc1MFRtOWtaU0E5SUcxaGFXNU9iMlJsTG5GMVpYSjVVMlZzWldOMGIzSW9KeTV5YjNjZ1BpQXVZMjl1ZEdWdWRDY3BPMXh1SUNCamIyNXpkQ0J3WVhSb1RtOWtaU0E5SUcxaGFXNURiMjUwWlc1MFRtOWtaUzV4ZFdWeWVWTmxiR1ZqZEc5eUtDY3VjR0YwYUNjcE8xeHVJQ0F2S2lCamIyNXpiMnhsTG14dlp5Z25XMUp2YjNST2IyUmxPbWx1YVhSU2IyOTBUbTlrWlYwbkxDQjdYRzRnSUNBcUlDQWdiV0ZwYms1dlpHVXNYRzRnSUNBcUlDQWdiV0ZwYmtOdmJuUmhhVzVsY2s1dlpHVXNYRzRnSUNBcUlDQWdiV0ZwYmxKdmQwNXZaR1VzWEc0Z0lDQXFJQ0FnYldGcGJrTnZiblJsYm5ST2IyUmxMRnh1SUNBZ0tpQWdJSEJoZEdoT2IyUmxMRnh1SUNBZ0tpQWdJSE5wWkdWaVlYSk9iMlJsTEZ4dUlDQWdLaUI5S1R0Y2JpQWdJQ292WEc0Z0lDOHZJRkpsYlc5MlpTQjFiblZ6WldRZ2JtOWtaWE11TGk1Y2JpQWdhV1lnS0hOcFpHVmlZWEpPYjJSbEtTQjdYRzRnSUNBZ2MybGtaV0poY2s1dlpHVXVjbVZ0YjNabEtDazdYRzRnSUgxY2JpQWdhV1lnS0hCaGRHaE9iMlJsS1NCN1hHNGdJQ0FnY0dGMGFFNXZaR1V1Y21WdGIzWmxLQ2s3WEc0Z0lIMWNiaUFnTHk4Z1VHRnlaVzUwSUc1dlpHVnpMaTR1WEc0Z0lHMWhhVzVPYjJSbExtTnNZWE56VEdsemRDNWhaR1FvSjBobGNtOU5ZV2x1SnlrN1hHNGdJRzFoYVc1RGIyNTBZV2x1WlhKT2IyUmxMbU5zWVhOelRHbHpkQzVoWkdRb0owaGxjbTlEYjI1MFlXbHVaWEluS1R0Y2JpQWdMeThnYldGcGJrTnZiblJoYVc1bGNrNXZaR1V1WTJ4aGMzTk1hWE4wTG5KbGJXOTJaU2duWTI5dWRHRnBibVZ5SnlrN1hHNGdJRzFoYVc1U2IzZE9iMlJsTG1Oc1lYTnpUR2x6ZEM1aFpHUW9KMGhsY205U2IzY25LVHRjYmlBZ0x5OGdiV0ZwYmxKdmQwNXZaR1V1WTJ4aGMzTk1hWE4wTG5KbGJXOTJaU2duY205M0p5azdYRzRnSUM4dklFTnZiblJsYm5RZ2JtOWtaUzR1TGx4dUlDQnRZV2x1UTI5dWRHVnVkRTV2WkdVdVkyeGhjM05NYVhOMExuSmxiVzkyWlNnblkyOXNMWE50TFRnbktUdGNiaUFnYldGcGJrTnZiblJsYm5ST2IyUmxMbU5zWVhOelRHbHpkQzV5WlcxdmRtVW9KMk52YkMxdFpDMDVKeWs3WEc0Z0lDOHZJRzFoYVc1RGIyNTBaVzUwVG05a1pTNWpiR0Z6YzB4cGMzUXVZV1JrS0NkamIyd3RNVEluS1RzZ0x5OGdQejgvWEc0Z0lHMWhhVzVEYjI1MFpXNTBUbTlrWlM1amJHRnpjMHhwYzNRdVlXUmtLQ2RJWlhKdlZtbHpkV0ZzUW14dlkyc25LVHRjYmlBZ0x5OGdiV0ZwYmtOdmJuUmxiblJPYjJSbExtTnNZWE56VEdsemRDNXlaVzF2ZG1Vb0oyTnZiblJsYm5RbktUdGNibjFjYmlKZExDSnVZVzFsY3lJNld5SmpiMjV6YjJ4bElpd2lkMkZ5YmlJc0ltTmhiR3dpTENKM2FXNWtiM2NpTENKaFpHUkZkbVZ1ZEV4cGMzUmxibVZ5SWl3aWMybGtaV0poY2s1dlpHVWlMQ0p0WVdsdVRtOWtaU0lzSW0xaGFXNURiMjUwWVdsdVpYSk9iMlJsSWl3aWJXRnBibEp2ZDA1dlpHVWlMQ0p0WVdsdVEyOXVkR1Z1ZEU1dlpHVWlMQ0p3WVhSb1RtOWtaU0lzSW1SdlkzVnRaVzUwSWl3aWNYVmxjbmxUWld4bFkzUnZjaUlzSW5KbGJXOTJaU0lzSW1Oc1lYTnpUR2x6ZENJc0ltRmtaQ0pkTENKemIzVnlZMlZTYjI5MElqb2lJbjA9"></script>
 <!-- DEBUG: Injected scripts end (scripts.js) -->
 
 <!-- DEBUG: Injected styles begin (styles.css) -->
-<link rel="stylesheet" type="text/css" href="data:text/css;base64,OnJvb3R7LS1BUFAtSU5GTzogZnNwcm9wZXJ0eS1sYW5kaW5nLWNvbXBpbGUgdi4wLjAuMSAvIDIwMjQuMTAuMTAgMTU6NDEgKzAzMDB9Cjpyb290ey0tYmdEYXJrQ29sb3I6ICMxMzEwMTQ7LS1iZ0RhcmtSQkc6IDE5IDE2IDIwOy0taGVhZGVyRGFya0NvbG9yOiAjNDA0MDQwOy0taGVhZGVyRGFya1JCRzogNjQgNjQgNjQ7LS1ncmF5TGlnaHRDb2xvcjogI0NDQ0NDQzstLW1vb2R5TWVkaXVtQ29sb3I6ICM3ODkwOUM7LS1nb2xkQ29sb3I6ICNBMzk2NzU7LS1idXR0b25SZWRDb2xvcjogIzhDMTUxNTstLXNvZnRGb250OiBNaW5pb25Qcm8tUmVndWxhciwgc2VyaWY7LS1zb2Z0Rm9udEl0OiBNaW5pb25Qcm8tSXQsIHNlcmlmOy0tdHJhbnNpdGlvblRpbWVNczogMjUwbXM7LS1hbmltYXRpb25UaW1lTXM6IDUwMG1zOy0tZGlzYXBwZWFyVGltZU1zOiAxMDAwbXN9CmJvZHl7YmFja2dyb3VuZC1jb2xvcjp2YXIoLS1iZ0RhcmtDb2xvcil9Lm1haW57Y29sb3I6I2ZmZn0KCgovKiMgc291cmNlTWFwcGluZ1VSTD1kYXRhOmFwcGxpY2F0aW9uL2pzb247Y2hhcnNldD11dGYtODtiYXNlNjQsZXlKMlpYSnphVzl1SWpvekxDSm1hV3hsSWpvaWMzUjViR1Z6TG1OemN5SXNJbTFoY0hCcGJtZHpJam9pUVVGQlFTdzRSVHRCUTFOQkxFMUJSMFVzZFVKQlEwRXNjMEpCUlVFc01rSkJRMEVzTUVKQlJVRXNNRUpCUTBFc05FSkJRMEVzY1VKQlEwRXNNRUpCU1VFc2NVTkJRMEVzYTBOQlNVRXNNRUpCUTBFc2VVSkJRMEVzTUVJN1FVTm9RMFlzUzBGRFJTeHZRMEZIUml4TlFVTkZMRmNpTENKemIzVnlZMlZ6SWpwYkluZGxZbkJoWTJzNkx5OW1jM0J5YjNCbGNuUjVMV3hoYm1ScGJtY3RZMjl0Y0dsc1pTOHVMM055WXk5aGNIQXRhVzVtYnk1elkzTnpJaXdpZDJWaWNHRmphem92TDJaemNISnZjR1Z5ZEhrdGJHRnVaR2x1WnkxamIyMXdhV3hsTHk0dmMzSmpMM1poY21saFlteGxjeTkyWVhKcFlXSnNaWE10Wlhod2IzTmxMbk5qYzNNaUxDSjNaV0p3WVdOck9pOHZabk53Y205d1pYSjBlUzFzWVc1a2FXNW5MV052YlhCcGJHVXZMaTl6Y21NdmJXbHpZeTF6ZEhsc1pYTXZSMnh2WW1Gc0xuTmpjM01pWFN3aWMyOTFjbU5sYzBOdmJuUmxiblFpT2xzaU9uSnZiM1FnZXlBdExVRlFVQzFKVGtaUE9seHVJQ0JtYzNCeWIzQmxjblI1TFd4aGJtUnBibWN0WTI5dGNHbHNaU0IyTGpBdU1DNHhJQzhnTWpBeU5DNHhNQzR4TUNBeE5UbzBNU0FyTURNd01EdGNibjBpTENKQWRYTmxJQ2R6WVhOek9tTnZiRzl5Snp0Y2JseHVRR2x0Y0c5eWRDQW5kbUZ5YVdGaWJHVnpKenRjYmx4dVFHWjFibU4wYVc5dUlISm5Za052YlhCdmJtVnVkSE1vSkdOdmJHOXlLU0I3WEc0Z0lFQnlaWFIxY200Z1kyOXNiM0l1WTJoaGJtNWxiQ2drWTI5c2IzSXNJQ2R5WldRbkxDQWtjM0JoWTJVNklISm5ZaWtnWTI5c2IzSXVZMmhoYm01bGJDZ2tZMjlzYjNJc0lDZG5jbVZsYmljc0lDUnpjR0ZqWlRvZ2NtZGlLVnh1SUNBZ0lHTnZiRzl5TG1Ob1lXNXVaV3dvSkdOdmJHOXlMQ0FuWW14MVpTY3NJQ1J6Y0dGalpUb2djbWRpS1R0Y2JuMWNibHh1T25KdmIzUWdlMXh1SUNBdkx5QkRiMnh2Y25NdUxpNWNibHh1SUNBdExXSm5SR0Z5YTBOdmJHOXlPaUFqZXlSaVowUmhjbXREYjJ4dmNuMDdYRzRnSUMwdFltZEVZWEpyVWtKSE9pQWplM0puWWtOdmJYQnZibVZ1ZEhNb0pHSm5SR0Z5YTBOdmJHOXlLWDA3WEc1Y2JpQWdMUzFvWldGa1pYSkVZWEpyUTI5c2IzSTZJQ043SkdobFlXUmxja1JoY210RGIyeHZjbjA3WEc0Z0lDMHRhR1ZoWkdWeVJHRnlhMUpDUnpvZ0kzdHlaMkpEYjIxd2IyNWxiblJ6S0NSb1pXRmtaWEpFWVhKclEyOXNiM0lwZlR0Y2JseHVJQ0F0TFdkeVlYbE1hV2RvZEVOdmJHOXlPaUFqZXlSbmNtRjVUR2xuYUhSRGIyeHZjbjA3WEc0Z0lDMHRiVzl2WkhsTlpXUnBkVzFEYjJ4dmNqb2dJM3NrYlc5dlpIbE5aV1JwZFcxRGIyeHZjbjA3WEc0Z0lDMHRaMjlzWkVOdmJHOXlPaUFqZXlSbmIyeGtRMjlzYjNKOU8xeHVJQ0F0TFdKMWRIUnZibEpsWkVOdmJHOXlPaUFqZXlSaWRYUjBiMjVTWldSRGIyeHZjbjA3WEc1Y2JpQWdMeThnUm05dWRITXVMaTVjYmx4dUlDQXRMWE52Wm5SR2IyNTBPaUFqZXlSemIyWjBSbTl1ZEgwN1hHNGdJQzB0YzI5bWRFWnZiblJKZERvZ0kzc2tjMjltZEVadmJuUkpkSDA3WEc1Y2JpQWdMeThnVkdsdFpXOTFkSE11TGk1Y2JseHVJQ0F0TFhSeVlXNXphWFJwYjI1VWFXMWxUWE02SUNON0pIUnlZVzV6YVhScGIyNVVhVzFsVFhOOU8xeHVJQ0F0TFdGdWFXMWhkR2x2YmxScGJXVk5jem9nSTNza1lXNXBiV0YwYVc5dVZHbHRaVTF6ZlR0Y2JpQWdMUzFrYVhOaGNIQmxZWEpVYVcxbFRYTTZJQ043SkdScGMyRndjR1ZoY2xScGJXVk5jMzA3WEc1OVhHNGlMQ0ppYjJSNUlIdGNiaUFnWW1GamEyZHliM1Z1WkMxamIyeHZjam9nZG1GeUtDMHRZbWRFWVhKclEyOXNiM0lwTzF4dWZWeHVYRzR1YldGcGJpQjdYRzRnSUdOdmJHOXlPaUFqWm1abU8xeHVmVnh1SWwwc0ltNWhiV1Z6SWpwYlhTd2ljMjkxY21ObFVtOXZkQ0k2SWlKOSov" />
+<link rel="stylesheet" type="text/css" href="data:text/css;base64,OnJvb3R7LS1BUFAtSU5GTzogZnNwcm9wZXJ0eS1sYW5kaW5nLWNvbXBpbGUgdi4wLjAuMiAvIDIwMjQuMTAuMTEgMDE6MjMgKzAzMDB9Cjpyb290ey0tYmdEYXJrQ29sb3I6ICMxMzEwMTQ7LS1iZ0RhcmtSR0I6IDE5IDE2IDIwOy0taGVhZGVyRGFya0NvbG9yOiAjNDA0MDQwOy0taGVhZGVyRGFya1JHQjogNjQgNjQgNjQ7LS1nb2xkQ29sb3I6ICNhMzk2NzU7LS1nb2xkUkdCOiAxNjMgMTUwIDExNzstLWdyYXlMaWdodENvbG9yOiAjY2NjY2NjOy0tbW9vZHlNZWRpdW1Db2xvcjogIzc4OTA5YzstLWJ1dHRvblJlZENvbG9yOiAjOGMxNTE1Oy0tc29mdEZvbnQ6IE1pbmlvblByby1SZWd1bGFyLCBzZXJpZjstLXNvZnRGb250SXQ6IE1pbmlvblByby1JdCwgc2VyaWY7LS10cmFuc2l0aW9uVGltZU1zOiAyNTBtczstLWFuaW1hdGlvblRpbWVNczogNTAwbXM7LS1kaXNhcHBlYXJUaW1lTXM6IDEwMDBtc30KYm9keXtiYWNrZ3JvdW5kLWNvbG9yOnZhcigtLWJnRGFya0NvbG9yKX0uc2lkZWJhcntkaXNwbGF5Om5vbmV9Lm1haW57Y29sb3I6I2ZmZjttYXJnaW4tYm90dG9tOjB9Lm1haW4gLnBhdGh7ZGlzcGxheTpub25lfS5MYW5kaW5nVGl0bGV7Y29sb3I6I2ZmZjtmb250LXNpemU6M2VtO2ZvbnQtZmFtaWx5OnZhcigtLXNvZnRGb250SXQpO3RleHQtYWxpZ246Y2VudGVyO3Bvc2l0aW9uOnJlbGF0aXZlfS5MYW5kaW5nVGl0bGUgc3Bhbntwb3NpdGlvbjpyZWxhdGl2ZTtkaXNwbGF5OmlubGluZS1ibG9jaztwYWRkaW5nOjAgNTBweH0uTGFuZGluZ1RpdGxlIHNwYW46YWZ0ZXJ7cG9zaXRpb246YWJzb2x1dGU7ZGlzcGxheTpibG9jaztjb250ZW50OiIiO2JvcmRlci1ib3R0b206MXB4IHNvbGlkIHZhcigtLWdvbGRDb2xvcik7cGFkZGluZy10b3A6LjI1ZW07bGVmdDotNTBweDtyaWdodDotNTBweH0KLlN0YXJTZWN0aW9uIC5jb250ZW50e21hcmdpbjoyZW07cG9zaXRpb246cmVsYXRpdmU7ZGlzcGxheTpmbGV4O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbjtqdXN0aWZ5LWNvbnRlbnQ6c3BhY2UtYmV0d2Vlbn0uU3RhclNlY3Rpb24gLmNvbnRlbnQ6YmVmb3Jle2xlZnQ6MzUlO3JpZ2h0OjM1JTtkaXNwbGF5OmJsb2NrO2NvbnRlbnQ6IiI7YmFja2dyb3VuZC1pbWFnZTp1cmwodXBsb2Fkcy9sYW5kaW5nL2FkdmFudGJnLTk2MDBiODgwYTVlMTFiMjM5NDc5LnBuZyk7YmFja2dyb3VuZC1wb3NpdGlvbjpjZW50ZXI7YmFja2dyb3VuZC1yZXBlYXQ6bm8tcmVwZWF0O2JhY2tncm91bmQtc2l6ZTpjb250YWlufUBtZWRpYSh3aWR0aCA8IDk5MnB4KXsuU3RhclNlY3Rpb24gLmNvbnRlbnQ6YmVmb3Jle2hlaWdodDoyMDBweH19QG1lZGlhKHdpZHRoID49IDk5MnB4KXsuU3RhclNlY3Rpb24gLmNvbnRlbnQ6YmVmb3Jle3RvcDoyZW07Ym90dG9tOjJlbTtwb3NpdGlvbjphYnNvbHV0ZX19QG1lZGlhKHdpZHRoID49IDk5MnB4KXsuU3RhclNlY3Rpb24gLmNvbnRlbnR7bWluLWhlaWdodDo2MDBweH19QG1lZGlhKHdpZHRoID49IDEyMDBweCl7LlN0YXJTZWN0aW9uIC5jb250ZW50e21pbi1oZWlnaHQ6NTAwcHh9fS5TdGFyU2VjdGlvbiAuY29udGVudCAuSXRlbXNSb3d7ZGlzcGxheTpmbGV4O2ZsZXgtd3JhcDp3cmFwO2p1c3RpZnktY29udGVudDpzcGFjZS1iZXR3ZWVufUBtZWRpYSh3aWR0aCA8IDk5MnB4KXsuU3RhclNlY3Rpb24gLmNvbnRlbnQgLkl0ZW1zUm93e2ZsZXgtZGlyZWN0aW9uOmNvbHVtbn19LlN0YXJTZWN0aW9uIC5jb250ZW50IC5JdGVte2xpbmUtaGVpZ2h0OjEuM31AbWVkaWEod2lkdGggPj0gOTkycHgpey5TdGFyU2VjdGlvbiAuY29udGVudCAuSXRlbXt3aWR0aDozNjBweH19LlN0YXJTZWN0aW9uIC5jb250ZW50IC5JdGVtIGgye2ZvbnQtZmFtaWx5OnZhcigtLXNvZnRGb250KTtjb2xvcjp2YXIoLS1nb2xkQ29sb3IpO2ZvbnQtc2l6ZToyZW19LlN0YXJTZWN0aW9uIC5jb250ZW50IC5JdGVtIHB7Zm9udC1zaXplOjEuMmVtfQouV2h5U2VjdGlvbntiYWNrZ3JvdW5kLWNvbG9yOiMyMzIwMjN9LldoeVNlY3Rpb24gLmNvbnRlbnR7bWFyZ2luOjRlbSAyZW19LldoeVNlY3Rpb24gLldoeUNvbHVtbnN7ZGlzcGxheTpmbGV4O3RleHQtYWxpZ246Y2VudGVyO2xpbmUtaGVpZ2h0OjEuMzttYXJnaW4tdG9wOjRlbTtnYXA6MWVtfUBtZWRpYSh3aWR0aCA8IDk5MnB4KXsuV2h5U2VjdGlvbiAuV2h5Q29sdW1uc3tmbGV4LWRpcmVjdGlvbjpjb2x1bW59fS5XaHlTZWN0aW9uIC5XaHlJdGVte2ZsZXg6MX0uV2h5U2VjdGlvbiAuV2h5SXRlbSAuTnVtYmVye2ZvbnQtZmFtaWx5OnZhcigtLXNvZnRGb250SXQpO2NvbG9yOnZhcigtLWdvbGRDb2xvcik7Zm9udC1zaXplOjZlbTtsaW5lLWhlaWdodDoxfS5XaHlTZWN0aW9uIC5XaHlJdGVtIC5OdW1iZXIgc21hbGx7Zm9udC1zaXplOjYwJX0uV2h5U2VjdGlvbiAuV2h5SXRlbSAuRXhwbGFuYXRpb257dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlO2NvbG9yOiNmZmY7Zm9udC1zaXplOjEuN2VtfS5XaHlTZWN0aW9uIC5XaHlJdGVtIC5UZXh0e2NvbG9yOnZhcigtLWdvbGRDb2xvcik7Zm9udC1zaXplOjEuMmVtO21hcmdpbi10b3A6MWVtfS5XaHlTZWN0aW9uIC5BcmVhTG9nb3t0ZXh0LWFsaWduOmNlbnRlcjtkaXNwbGF5OmZsZXg7bWFyZ2luLXRvcDo0ZW19LldoeVNlY3Rpb24gLkFyZWFMb2dvLC5XaHlTZWN0aW9uIC5BcmVhTG9nbyBhe2Rpc3BsYXk6ZmxleDtmbGV4LWRpcmVjdGlvbjpjb2x1bW47YWxpZ24taXRlbXM6Y2VudGVyfS5XaHlTZWN0aW9uIC5BcmVhTG9nbyBhe3RyYW5zaXRpb246YWxsIHZhcigtLXRyYW5zaXRpb25UaW1lTXMpfS5XaHlTZWN0aW9uIC5BcmVhTG9nbyBhIC5Mb2dve3dpZHRoOjEzMnB4O2hlaWdodDozMHB4O2JhY2tncm91bmQtaW1hZ2U6dXJsKGRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU1UTXlJaUJvWldsbmFIUTlJak13SWlCMmFXVjNRbTk0UFNJd0lEQWdNVE15SURNd0lpQm1hV3hzUFNKdWIyNWxJaUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lQZ284Y0dGMGFDQmtQU0pOTVRJM0xqZzNOQ0F5T1M0Mk5USk1NVEl6TGpJeE1pQXhPUzQwT0RoSU1URXdMamcyTkV3eE1EWXVNemNnTWprdU5qVXlTREV3TXk0NE9USk1NVEUzTGpZMk9DQXdUREV6TVM0ME5EUWdNamt1TmpVeVNERXlOeTQ0TnpSYVRURXhOaTQ1TlRRZ05TNDNOVFJNTVRFeExqWTJNaUF4Tnk0Mk9ESklNVEl5TGpReE5Fd3hNVFl1T1RVMElEVXVOelUwV2lJZ1ptbHNiRDBpSTBFek9UWTNOU0l2UGdvOGNHRjBhQ0JrUFNKTk56VXVNekk0TVNBeU9TNDJOVEU1VmpBdU9UWTFPVFF5U0RreUxqSXhNakZXTXk0d01qTTVORXczT0M0MU5qSXhJREl1TnpjeE9UUldNVFF1TWpNM09VdzVNUzQyTmpZeElERTBMakUxTXpsV01UWXVNVEkzT1V3M09DNDFOakl4SURFMkxqQTBNemxXTWpjdU9EUTFPVXc1TWk0eU1USXhJREkzTGpVNU16bFdNamt1TmpVeE9VZzNOUzR6TWpneFdpSWdabWxzYkQwaUkwRXpPVFkzTlNJdlBnbzhjR0YwYUNCa1BTSk5OVGN1T0RVME9DQXlPUzQyTlRFNVREUTFMalF5TWpnZ01UWXVNRFF6T1VnME9TNDNORGc0UXpVd0xqWTBORGdnTVRZdU1EUXpPU0ExTVM0MU1USTRJREUxTGpreE56a2dOVEl1TXpVeU9DQXhOUzQyTmpVNVF6VXpMakU1TWpnZ01UVXVNemcxT1NBMU15NDVNelE0SURFMExqazNPVGtnTlRRdU5UYzRPQ0F4TkM0ME5EYzVRelUxTGpJeU1qZ2dNVE11T0RnM09TQTFOUzQzTkRBNElERXpMakl3TVRrZ05UWXVNVE15T0NBeE1pNHpPRGs1UXpVMkxqVXlORGdnTVRFdU5UUTVPU0ExTmk0M01qQTRJREV3TGpVMU5Ua2dOVFl1TnpJd09DQTVMalF3TnprMFF6VTJMamN5TURnZ09DNHlPRGM1TkNBMU5pNDFNalE0SURjdU16QTNPVFFnTlRZdU1UTXlPQ0EyTGpRMk56azBRelUxTGpjME1EZ2dOUzQyTWpjNU5DQTFOUzR5TWpJNElEUXVPVFF4T1RRZ05UUXVOVGM0T0NBMExqUXdPVGswUXpVekxqa3pORGdnTXk0NE5EazVOQ0ExTXk0eE9USTRJRE11TkRRek9UUWdOVEl1TXpVeU9DQXpMakU1TVRrMFF6VXhMalV4TWpnZ01pNDVNVEU1TkNBMU1DNDJORFE0SURJdU56Y3hPVFFnTkRrdU56UTRPQ0F5TGpjM01UazBTRFF6TGprMU1qaFdNamt1TmpVeE9VZzBNQzQzTVRnNFZqQXVPVFkxT1RReVNEVXdMakEwTWpoRE5URXVORGs0T0NBd0xqazJOVGswTWlBMU1pNDROREk0SURFdU1UZzVPVFFnTlRRdU1EYzBPQ0F4TGpZek56azBRelUxTGpNek5EZ2dNaTR3TlRjNU5DQTFOaTQwTVRJNElESXVOalExT1RRZ05UY3VNekE0T0NBekxqUXdNVGswUXpVNExqSXdORGdnTkM0eE5UYzVOQ0ExT0M0NU1EUTRJRFV1TURVek9UUWdOVGt1TkRBNE9DQTJMakE0T1RrMFF6VTVMamt4TWpnZ055NHhNalU1TkNBMk1DNHhOalE0SURndU1qTXhPVFFnTmpBdU1UWTBPQ0E1TGpRd056azBRell3TGpFMk5EZ2dNVEF1TlRJM09TQTFPUzQ1TWpZNElERXhMalUzTnprZ05Ua3VORFV3T0NBeE1pNDFOVGM1UXpVNExqazNORGdnTVRNdU5UQTVPU0ExT0M0ek1UWTRJREUwTGpNME9Ua2dOVGN1TkRjMk9DQXhOUzR3TnpjNVF6VTJMall6TmpnZ01UVXVOemMzT1NBMU5TNDJOREk0SURFMkxqTXpOemtnTlRRdU5EazBPQ0F4Tmk0M05UYzVRelV6TGpNME5qZ2dNVGN1TVRRNU9TQTFNaTR4TVRRNElERTNMak0wTlRrZ05UQXVOems0T0NBeE55NHpORFU1VERZeUxqRTRNRGdnTWprdU5qVXhPVWcxTnk0NE5UUTRXaUlnWm1sc2JEMGlJMEV6T1RZM05TSXZQZ284Y0dGMGFDQmtQU0pOTWpRdU5UTTROaUF5T1M0Mk5USk1NVGt1T0RjMk5pQXhPUzQwT0RoSU55NDFNamcyTkV3ekxqQXpORFkwSURJNUxqWTFNa2d3TGpVMU5qWTBNVXd4TkM0ek16STJJREJNTWpndU1UQTROaUF5T1M0Mk5USklNalF1TlRNNE5scE5NVE11TmpFNE5pQTFMamMxTkV3NExqTXlOalkwSURFM0xqWTRNa2d4T1M0d056ZzJUREV6TGpZeE9EWWdOUzQzTlRSYUlpQm1hV3hzUFNJalFUTTVOamMxSWk4K0Nqd3ZjM1puUGdvPSk7YmFja2dyb3VuZC1wb3NpdGlvbjpjZW50ZXI7YmFja2dyb3VuZC1yZXBlYXQ6bm8tcmVwZWF0O21hcmdpbi1ib3R0b206MWVtfS5XaHlTZWN0aW9uIC5BcmVhTG9nbyBhIHNwYW57ZGlzcGxheTpibG9jaztjb2xvcjojZmZmfS5XaHlTZWN0aW9uIC5BcmVhTG9nbyBhIHNwYW4uVGV4dDJ7Y29sb3I6dmFyKC0tZ29sZENvbG9yKX0uV2h5U2VjdGlvbiAuQXJlYUxvZ28gYTpob3ZlciwuV2h5U2VjdGlvbiAuQXJlYUxvZ28gYTpob3ZlciBzcGFue3RleHQtZGVjb3JhdGlvbjpub25lO29wYWNpdHk6Ljh9Ci5IZXJvTWFpbntiYWNrZ3JvdW5kLWNvbG9yOnJhZGlhbC1ncmFkaWVudCg3MCUgNjAlIGF0IDgwJSAzMCUsIHJnYmEodmFyKC0tZ29sZFJHQikvMzAlKSAwJSwgcmdiYSh2YXIoLS1nb2xkUkdCKS8wJSkgMTAwJSk7ZGlzcGxheTpmbGV4O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbn0uSGVyb01haW4gLkhlcm9Db250YWluZXIsLkhlcm9NYWluIC5IZXJvUm93e2Rpc3BsYXk6ZmxleDtmbGV4OjE7ZmxleC1kaXJlY3Rpb246Y29sdW1ufS5IZXJvTWFpbiAuY29udGFpbmVyLC5IZXJvTWFpbiAucm93LC5IZXJvTWFpbiAuY29udGVudHttYXJnaW46MDtwYWRkaW5nOjA7d2lkdGg6MTAwJX0uSGVyb01haW4gLkhlcm9WaXN1YWxCbG9ja3tiYWNrZ3JvdW5kLWltYWdlOnVybCh1cGxvYWRzL2xhbmRpbmcvdmlzdWFsLWJhY2tncm91bmQtYjdiM2ZjMTk3YmJhNWZmYWFkODEuanBnKTtiYWNrZ3JvdW5kLXBvc2l0aW9uOmNlbnRlcjtiYWNrZ3JvdW5kLXJlcGVhdDpuby1yZXBlYXQ7YmFja2dyb3VuZC1zaXplOmNvdmVyO2hlaWdodDo1MHZtaW47bWluLWhlaWdodDoyMDBweH0uSGVyb01haW4gLkhlcm9NYWluQmxvY2t7ZGlzcGxheTpmbGV4O2p1c3RpZnktY29udGVudDpjZW50ZXI7YWxpZ24taXRlbXM6Y2VudGVyfS5IZXJvTWFpbiAuSGVyb01haW5CbG9jayAuV3JhcHBlcntwYWRkaW5nOjIwcHh9Lkhlcm9NYWluIC5IZXJvTWFpbkJsb2NrIC5UaXRsZXtjb2xvcjp2YXIoLS1nb2xkQ29sb3IpO2ZvbnQtc2l6ZToxMHZ3O2ZvbnQtZmFtaWx5OnZhcigtLXNvZnRGb250SXQpfS5IZXJvTWFpbiAuSGVyb01haW5CbG9jayAuU3ViVGl0bGV7Y29sb3I6dmFyKC0tZ29sZENvbG9yKTtmb250LXNpemU6MmVtO2ZvbnQtc2l6ZTo1dnc7b3BhY2l0eTouM30uSGVyb01haW4gLkhlcm9NYWluQmxvY2sgLkxhbmRpbmdCdXR0b257Zm9udC1zaXplOjFlbTtwYWRkaW5nOjFlbSAyZW07dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlO2JvcmRlci1yYWRpdXM6NnB4O2Rpc3BsYXk6YmxvY2s7bWFyZ2luLXRvcDoyZW07bWFyZ2luLWJvdHRvbToyZW07d2hpdGUtc3BhY2U6bm9ybWFsO3RyYW5zaXRpb246YWxsIHZhcigtLXRyYW5zaXRpb25UaW1lTXMpfS5IZXJvTWFpbiAuSGVyb01haW5CbG9jayAuTGFuZGluZ0J1dHRvbjpob3ZlcntvcGFjaXR5Oi44fUBtZWRpYSh3aWR0aCA+PSA5OTJweCl7Lkhlcm9NYWluIC5IZXJvUm93e2ZsZXgtZGlyZWN0aW9uOnJvd30uSGVyb01haW4gLkhlcm9WaXN1YWxCbG9ja3tvcmRlcjoyO2ZsZXg6MTtoZWlnaHQ6NTQwcHh9Lkhlcm9NYWluIC5IZXJvTWFpbkJsb2Nre2ZsZXg6MX0uSGVyb01haW4gLkhlcm9NYWluQmxvY2sgLlRpdGxle2ZvbnQtc2l6ZTo0dnc7Zm9udC1mYW1pbHk6TWluaW9uUHJvLUl0LHNlcmlmfS5IZXJvTWFpbiAuSGVyb01haW5CbG9jayAuU3ViVGl0bGV7Zm9udC1zaXplOjJ2d30uSGVyb01haW4gLkhlcm9NYWluQmxvY2sgLkxhbmRpbmdCdXR0b257Zm9udC1zaXplOjEuMjVlbTttYXJnaW4tdG9wOjNlbTttYXJnaW4tYm90dG9tOjB9fQoKLyojIHNvdXJjZU1hcHBpbmdVUkw9ZGF0YTphcHBsaWNhdGlvbi9qc29uO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LGV5SjJaWEp6YVc5dUlqb3pMQ0ptYVd4bElqb2ljM1I1YkdWekxtTnpjeUlzSW0xaGNIQnBibWR6SWpvaVFVRkJRU3c0UlR0QlExTkJMRTFCUjBVc2RVSkJRMEVzYzBKQlJVRXNNa0pCUTBFc01FSkJSVUVzY1VKQlEwRXNkVUpCUlVFc01FSkJRMEVzTkVKQlEwRXNNRUpCU1VFc2NVTkJRMEVzYTBOQlNVRXNNRUpCUTBFc2VVSkJRMEVzTUVJN1FVTnNRMFlzUzBGRFJTeHZRMEZIUml4VFFVTkZMR0ZCUlVZc1RVRkRSU3hYUVVOQkxHZENRVU5CTEZsQlEwVXNZVUZMU2l4alFVTkZMRmRCUTBFc1kwRkRRU3c0UWtGRFFTeHJRa0ZEUVN4clFrRkRRU3h0UWtGRFJTeHJRa0ZEUVN4eFFrRkRRU3hsUVVWQkxIbENRVU5GTEd0Q1FVTkJMR05CUTBFc1YwRkRRU3g1UTBGRFFTeHJRa0ZEUVN4WFFVTkJMRms3UVVNdlFrb3NjMEpCUTBVc1YwRkRRU3hyUWtFd1FrRXNZVUZEUVN4elFrRkRRU3c0UWtFelFrRXNOa0pCUlVrc1VVRlBZeXhEUVU1a0xGTkJUV01zUTBGUmFFSXNZMEZEUVN4WFFVVkJMSGxFUVVOQkxESkNRVU5CTERSQ1FVTkJMSGRDUVdKQkxITkNRVlpHTERaQ1FWZEpMR05CUlVZc2RVSkJZa1lzTmtKQlRVa3NUMEZSWjBJc1EwRlFhRUlzVlVGUFowSXNRMEZEYUVJc2JVSkJZVW9zZFVKQkwwSkdMSE5DUVdkRFNTeHJRa0ZGUml4M1FrRnNRMFlzYzBKQmJVTkpMR3RDUVVWR0xHZERRVU5GTEdGQlNVRXNaVUZEUVN3NFFrRktRU3h6UWtGR1JpeG5RMEZIU1N4MVFrRkxTaXcwUWtGSlJTeG5Ra0ZJUVN4MVFrRkVSaXcwUWtGRlNTeGhRVWRHTEN0Q1FVTkZMRFJDUVVOQkxIVkNRVU5CTEdOQlJVWXNPRUpCUTBVc0swSTdRVU42UkZJc1dVRkRSU3gzUWtOUFlTeERSRTVpTEhGQ1FVTkZMR1ZCUlVZc2QwSkJRMFVzWVVGRFFTeHJRa0ZEUVN4blFrRkRRU3hsUVVOQkxGRkJRMEVzYzBKQlRrWXNkMEpCVDBrc2RVSkJSMG9zY1VKQlEwVXNUMEZEUVN3MlFrRkRSU3c0UWtGRFFTeDFRa0ZEUVN4alFVTkJMR05CUTBFc2JVTkJRMFVzWTBGSFNpeHJRMEZEUlN4NVFrRkRRU3hYUVVOQkxHZENRVVZHTERKQ1FVTkZMSFZDUVVOQkxHZENRVU5CTEdWQlIwb3NjMEpCUTBVc2EwSkJRMEVzWVVGRFFTeGxRVU5CTERoRFFVVkZMR0ZCUTBFc2MwSkJRMEVzYlVKQlJVWXNkMEpCYVVKRkxIVkRRV2hDUVN3NFFrRkRSU3haUVVOQkxGbEJRMEVzZVVSQlEwRXNNa0pCUTBFc05FSkJSVUVzYTBKQlJVWXNOa0pCUTBVc1kwRkRRU3hYUVVOQkxHMURRVU5GTEhWQ1FVdEdMR2xGUVVWRkxIRkNRVU5CTENzdlJEdEJSWEpGVml4VlFVdEZMR2RJUVUxQkxHRkJRMEVzYzBKQlJVRXNORU5CUlVVc1lVRkRRU3hQUVVOQkxITkNRVWxHTEhWRVFVZEZMRk5CUTBFc1ZVRkRRU3hYUVVkR0xESkNRVVZGTEhsRVFVTkJMREpDUVVOQkxEUkNRVU5CTEhOQ1FVTkJMR05CUTBFc2FVSkJSMFlzZVVKQlEwVXNZVUZEUVN4MVFrRkRRU3h0UWtGRFFTeHJRMEZEUlN4aFFVZEdMR2REUVVORkxIVkNRVU5CTEdWQlEwRXNPRUpCUlVZc2JVTkJRMFVzZFVKQlEwRXNZMEZEUVN4alFVTkJMRmRCUlVZc2QwTkJRMFVzWTBGRFFTeG5Ra0ZEUVN4NVFrRkRRU3hyUWtGRFFTeGpRVU5CTEdWQlEwRXNhMEpCUTBFc2JVSkJRMEVzZFVOQlEwRXNPRU5CUTBVc1YwRkpUaXgxUWtGRFJTeHRRa0ZEUlN4dFFrRkZSaXd5UWtGRFJTeFJRVU5CTEU5QlEwRXNZVUZGUml4NVFrRkRSU3hQUVVOQkxHZERRVU5GTEdOQlEwRXNPRUpFTVVWTExFTkRORVZRTEcxRFFVTkZMR05CUlVZc2QwTkJRMFVzYVVKQlEwRXNaVUZEUVN4NVF5SXNJbk52ZFhKalpYTWlPbHNpZDJWaWNHRmphem92TDJaemNISnZjR1Z5ZEhrdGJHRnVaR2x1WnkxamIyMXdhV3hsTHk0dmMzSmpMMkZ3Y0MxcGJtWnZMbk5qYzNNaUxDSjNaV0p3WVdOck9pOHZabk53Y205d1pYSjBlUzFzWVc1a2FXNW5MV052YlhCcGJHVXZMaTl6Y21NdmRtRnlhV0ZpYkdWekwzWmhjbWxoWW14bGN5MWxlSEJ2YzJVdWMyTnpjeUlzSW5kbFluQmhZMnM2THk5bWMzQnliM0JsY25SNUxXeGhibVJwYm1jdFkyOXRjR2xzWlM4dUwzTnlZeTl0YVhOakxYTjBlV3hsY3k5SGJHOWlZV3d1YzJOemN5SXNJbmRsWW5CaFkyczZMeTltYzNCeWIzQmxjblI1TFd4aGJtUnBibWN0WTI5dGNHbHNaUzh1TDNOeVl5OXRhWE5qTFhOMGVXeGxjeTlUZEdGeVUyVmpkR2x2Ymk1elkzTnpJaXdpZDJWaWNHRmphem92TDJaemNISnZjR1Z5ZEhrdGJHRnVaR2x1WnkxamIyMXdhV3hsTHk0dmMzSmpMMjFwYzJNdGMzUjViR1Z6TDFkb2VWTmxZM1JwYjI0dWMyTnpjeUlzSW5kbFluQmhZMnM2THk5bWMzQnliM0JsY25SNUxXeGhibVJwYm1jdFkyOXRjR2xzWlM4dUwzTnlZeTkyWVhKcFlXSnNaWE12ZG1GeWFXRmliR1Z6TG5OamMzTWlMQ0ozWldKd1lXTnJPaTh2Wm5Od2NtOXdaWEowZVMxc1lXNWthVzVuTFdOdmJYQnBiR1V2TGk5emNtTXZTR1Z5Ynk5SVpYSnZMbk4wZVd4bGN5NXpZM056SWwwc0luTnZkWEpqWlhORGIyNTBaVzUwSWpwYklqcHliMjkwSUhzZ0xTMUJVRkF0U1U1R1R6cGNiaUFnWm5Od2NtOXdaWEowZVMxc1lXNWthVzVuTFdOdmJYQnBiR1VnZGk0d0xqQXVNaUF2SURJd01qUXVNVEF1TVRFZ01ERTZNak1nS3pBek1EQTdYRzU5SWl3aVFIVnpaU0FuYzJGemN6cGpiMnh2Y2ljN1hHNWNia0JwYlhCdmNuUWdKM1poY21saFlteGxjeWM3WEc1Y2JrQm1kVzVqZEdsdmJpQnlaMkpEYjIxd2IyNWxiblJ6S0NSamIyeHZjaWtnZTF4dUlDQkFjbVYwZFhKdUlHTnZiRzl5TG1Ob1lXNXVaV3dvSkdOdmJHOXlMQ0FuY21Wa0p5d2dKSE53WVdObE9pQnlaMklwSUdOdmJHOXlMbU5vWVc1dVpXd29KR052Ykc5eUxDQW5aM0psWlc0bkxDQWtjM0JoWTJVNklISm5ZaWxjYmlBZ0lDQmpiMnh2Y2k1amFHRnVibVZzS0NSamIyeHZjaXdnSjJKc2RXVW5MQ0FrYzNCaFkyVTZJSEpuWWlrN1hHNTlYRzVjYmpweWIyOTBJSHRjYmlBZ0x5OGdRMjlzYjNKekxpNHVYRzVjYmlBZ0xTMWlaMFJoY210RGIyeHZjam9nSTNza1ltZEVZWEpyUTI5c2IzSjlPMXh1SUNBdExXSm5SR0Z5YTFKSFFqb2dJM3R5WjJKRGIyMXdiMjVsYm5SektDUmlaMFJoY210RGIyeHZjaWw5TzF4dVhHNGdJQzB0YUdWaFpHVnlSR0Z5YTBOdmJHOXlPaUFqZXlSb1pXRmtaWEpFWVhKclEyOXNiM0o5TzF4dUlDQXRMV2hsWVdSbGNrUmhjbXRTUjBJNklDTjdjbWRpUTI5dGNHOXVaVzUwY3lna2FHVmhaR1Z5UkdGeWEwTnZiRzl5S1gwN1hHNWNiaUFnTFMxbmIyeGtRMjlzYjNJNklDTjdKR2R2YkdSRGIyeHZjbjA3WEc0Z0lDMHRaMjlzWkZKSFFqb2dJM3R5WjJKRGIyMXdiMjVsYm5SektDUm5iMnhrUTI5c2IzSXBmVHRjYmx4dUlDQXRMV2R5WVhsTWFXZG9kRU52Ykc5eU9pQWpleVJuY21GNVRHbG5hSFJEYjJ4dmNuMDdYRzRnSUMwdGJXOXZaSGxOWldScGRXMURiMnh2Y2pvZ0kzc2tiVzl2WkhsTlpXUnBkVzFEYjJ4dmNuMDdYRzRnSUMwdFluVjBkRzl1VW1Wa1EyOXNiM0k2SUNON0pHSjFkSFJ2YmxKbFpFTnZiRzl5ZlR0Y2JseHVJQ0F2THlCR2IyNTBjeTR1TGx4dVhHNGdJQzB0YzI5bWRFWnZiblE2SUNON0pITnZablJHYjI1MGZUdGNiaUFnTFMxemIyWjBSbTl1ZEVsME9pQWpleVJ6YjJaMFJtOXVkRWwwZlR0Y2JseHVJQ0F2THlCVWFXMWxiM1YwY3k0dUxseHVYRzRnSUMwdGRISmhibk5wZEdsdmJsUnBiV1ZOY3pvZ0kzc2tkSEpoYm5OcGRHbHZibFJwYldWTmMzMDdYRzRnSUMwdFlXNXBiV0YwYVc5dVZHbHRaVTF6T2lBamV5UmhibWx0WVhScGIyNVVhVzFsVFhOOU8xeHVJQ0F0TFdScGMyRndjR1ZoY2xScGJXVk5jem9nSTNza1pHbHpZWEJ3WldGeVZHbHRaVTF6ZlR0Y2JuMWNiaUlzSW1KdlpIa2dlMXh1SUNCaVlXTnJaM0p2ZFc1a0xXTnZiRzl5T2lCMllYSW9MUzFpWjBSaGNtdERiMnh2Y2lrN1hHNTlYRzVjYmk1emFXUmxZbUZ5SUh0Y2JpQWdaR2x6Y0d4aGVUb2dibTl1WlR0Y2JuMWNiaTV0WVdsdUlIdGNiaUFnWTI5c2IzSTZJQ05tWm1ZN1hHNGdJRzFoY21kcGJpMWliM1IwYjIwNklEQTdYRzRnSUM1d1lYUm9JSHRjYmlBZ0lDQmthWE53YkdGNU9pQnViMjVsTzF4dUlDQjlYRzU5WEc1Y2JpOHZJRTFwYzJNZ2MzUjViR1Z6WEc0dVRHRnVaR2x1WjFScGRHeGxJSHRjYmlBZ1kyOXNiM0k2SUNObVptWTdJQzh2SUhaaGNpZ3RMV2R2YkdSRGIyeHZjaWs3WEc0Z0lHWnZiblF0YzJsNlpUb2dNMlZ0TzF4dUlDQm1iMjUwTFdaaGJXbHNlVG9nZG1GeUtDMHRjMjltZEVadmJuUkpkQ2s3WEc0Z0lIUmxlSFF0WVd4cFoyNDZJR05sYm5SbGNqdGNiaUFnY0c5emFYUnBiMjQ2SUhKbGJHRjBhWFpsTzF4dUlDQnpjR0Z1SUh0Y2JpQWdJQ0J3YjNOcGRHbHZiam9nY21Wc1lYUnBkbVU3WEc0Z0lDQWdaR2x6Y0d4aGVUb2dhVzVzYVc1bExXSnNiMk5yTzF4dUlDQWdJSEJoWkdScGJtYzZJREFnTlRCd2VEdGNiaUFnSUNBdkx5QndZV1JrYVc1bk9pQXVOelZsYlNBeExqVmxiVHRjYmlBZ0lDQW1PbUZtZEdWeUlIdGNiaUFnSUNBZ0lIQnZjMmwwYVc5dU9pQmhZbk52YkhWMFpUdGNiaUFnSUNBZ0lHUnBjM0JzWVhrNklHSnNiMk5yTzF4dUlDQWdJQ0FnWTI5dWRHVnVkRG9nSnljN1hHNGdJQ0FnSUNCaWIzSmtaWEl0WW05MGRHOXRPaUF4Y0hnZ2MyOXNhV1FnZG1GeUtDMHRaMjlzWkVOdmJHOXlLVHRjYmlBZ0lDQWdJSEJoWkdScGJtY3RkRzl3T2lBd0xqSTFaVzA3WEc0Z0lDQWdJQ0JzWldaME9pQXROVEJ3ZUR0Y2JpQWdJQ0FnSUhKcFoyaDBPaUF0TlRCd2VEdGNiaUFnSUNCOVhHNGdJSDFjYm4xY2JpSXNJa0JwYlhCdmNuUWdKeTR1TDNaaGNtbGhZbXhsY3ljN1hHNWNiaTVUZEdGeVUyVmpkR2x2YmlCN1hHNGdJQzVqYjI1MFpXNTBJSHRjYmlBZ0lDQnRZWEpuYVc0NklESmxiVHRjYmlBZ0lDQndiM05wZEdsdmJqb2djbVZzWVhScGRtVTdYRzRnSUNBZ0pqcGlaV1p2Y21VZ2UxeHVJQ0FnSUNBZ1FHMXBlR2x1SUdoVGNHRmpaU2drYzJsNlpTa2dlMXh1SUNBZ0lDQWdJQ0JzWldaME9pQWtjMmw2WlR0Y2JpQWdJQ0FnSUNBZ2NtbG5hSFE2SUNSemFYcGxPMXh1SUNBZ0lDQWdmVnh1SUNBZ0lDQWdRRzFwZUdsdUlIWlRjR0ZqWlNna2MybDZaU2tnZTF4dUlDQWdJQ0FnSUNCMGIzQTZJQ1J6YVhwbE8xeHVJQ0FnSUNBZ0lDQmliM1IwYjIwNklDUnphWHBsTzF4dUlDQWdJQ0FnZlZ4dUlDQWdJQ0FnUUdsdVkyeDFaR1VnYUZOd1lXTmxLRE0xSlNrN1hHNGdJQ0FnSUNCQWJXVmthV0VnS0hkcFpIUm9JRHdnSkcxa1ZISmxjMmh2YkdRcElIdGNiaUFnSUNBZ0lDQWdhR1ZwWjJoME9pQXlNREJ3ZUR0Y2JpQWdJQ0FnSUgxY2JpQWdJQ0FnSUVCdFpXUnBZU0FvZDJsa2RHZ2dQajBnSkcxa1ZISmxjMmh2YkdRcElIdGNiaUFnSUNBZ0lDQWdRR2x1WTJ4MVpHVWdkbE53WVdObEtESmxiU2s3WEc0Z0lDQWdJQ0FnSUhCdmMybDBhVzl1T2lCaFluTnZiSFYwWlR0Y2JpQWdJQ0FnSUgxY2JpQWdJQ0FnSUdScGMzQnNZWGs2SUdKc2IyTnJPMXh1SUNBZ0lDQWdZMjl1ZEdWdWREb2dKeWM3WEc0Z0lDQWdJQ0F2THlCaWIzSmtaWEk2SURGd2VDQnpiMnhwWkNCeVpXUWdJV2x0Y0c5eWRHRnVkRHNnTHk4Z1JFVkNWVWRjYmlBZ0lDQWdJR0poWTJ0bmNtOTFibVF0YVcxaFoyVTZJSFZ5YkNnbkxpNHZZWE56WlhSekwxTjBZWEl2WVdSMllXNTBZbWN1Y0c1bkp5azdYRzRnSUNBZ0lDQmlZV05yWjNKdmRXNWtMWEJ2YzJsMGFXOXVPaUJqWlc1MFpYSTdYRzRnSUNBZ0lDQmlZV05yWjNKdmRXNWtMWEpsY0dWaGREb2dibTh0Y21Wd1pXRjBPMXh1SUNBZ0lDQWdZbUZqYTJkeWIzVnVaQzF6YVhwbE9pQmpiMjUwWVdsdU8xeHVJQ0FnSUgxY2JpQWdJQ0JrYVhOd2JHRjVPaUJtYkdWNE8xeHVJQ0FnSUdac1pYZ3RaR2x5WldOMGFXOXVPaUJqYjJ4MWJXNDdYRzRnSUNBZ2FuVnpkR2xtZVMxamIyNTBaVzUwT2lCemNHRmpaUzFpWlhSM1pXVnVPMXh1SUNBZ0lFQnRaV1JwWVNBb2QybGtkR2dnUGowZ0pHMWtWSEpsYzJodmJHUXBJSHRjYmlBZ0lDQWdJRzFwYmkxb1pXbG5hSFE2SURZd01IQjRPMXh1SUNBZ0lIMWNiaUFnSUNCQWJXVmthV0VnS0hkcFpIUm9JRDQ5SUNSc1oxUnlaWE5vYjJ4a0tTQjdYRzRnSUNBZ0lDQnRhVzR0YUdWcFoyaDBPaUExTURCd2VEdGNiaUFnSUNCOVhHNGdJQ0FnTGtsMFpXMXpVbTkzSUh0Y2JpQWdJQ0FnSUdScGMzQnNZWGs2SUdac1pYZzdYRzRnSUNBZ0lDQkFiV1ZrYVdFZ0tIZHBaSFJvSUR3Z0pHMWtWSEpsYzJodmJHUXBJSHRjYmlBZ0lDQWdJQ0FnWm14bGVDMWthWEpsWTNScGIyNDZJR052YkhWdGJqdGNiaUFnSUNBZ0lIMWNiaUFnSUNBZ0lHWnNaWGd0ZDNKaGNEb2dkM0poY0R0Y2JpQWdJQ0FnSUdwMWMzUnBabmt0WTI5dWRHVnVkRG9nYzNCaFkyVXRZbVYwZDJWbGJqdGNiaUFnSUNCOVhHNGdJQ0FnTGtsMFpXMGdlMXh1SUNBZ0lDQWdRRzFsWkdsaElDaDNhV1IwYUNBK1BTQWtiV1JVY21WemFHOXNaQ2tnZTF4dUlDQWdJQ0FnSUNCM2FXUjBhRG9nTXpZd2NIZzdYRzRnSUNBZ0lDQjlYRzRnSUNBZ0lDQnNhVzVsTFdobGFXZG9kRG9nTVM0ek8xeHVJQ0FnSUNBZ2FESWdlMXh1SUNBZ0lDQWdJQ0JtYjI1MExXWmhiV2xzZVRvZ2RtRnlLQzB0YzI5bWRFWnZiblFwTzF4dUlDQWdJQ0FnSUNCamIyeHZjam9nZG1GeUtDMHRaMjlzWkVOdmJHOXlLVHRjYmlBZ0lDQWdJQ0FnWm05dWRDMXphWHBsT2lBeVpXMDdYRzRnSUNBZ0lDQjlYRzRnSUNBZ0lDQndJSHRjYmlBZ0lDQWdJQ0FnWm05dWRDMXphWHBsT2lBeExqSmxiVHRjYmlBZ0lDQWdJSDFjYmlBZ0lDQjlYRzRnSUgxY2JuMWNiaUlzSWtCcGJYQnZjblFnSnk0dUwzWmhjbWxoWW14bGN5YzdYRzVjYmk1WGFIbFRaV04wYVc5dUlIdGNiaUFnWW1GamEyZHliM1Z1WkMxamIyeHZjam9nSkhkb2VVUmhjbXREYjJ4dmNqdGNiaUFnTG1OdmJuUmxiblFnZTF4dUlDQWdJRzFoY21kcGJqb2dOR1Z0SURKbGJUdGNiaUFnZlZ4dUlDQXVWMmg1UTI5c2RXMXVjeUI3WEc0Z0lDQWdaR2x6Y0d4aGVUb2dabXhsZUR0Y2JpQWdJQ0IwWlhoMExXRnNhV2R1T2lCalpXNTBaWEk3WEc0Z0lDQWdiR2x1WlMxb1pXbG5hSFE2SURFdU16dGNiaUFnSUNCdFlYSm5hVzR0ZEc5d09pQTBaVzA3WEc0Z0lDQWdaMkZ3T2lBeFpXMDdYRzRnSUNBZ1FHMWxaR2xoSUNoM2FXUjBhQ0E4SUNSdFpGUnlaWE5vYjJ4a0tTQjdYRzRnSUNBZ0lDQm1iR1Y0TFdScGNtVmpkR2x2YmpvZ1kyOXNkVzF1TzF4dUlDQWdJSDFjYmlBZ2ZWeHVJQ0F1VjJoNVNYUmxiU0I3WEc0Z0lDQWdabXhsZURvZ01UdGNiaUFnSUNBdVRuVnRZbVZ5SUh0Y2JpQWdJQ0FnSUdadmJuUXRabUZ0YVd4NU9pQjJZWElvTFMxemIyWjBSbTl1ZEVsMEtUdGNiaUFnSUNBZ0lHTnZiRzl5T2lCMllYSW9MUzFuYjJ4a1EyOXNiM0lwTzF4dUlDQWdJQ0FnWm05dWRDMXphWHBsT2lBMlpXMDdYRzRnSUNBZ0lDQnNhVzVsTFdobGFXZG9kRG9nTVR0Y2JpQWdJQ0FnSUhOdFlXeHNJSHRjYmlBZ0lDQWdJQ0FnWm05dWRDMXphWHBsT2lBMk1DVTdYRzRnSUNBZ0lDQjlYRzRnSUNBZ2ZWeHVJQ0FnSUM1RmVIQnNZVzVoZEdsdmJpQjdYRzRnSUNBZ0lDQjBaWGgwTFhSeVlXNXpabTl5YlRvZ2RYQndaWEpqWVhObE8xeHVJQ0FnSUNBZ1kyOXNiM0k2SUNObVptWTdYRzRnSUNBZ0lDQm1iMjUwTFhOcGVtVTZJREV1TjJWdE8xeHVJQ0FnSUgxY2JpQWdJQ0F1VkdWNGRDQjdYRzRnSUNBZ0lDQmpiMnh2Y2pvZ2RtRnlLQzB0WjI5c1pFTnZiRzl5S1R0Y2JpQWdJQ0FnSUdadmJuUXRjMmw2WlRvZ01TNHlaVzA3WEc0Z0lDQWdJQ0J0WVhKbmFXNHRkRzl3T2lBeFpXMDdYRzRnSUNBZ2ZWeHVJQ0I5WEc0Z0lDNUJjbVZoVEc5bmJ5QjdYRzRnSUNBZ2RHVjRkQzFoYkdsbmJqb2dZMlZ1ZEdWeU8xeHVJQ0FnSUdScGMzQnNZWGs2SUdac1pYZzdYRzRnSUNBZ2JXRnlaMmx1TFhSdmNEb2dOR1Z0TzF4dUlDQWdJQ1lzWEc0Z0lDQWdZU0I3WEc0Z0lDQWdJQ0JrYVhOd2JHRjVPaUJtYkdWNE8xeHVJQ0FnSUNBZ1pteGxlQzFrYVhKbFkzUnBiMjQ2SUdOdmJIVnRianRjYmlBZ0lDQWdJR0ZzYVdkdUxXbDBaVzF6T2lCalpXNTBaWEk3WEc0Z0lDQWdmVnh1SUNBZ0lHRWdlMXh1SUNBZ0lDQWdMa3h2WjI4Z2UxeHVJQ0FnSUNBZ0lDQjNhV1IwYURvZ01UTXljSGc3WEc0Z0lDQWdJQ0FnSUdobGFXZG9kRG9nTXpCd2VEdGNiaUFnSUNBZ0lDQWdZbUZqYTJkeWIzVnVaQzFwYldGblpUb2dkWEpzS0NjdUxpOWhjM05sZEhNdlYyaDVMMkZ5WldFdGJHOW5ieTV6ZG1jbktUdGNiaUFnSUNBZ0lDQWdZbUZqYTJkeWIzVnVaQzF3YjNOcGRHbHZiam9nWTJWdWRHVnlPMXh1SUNBZ0lDQWdJQ0JpWVdOclozSnZkVzVrTFhKbGNHVmhkRG9nYm04dGNtVndaV0YwTzF4dUlDQWdJQ0FnSUNBdkx5QmlZV05yWjNKdmRXNWtMWE5wZW1VNklHTnZkbVZ5TzF4dUlDQWdJQ0FnSUNCdFlYSm5hVzR0WW05MGRHOXRPaUF4WlcwN1hHNGdJQ0FnSUNCOVhHNGdJQ0FnSUNCemNHRnVJSHRjYmlBZ0lDQWdJQ0FnWkdsemNHeGhlVG9nWW14dlkyczdYRzRnSUNBZ0lDQWdJR052Ykc5eU9pQjNhR2wwWlR0Y2JpQWdJQ0FnSUNBZ0ppNVVaWGgwTWlCN1hHNGdJQ0FnSUNBZ0lDQWdZMjlzYjNJNklIWmhjaWd0TFdkdmJHUkRiMnh2Y2lrN1hHNGdJQ0FnSUNBZ0lIMWNiaUFnSUNBZ0lIMWNiaUFnSUNBZ0lIUnlZVzV6YVhScGIyNDZJR0ZzYkNCMllYSW9MUzEwY21GdWMybDBhVzl1VkdsdFpVMXpLVHRjYmlBZ0lDQWdJQ1k2YUc5MlpYSWdlMXh1SUNBZ0lDQWdJQ0FtTEZ4dUlDQWdJQ0FnSUNCemNHRnVJSHRjYmlBZ0lDQWdJQ0FnSUNCMFpYaDBMV1JsWTI5eVlYUnBiMjQ2SUc1dmJtVTdYRzRnSUNBZ0lDQWdJQ0FnYjNCaFkybDBlVG9nTUM0NE8xeHVJQ0FnSUNBZ0lDQjlYRzRnSUNBZ0lDQjlYRzRnSUNBZ2ZWeHVJQ0I5WEc1OVhHNGlMQ0l2THlCRGIyeHZjbk11TGk1Y2JseHVKR0puUkdGeWEwTnZiRzl5T2lBak1UTXhNREUwTzF4dUpHaGxZV1JsY2tSaGNtdERiMnh2Y2pvZ0l6UXdOREEwTUR0Y2JpUm5jbUY1VEdsbmFIUkRiMnh2Y2pvZ0kyTmpZMk5qWXp0Y2JpUm5jbUY1UW5KcFoyaDBRMjlzYjNJNklDTmtPV1E1WkRrN1hHNGtiVzl2WkhsTlpXUnBkVzFEYjJ4dmNqb2dJemM0T1RBNVl6dGNiaVJuYjJ4a1EyOXNiM0k2SUNOaE16azJOelU3WEc0a1luVjBkRzl1VW1Wa1EyOXNiM0k2SUNNNFl6RTFNVFU3WEc1Y2JpUjNhSGxFWVhKclEyOXNiM0k2SUNNeU16SXdNak03WEc1Y2JpOHZJRVp2Ym5SekxpNHVYRzVjYmlSemIyWjBSbTl1ZERvZ1RXbHVhVzl1VUhKdkxWSmxaM1ZzWVhJc0lITmxjbWxtTzF4dUpITnZablJHYjI1MFNYUTZJRTFwYm1sdmJsQnlieTFKZEN3Z2MyVnlhV1k3WEc1Y2JpOHZJRlJwYldWdmRYUnpMaTR1WEc1Y2JpUjBjbUZ1YzJsMGFXOXVWR2x0WlUxek9pQXlOVEJ0Y3p0Y2JpUmhibWx0WVhScGIyNVVhVzFsVFhNNklEVXdNRzF6TzF4dUpHUnBjMkZ3Y0dWaGNsUnBiV1ZOY3pvZ01UQXdNRzF6TzF4dVhHNHZMeUJCWkdGd2RHbDJaU0JzWVhsdmRYUnpMaTR1WEc1Y2JpUnpiVlJ5WlhOb2IyeGtPaUEzTmpod2VEdGNiaVJ0WkZSeVpYTm9iMnhrT2lBNU9USndlRHRjYmlSc1oxUnlaWE5vYjJ4a09pQXhNakF3Y0hnN1hHNWNiaTh2SUVWNGNHOXlkQ0IwYnlCVVV5QmpiMlJsSUNoVVQwUlBLUzR1TGx4dVhHNHZMeUJDYkc5amEzTmNiaVJpYkc5amExSnZiM1JPYjJSbE9pQW5MblF5TWprbk8xeHVJaXdpUUdsdGNHOXlkQ0FuTGk0dmRtRnlhV0ZpYkdWekp6dGNibHh1TGtobGNtOU5ZV2x1SUh0Y2JpQWdKR0poYzJsalZISmxjMmh2YkdRNklDUnRaRlJ5WlhOb2IyeGtPMXh1SUNBa2FHVnliMGhsYVdkb2REb2dOVFF3Y0hnN1hHNGdJQ1JvWlhKdlNHVnBaMmgwVTIxaGJHdzZJREkwTUhCNE8xeHVYRzRnSUdKaFkydG5jbTkxYm1RdFkyOXNiM0k2SUhKaFpHbGhiQzFuY21Ga2FXVnVkQ2hjYmlBZ0lDQTNNQ1VnTmpBbElHRjBJRGd3SlNBek1DVXNYRzRnSUNBZ2NtZGlZU2gyWVhJb0xTMW5iMnhrVWtkQ0tTQXZJRE13SlNrZ01DVXNYRzRnSUNBZ2NtZGlZU2gyWVhJb0xTMW5iMnhrVWtkQ0tTQXZJREFsS1NBeE1EQWxYRzRnSUNrN1hHNWNiaUFnWkdsemNHeGhlVG9nWm14bGVEdGNiaUFnWm14bGVDMWthWEpsWTNScGIyNDZJR052YkhWdGJqdGNibHh1SUNBdVNHVnliME52Ym5SaGFXNWxjaXhjYmlBZ0xraGxjbTlTYjNjZ2UxeHVJQ0FnSUdScGMzQnNZWGs2SUdac1pYZzdYRzRnSUNBZ1pteGxlRG9nTVR0Y2JpQWdJQ0JtYkdWNExXUnBjbVZqZEdsdmJqb2dZMjlzZFcxdU8xeHVJQ0I5WEc1Y2JpQWdMeThnVW1WelpYUWdZbUZ6YVdNZ2MzUjViR1Z6WEc0Z0lDNWpiMjUwWVdsdVpYSXNYRzRnSUM1eWIzY3NYRzRnSUM1amIyNTBaVzUwSUh0Y2JpQWdJQ0J0WVhKbmFXNDZJREE3WEc0Z0lDQWdjR0ZrWkdsdVp6b2dNRHRjYmlBZ0lDQjNhV1IwYURvZ01UQXdKVHRjYmlBZ2ZWeHVYRzRnSUM1SVpYSnZWbWx6ZFdGc1FteHZZMnNnZTF4dUlDQWdJQzh2SUdKdmNtUmxjam9nTW5CNElITnZiR2xrSUhKbFpEdGNiaUFnSUNCaVlXTnJaM0p2ZFc1a0xXbHRZV2RsT2lCMWNtd29KeTR2WVhOelpYUnpMM1pwYzNWaGJDMWlZV05yWjNKdmRXNWtMbXB3WnljcE8xeHVJQ0FnSUdKaFkydG5jbTkxYm1RdGNHOXphWFJwYjI0NklHTmxiblJsY2p0Y2JpQWdJQ0JpWVdOclozSnZkVzVrTFhKbGNHVmhkRG9nYm04dGNtVndaV0YwTzF4dUlDQWdJR0poWTJ0bmNtOTFibVF0YzJsNlpUb2dZMjkyWlhJN1hHNGdJQ0FnYUdWcFoyaDBPaUExTUhadGFXNDdJQzh2SUNSb1pYSnZTR1ZwWjJoMFUyMWhiR3c3WEc0Z0lDQWdiV2x1TFdobGFXZG9kRG9nTWpBd2NIZzdYRzRnSUgxY2JseHVJQ0F1U0dWeWIwMWhhVzVDYkc5amF5QjdYRzRnSUNBZ1pHbHpjR3hoZVRvZ1pteGxlRHRjYmlBZ0lDQnFkWE4wYVdaNUxXTnZiblJsYm5RNklHTmxiblJsY2p0Y2JpQWdJQ0JoYkdsbmJpMXBkR1Z0Y3pvZ1kyVnVkR1Z5TzF4dUlDQWdJQzVYY21Gd2NHVnlJSHRjYmlBZ0lDQWdJSEJoWkdScGJtYzZJREl3Y0hnN1hHNGdJQ0FnSUNBdkx5QmthWE53YkdGNU9pQm1iR1Y0TzF4dUlDQWdJSDFjYmlBZ0lDQXVWR2wwYkdVZ2UxeHVJQ0FnSUNBZ1kyOXNiM0k2SUhaaGNpZ3RMV2R2YkdSRGIyeHZjaWs3WEc0Z0lDQWdJQ0JtYjI1MExYTnBlbVU2SURFd2RuYzdYRzRnSUNBZ0lDQm1iMjUwTFdaaGJXbHNlVG9nZG1GeUtDMHRjMjltZEVadmJuUkpkQ2s3WEc0Z0lDQWdmVnh1SUNBZ0lDNVRkV0pVYVhSc1pTQjdYRzRnSUNBZ0lDQmpiMnh2Y2pvZ2RtRnlLQzB0WjI5c1pFTnZiRzl5S1R0Y2JpQWdJQ0FnSUdadmJuUXRjMmw2WlRvZ01tVnRPMXh1SUNBZ0lDQWdabTl1ZEMxemFYcGxPaUExZG5jN1hHNGdJQ0FnSUNCdmNHRmphWFI1T2lBd0xqTTdYRzRnSUNBZ2ZWeHVJQ0FnSUM1TVlXNWthVzVuUW5WMGRHOXVJSHRjYmlBZ0lDQWdJR1p2Ym5RdGMybDZaVG9nTVdWdE8xeHVJQ0FnSUNBZ2NHRmtaR2x1WnpvZ01XVnRJREpsYlR0Y2JpQWdJQ0FnSUhSbGVIUXRkSEpoYm5ObWIzSnRPaUIxY0hCbGNtTmhjMlU3WEc0Z0lDQWdJQ0JpYjNKa1pYSXRjbUZrYVhWek9pQTJjSGc3WEc0Z0lDQWdJQ0JrYVhOd2JHRjVPaUJpYkc5amF6dGNiaUFnSUNBZ0lHMWhjbWRwYmkxMGIzQTZJREpsYlR0Y2JpQWdJQ0FnSUcxaGNtZHBiaTFpYjNSMGIyMDZJREpsYlR0Y2JpQWdJQ0FnSUhkb2FYUmxMWE53WVdObE9pQnViM0p0WVd3N1hHNGdJQ0FnSUNCMGNtRnVjMmwwYVc5dU9pQmhiR3dnZG1GeUtDMHRkSEpoYm5OcGRHbHZibFJwYldWTmN5azdYRzRnSUNBZ0lDQW1PbWh2ZG1WeUlIdGNiaUFnSUNBZ0lDQWdiM0JoWTJsMGVUb2dNQzQ0TzF4dUlDQWdJQ0FnZlZ4dUlDQWdJSDFjYmlBZ2ZWeHVJQ0JBYldWa2FXRWdLSGRwWkhSb0lENDlJQ1JpWVhOcFkxUnlaWE5vYjJ4a0tTQjdYRzRnSUNBZ0xraGxjbTlTYjNjZ2UxeHVJQ0FnSUNBZ1pteGxlQzFrYVhKbFkzUnBiMjQ2SUhKdmR6dGNiaUFnSUNCOVhHNGdJQ0FnTGtobGNtOVdhWE4xWVd4Q2JHOWpheUI3WEc0Z0lDQWdJQ0J2Y21SbGNqb2dNanRjYmlBZ0lDQWdJR1pzWlhnNklERTdYRzRnSUNBZ0lDQm9aV2xuYUhRNklEVTBNSEI0TzF4dUlDQWdJSDFjYmlBZ0lDQXVTR1Z5YjAxaGFXNUNiRzlqYXlCN1hHNGdJQ0FnSUNCbWJHVjRPaUF4TzF4dUlDQWdJQ0FnTGxScGRHeGxJSHRjYmlBZ0lDQWdJQ0FnWm05dWRDMXphWHBsT2lBMGRuYzdYRzRnSUNBZ0lDQWdJR1p2Ym5RdFptRnRhV3g1T2lBa2MyOW1kRVp2Ym5SSmREdGNiaUFnSUNBZ0lIMWNiaUFnSUNBZ0lDNVRkV0pVYVhSc1pTQjdYRzRnSUNBZ0lDQWdJR1p2Ym5RdGMybDZaVG9nTW5aM08xeHVJQ0FnSUNBZ2ZWeHVJQ0FnSUNBZ0xreGhibVJwYm1kQ2RYUjBiMjRnZTF4dUlDQWdJQ0FnSUNCbWIyNTBMWE5wZW1VNklERXVNalZsYlR0Y2JpQWdJQ0FnSUNBZ2JXRnlaMmx1TFhSdmNEb2dNMlZ0TzF4dUlDQWdJQ0FnSUNCdFlYSm5hVzR0WW05MGRHOXRPaUF3TzF4dUlDQWdJQ0FnZlZ4dUlDQWdJSDFjYmlBZ2ZWeHVmVnh1SWwwc0ltNWhiV1Z6SWpwYlhTd2ljMjkxY21ObFVtOXZkQ0k2SWlKOSov" />
 <!-- DEBUG: Injected styles end (styles.css) -->
+<!-- Resources end -->
 
 <!-- BEFORE (from site template)
 <div class="main HeroMain">
   <div class="container HeroContainer">
     <div class="row HeroRow">
-      <div class="content col-12 HeroContent">
+      <div class="content HeroVisualBlock">
 -->
 
-        Hero block
+<!-- Hero block begin -->
+
+        <!-- Visual -->
+
+      </div>
+      <div class="content HeroMainBlock">
+        <div class="Wrapper">
+
+          <h2 class="Title">Собственникам</h2>
+          <h3 class="SubTitle">Быстро и надёжно</h3>
+          <button class="btn LandingButton">Продать объект любой сложности</button>
+
+        </div>
+
+<!-- Hero block end -->
 
       </div>
     </div>
@@ -279,12 +498,71 @@ var baseUrl = ''
 </div>
 
 <!-- Why section -->
-<div class="main WhyMain">
+<div class="main WhySection">
   <div class="container WhyContainer">
     <div class="row WhyRow">
       <div class="content col-12 WhyContent">
 
-        Why block
+        <h2 class="LandingTitle"><span>Почему FS-Property?</span></h2>
+
+        <div class="WhyColumns">
+          <div class="WhyItem">
+            <p class="Number">25 <small>лет</small></p>
+            <p class="Explanation">на рынке элитной<br/> недвижимости</p>
+            <p class="Text">Наши эксперты — признанные лидеры</p>
+          </div>
+          <div class="WhyItem">
+            <p class="Number">1250</p>
+            <p class="Explanation">Реализованных<br/> объектов</p>
+            <p class="Text">Мы сотрудничаем с ключевыми девелоперами элитного рынка недвижимости</p>
+          </div>
+          <div class="WhyItem">
+            <p class="Number">125</p>
+            <p class="Explanation">Компания<br/> партнеров</p>
+            <p class="Text">Мы сотрудничаем с ключевыми девелоперами элитного рынка недвижимости</p>
+          </div>
+        </div>
+
+        <div class="AreaLogo">
+          <a href="https://areaestate.ru/" target="_blank">
+            <span class="Logo"></span>
+            <span class="Text1">Участник ассоциации агентств  элитной недвижимости</span>
+            <span class="Text2">since 2020</span>
+            <!-- <img src="./assets/Why/area-logo.svg" width="132" height="30" /> -->
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Star section -->
+<div class="main StarSection">
+  <div class="container StarContainer">
+    <div class="row StarRow">
+      <div class="content col-12 StarContent">
+
+        <div class="ItemsRow">
+          <div class="Item">
+            <h2>Экспертиза</h2>
+            <p>Мы занимаемся продажей элитной недвижимости более 20 лет. Это 1200 успешно проведенных сделок разной категории сложности. Поэтому, мы понимаем, что необходимо нашим клиентам и ценим их деньги и время.</p>
+          </div>
+          <div class="Item">
+            <h2>Клиентская база</h2>
+            <p>В ресурсе компании огромная клиентская база, позволяющая в кратчайшие сроки и без рекламы найти покупателя на вашу недвижимость.</p>
+          </div>
+        </div>
+        <div class="ItemsRow">
+          <div class="Item">
+            <h2>Репутация</h2>
+            <p>Наши топ-брокеры известны всему рынку недвижимости, как профессионалы высочайшего уровня, которым можно доверить решение самых сложных и неординарных задач. И не случайно, 60% из всех клиентских обращений в компанию носят рекомендательный характер.</p>
+          </div>
+          <div class="Item">
+            <h2>Безопасность</h2>
+            <p>Комфорт в общении с нашими экспертами, высочайший сервис и юридическая поддержка от профессиональных юристов, гарантируют полную безопасность проведения сделки и превратят для Вас сложный процесс продажи в удовольствие.</p>
+          </div>
+        </div>
 
 <!-- AFTER (from site template)
       </div>
@@ -293,144 +571,300 @@ var baseUrl = ''
 </div>
 -->
 
-<!-- }}} CONTENT END -->
-
-</div><!-- /.content -->
-        <div class="sidebar col-sm-4 col-md-3">
-    <div class="widget">
-        <div class="widget-title">
-        <h2>Контактные данные</h2>
-    </div><!-- /.widget-title -->
-    <div class="widget-content">
-        <p>FS Property<br>
-Москва, Охотный ряд, дом 2<br>
-E-mail: <a href="mailto:fsp@fsproperty.ru">fsp@fsproperty.ru</a><br>
-Телефон: +7(495) 1-3456-99</p>    </div><!-- /.widget-content -->
-</div><!-- /.widget -->
-    <div class="widget">
-    <div class="widget-content">
-        <ul class="clearfix sharing-buttons">
-                        <li class="no-margin">
-                <a target="_blank" class="vkontakte" href="https://vk.com/fsproperty"><i class="fa fa-left no-margin fa-vk"></i></a>            </li>
-                        <li class="no-margin">
-                <a target="_blank" class="telegram" href="https://t.me/fspropertybest"><i class="fa fa-left no-margin fa-telegram"></i></a>            </li>
-                    </ul>
-    </div><!-- /.widget-content -->
-</div><!-- /.widget --></div><!-- /.sidebar -->
-    </div><!-- /.row -->
-</div><!-- /.container -->
-    </div><!-- /.main -->
-    <div id="footer-top" class="footer footer-simple">
-    <div class="footer-top">
-        <div class="container">
+              <!-- }}} CONTENT END -->
+            </div>
+            <!-- /.content -->
+            <div class="sidebar col-sm-4 col-md-3">
+              <div class="widget">
+                <div class="widget-title">
+                  <h2>Контактные данные</h2>
+                </div>
+                <!-- /.widget-title -->
+                <div class="widget-content">
+                  <p>
+                    FS Property<br />
+                    Москва, Охотный ряд, дом 2<br />
+                    E-mail: <a href="mailto:fsp@fsproperty.ru">fsp@fsproperty.ru</a><br />
+                    Телефон: +7(495) 1-3456-99
+                  </p>
+                </div>
+                <!-- /.widget-content -->
+              </div>
+              <!-- /.widget -->
+              <div class="widget">
+                <div class="widget-content">
+                  <ul class="clearfix sharing-buttons">
+                    <li class="no-margin">
+                      <a target="_blank" class="vkontakte" href="https://vk.com/fsproperty"
+                        ><i class="fa fa-left no-margin fa-vk"></i
+                      ></a>
+                    </li>
+                    <li class="no-margin">
+                      <a target="_blank" class="telegram" href="https://t.me/fspropertybest"
+                        ><i class="fa fa-left no-margin fa-telegram"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.widget-content -->
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /.sidebar -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.main -->
+      <div id="footer-top" class="footer footer-simple">
+        <div class="footer-top">
+          <div class="container">
             <div class="footer-top-inner">
-                <div class="row">
-                    <div class="widget col-sm-3">
-                        <h2>ФСП</h2>
-                        <nav>
-                            <ul class="nav nav-stacked" id="yw1">
-<li class="listItem"><a class="listItemLink" href="page/about/">О компании</a></li>
-<li class="listItem"><a class="listItemLink" href="team/">Команда</a></li>
-<li class="listItem"><a class="listItemLink" href="partners/">Партнеры</a></li>
-<li class="listItem"><a class="listItemLink" href="publications/">Новости</a></li>
-<li class="listItem"><a class="listItemLink" href="page/services/">Услуги</a></li>
-<li class="listItem"><a class="listItemLink" href="vacancy/">Вакансии</a></li>
-<li class="listItem"><a class="listItemLink" href="page/contacts/">Контакты</a></li>
-</ul>                        </nav>
-                    </div>
-                    <div class="widget col-sm-2">
-                        <h2>Городская<br> недвижимость</h2>
-                        <nav>
-                            <ul class="nav nav-stacked" id="yw2">
-<li class="listItem"><a class="listItemLink" href="realty/elite/condos/">Элитные новостройки</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/elite/apartments/">Элитные квартиры</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/elite/rent/">Аренда</a></li>
-</ul>                        </nav>
-                    </div>
-                    <div class="widget col-sm-2">
-                        <h2>Загородная<br> недвижимость</h2>
-                        <nav>
-                            <ul class="nav nav-stacked" id="yw3">
-<li class="listItem"><a class="listItemLink" href="realty/country/cottages/">Загородные дома, поселки</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/country/lands/">Земельные участки</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/country/cottages-rent/">	Коттеджи в аренду</a></li>
-</ul>                        </nav>
-                    </div>
-                    <div class="widget col-sm-2">
-                        <h2>Коммерческая<br> недвижимость</h2>
-                        <nav>
-                            <ul class="nav nav-stacked" id="yw4">
-<li class="listItem"><a class="listItemLink" href="realty/page/offices-rent/">Аренда офисов</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/offices-sale/">Продажа офисов</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/trading-space-rent/">Аренда торговых помещений</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/trading-space-sale/">Продажа торговых помещений</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/rental-business-sale/">Продажа арендного бизнеса</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/mansions-rent/">Аренда особняков</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/mansions-sale/">Продажа особняков</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/page/free_purpose/">Помещения свободного назначения</a></li>
-</ul>                        </nav>
-                    </div>
-                    <div class="widget col-sm-3">
-                        <h2>Зарубежная<br> недвижимость</h2>
-                        <nav>
-                            <ul class="nav nav-stacked" id="yw5">
-<li class="listItem"><a class="listItemLink" href="realty/abroad/houses/">Дома, виллы, резиденции</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/abroad/flats/">Апартаменты, квартиры, пентхаусы</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/abroad/commercial/">Коммерческая недвижимость</a></li>
-<li class="listItem"><a class="listItemLink" href="realty/abroad/abroad-rent">Аренда</a></li>
-</ul>                        </nav>
-                    </div>
-                </div><!-- /.row -->
-            </div><!-- /.footer-top-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.footer-top -->
-</div><!-- /.footer-simple -->
-<div id="footer-top-2" class="footer">
-    <div class="footer-bottom">
-        <div class="container">
+              <div class="row">
+                <div class="widget col-sm-3">
+                  <h2>ФСП</h2>
+                  <nav>
+                    <ul class="nav nav-stacked" id="yw1">
+                      <li class="listItem">
+                        <a class="listItemLink" href="page/about/">О компании</a>
+                      </li>
+                      <li class="listItem"><a class="listItemLink" href="team/">Команда</a></li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="partners/">Партнеры</a>
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="publications/">Новости</a>
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="page/services/">Услуги</a>
+                      </li>
+                      <li class="listItem"><a class="listItemLink" href="vacancy/">Вакансии</a></li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="page/contacts/">Контакты</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="widget col-sm-2">
+                  <h2>
+                    Городская<br />
+                    недвижимость
+                  </h2>
+                  <nav>
+                    <ul class="nav nav-stacked" id="yw2">
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/elite/condos/">Элитные новостройки</a>
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/elite/apartments/">Элитные квартиры</a>
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/elite/rent/">Аренда</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="widget col-sm-2">
+                  <h2>
+                    Загородная<br />
+                    недвижимость
+                  </h2>
+                  <nav>
+                    <ul class="nav nav-stacked" id="yw3">
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/country/cottages/"
+                          >Загородные дома, поселки</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/country/lands/">Земельные участки</a>
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/country/cottages-rent/">
+                          Коттеджи в аренду</a
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="widget col-sm-2">
+                  <h2>
+                    Коммерческая<br />
+                    недвижимость
+                  </h2>
+                  <nav>
+                    <ul class="nav nav-stacked" id="yw4">
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/offices-rent/">Аренда офисов</a>
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/offices-sale/">Продажа офисов</a>
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/trading-space-rent/"
+                          >Аренда торговых помещений</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/trading-space-sale/"
+                          >Продажа торговых помещений</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/rental-business-sale/"
+                          >Продажа арендного бизнеса</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/mansions-rent/"
+                          >Аренда особняков</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/mansions-sale/"
+                          >Продажа особняков</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/page/free_purpose/"
+                          >Помещения свободного назначения</a
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="widget col-sm-3">
+                  <h2>
+                    Зарубежная<br />
+                    недвижимость
+                  </h2>
+                  <nav>
+                    <ul class="nav nav-stacked" id="yw5">
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/abroad/houses/"
+                          >Дома, виллы, резиденции</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/abroad/flats/"
+                          >Апартаменты, квартиры, пентхаусы</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/abroad/commercial/"
+                          >Коммерческая недвижимость</a
+                        >
+                      </li>
+                      <li class="listItem">
+                        <a class="listItemLink" href="realty/abroad/abroad-rent">Аренда</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.footer-top-inner -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.footer-top -->
+      </div>
+      <!-- /.footer-simple -->
+      <div id="footer-top-2" class="footer">
+        <div class="footer-bottom">
+          <div class="container">
             <div class="footer-bottom-inner">
-                <div class="row">
-                    <div class="widget col-sm-4">
-                        <h2>Агентство элитной недвижимости</h2>
-                        <p>© 2023. ООО «ФСП».<br>
-                        Все права защищены.</p>
-                        <ul class="clearfix sharing-buttons">
-                            <li>
-                            <a target="_blank" class="vkontakte" href="https://vk.com/fsproperty"><i class="fa fa-left fa-vk"></i><span class="social-name">Вконтакте</span></a>    </li>
-                            <li>
-                            <a target="_blank" class="telegram" href="https://t.me/fspropertybest"><i class="fa fa-left fa-telegram"></i><span class="social-name">Telegram</span></a>    </li>
-                        </ul>
-                    </div>
-                    <div class="widget col-sm-4">
-                        <h2>Контактная информация</h2>
-                        <p>FS Property<br>
-                        Москва, Охотный ряд, дом 2<br>
-                        E-mail: <a href="mailto:fsp@fsproperty.ru">fsp@fsproperty.ru</a><br>
-                        Телефон: <a href="tel:84951345699"><small>+7(495) 1-3456-99</small></a></p>
-                    </div>
-                    <div class="widget col-sm-4"></div>
-                </div><!-- /.row -->
-            </div><!-- /.footer-bottom-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.footer-bottom -->
-    <div class="footer-bar">
-        <div class="container center">
+              <div class="row">
+                <div class="widget col-sm-4">
+                  <h2>Агентство элитной недвижимости</h2>
+                  <p>
+                    © 2023. ООО «ФСП».<br />
+                    Все права защищены.
+                  </p>
+                  <ul class="clearfix sharing-buttons">
+                    <li>
+                      <a target="_blank" class="vkontakte" href="https://vk.com/fsproperty"
+                        ><i class="fa fa-left fa-vk"></i
+                        ><span class="social-name">Вконтакте</span></a
+                      >
+                    </li>
+                    <li>
+                      <a target="_blank" class="telegram" href="https://t.me/fspropertybest"
+                        ><i class="fa fa-left fa-telegram"></i
+                        ><span class="social-name">Telegram</span></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="widget col-sm-4">
+                  <h2>Контактная информация</h2>
+                  <p>
+                    FS Property<br />
+                    Москва, Охотный ряд, дом 2<br />
+                    E-mail: <a href="mailto:fsp@fsproperty.ru">fsp@fsproperty.ru</a><br />
+                    Телефон: <a href="tel:84951345699"><small>+7(495) 1-3456-99</small></a>
+                  </p>
+                </div>
+                <div class="widget col-sm-4"></div>
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.footer-bottom-inner -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.footer-bottom -->
+        <div class="footer-bar">
+          <div class="container center">
             <a class="scroll-top"><i class="fa fa-angle-up"></i></a>
-        </div><!-- /.container -->
-    </div><!-- /.footer-bar -->
-</div><!-- /.footer -->
-</div><!-- /.page-wrapper-->
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/jquery-transit/jquery.transit.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/bootstrap/assets/javascripts/bootstrap/dropdown.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/bootstrap/assets/javascripts/bootstrap/collapse.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/bootstrap-fileinput/js/fileinput.min.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/autosize/jquery.autosize.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/isotope/dist/isotope.pkgd.min.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/OwlCarousel/owl-carousel/owl.carousel.min.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/jquery.scrollTo/jquery.scrollTo.min.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/nvd3/lib/d3.v3.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/libraries/nvd3/nv.d3.min.js"></script>
-<script type="text/javascript" src="assets/b7f4f2a8/js/realsite.js"></script>
-</body>
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.footer-bar -->
+      </div>
+      <!-- /.footer -->
+    </div>
+    <!-- /.page-wrapper-->
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/jquery-transit/jquery.transit.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/bootstrap/assets/javascripts/bootstrap/dropdown.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/bootstrap/assets/javascripts/bootstrap/collapse.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/bootstrap-fileinput/js/fileinput.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/autosize/jquery.autosize.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/isotope/dist/isotope.pkgd.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/OwlCarousel/owl-carousel/owl.carousel.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/b7f4f2a8/libraries/jquery.scrollTo/jquery.scrollTo.min.js"
+    ></script>
+    <!-- <script type="text/javascript" src="assets/b7f4f2a8/libraries/nvd3/lib/d3.v3.js"></script> -->
+    <!-- <script type="text/javascript" src="assets/b7f4f2a8/libraries/nvd3/nv.d3.min.js"></script> -->
+    <script type="text/javascript" src="assets/b7f4f2a8/js/realsite.js"></script>
+  </body>
 </html>
