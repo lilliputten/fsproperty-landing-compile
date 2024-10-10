@@ -25,6 +25,8 @@ const {
   previewTemplateFile,
   devtool,
   minimizeAssets,
+  scriptsAssetFile,
+  stylesAssetFile,
 } = require('./webpack.params');
 
 module.exports = {
@@ -119,7 +121,7 @@ module.exports = {
       'process.env.APP_VERSION': JSON.stringify(appVersionHash),
     }),
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: stylesAssetFile,
     }),
     new CopyPlugin({
       patterns: [
@@ -196,10 +198,10 @@ module.exports = {
     ],
   },
   output: {
-    filename: 'scripts.js',
+    filename: scriptsAssetFile,
     // NOTE: See also `outDir` field in `tsconfig.json`
     path: path.resolve(__dirname, outPath),
     // @see https://webpack.js.org/configuration/output/#outputassetmodulefilename
-    assetModuleFilename: 'uploads/landing/[name]-[hash][ext][query]',
+    assetModuleFilename: 'uploads/landing/assets/[name][ext][query]',
   },
 };

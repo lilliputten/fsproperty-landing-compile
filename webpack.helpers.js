@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.10, 23:03
+ *  @changed 2024.10.11, 01:59
  */
 
 const fs = require('fs');
@@ -55,53 +55,54 @@ function getAssetContent(asset) {
  * @param {boolean} [opts.useLocalServedScripts]
  */
 function getCompilationScriptsContent(compilation, opts = {}) {
-  if (opts.isDev && opts.useLocalServedScripts) {
-    return [
-      '<!-- DEV: Locally linked scripts & styles -->',
-      `<script type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}"></script>`,
-      `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}" />`,
-    ].join('\n');
-  }
-  // Get all assets hash from the compilation...
-  const { assets } = compilation;
-  // Get scripts chunk...
-  /** @type {webpack.sources.Source} */
-  const scriptsAsset = assets[scriptsAssetFile];
-  if (!scriptsAsset) {
-    throw new Error('Script asset "' + scriptsAssetFile + '" not found!');
-  }
-  const scriptsContent = getAssetContent(scriptsAsset);
-  // Get styles chunk...
-  /** @type {webpack.sources.Source} */
-  const stylesAsset = assets[stylesAssetFile];
-  if (!stylesAsset) {
-    throw new Error('Style asset "' + stylesAssetFile + '" not found!');
-  }
-  const stylesContent = getAssetContent(stylesAsset);
-  if (opts.isDebug) {
-    return [
-      `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
-      `<script type="text/javascript" src="data:text/javascript;base64,${btoa(scriptsContent)}"></script>`,
-      `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
-      '',
-      `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
-      `<link rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
-      `<!-- DEBUG: Injected styles end (${stylesAssetFile}) -->`,
-    ].join('\n');
-  }
+  // if (opts.isDev && opts.useLocalServedScripts) {
   return [
-    `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
-    '<script type="text/javascript">',
-    scriptsContent,
-    '</script>',
-    `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
-    '',
-    `<!-- Inline styles begin (${stylesAssetFile}) -->`,
-    '<style type="text/css">',
-    stylesContent,
-    '</style>',
-    `<!-- Inline styles end (${stylesAssetFile}) -->`,
+    '<!-- DEV: Locally linked scripts & styles -->',
+    `<script type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}"></script>`,
+    `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}" />`,
   ].join('\n');
+  // }
+  /* // Generate inline asets from the compilation...
+   * const { assets } = compilation;
+   * // Get scripts chunk...
+   * [>* @type {webpack.sources.Source} <]
+   * const scriptsAsset = assets[scriptsAssetFile];
+   * if (!scriptsAsset) {
+   *   throw new Error('Script asset "' + scriptsAssetFile + '" not found!');
+   * }
+   * const scriptsContent = getAssetContent(scriptsAsset);
+   * // Get styles chunk...
+   * [>* @type {webpack.sources.Source} <]
+   * const stylesAsset = assets[stylesAssetFile];
+   * if (!stylesAsset) {
+   *   throw new Error('Style asset "' + stylesAssetFile + '" not found!');
+   * }
+   * const stylesContent = getAssetContent(stylesAsset);
+   * // if (opts.isDebug) {
+   * //   return [
+   * //     `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
+   * //     `<script type="text/javascript" src="data:text/javascript;base64,${btoa(scriptsContent)}"></script>`,
+   * //     `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
+   * //     '',
+   * //     `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
+   * //     `<link rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
+   * //     `<!-- DEBUG: Injected styles end (${stylesAssetFile}) -->`,
+   * //   ].join('\n');
+   * // }
+   * return [
+   *   `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
+   *   '<script type="text/javascript">',
+   *   scriptsContent,
+   *   '</script>',
+   *   `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
+   *   '',
+   *   `<!-- Inline styles begin (${stylesAssetFile}) -->`,
+   *   '<style type="text/css">',
+   *   stylesContent,
+   *   '</style>',
+   *   `<!-- Inline styles end (${stylesAssetFile}) -->`,
+   * ].join('\n');
+   */
 }
 
 /**

@@ -43,8 +43,10 @@ const appVersionHash = [
   .join(': ');
 const outPath = isDev ? 'build-dev' : 'build';
 
-const scriptsAssetFile = 'scripts.js';
-const stylesAssetFile = 'styles.css';
+const assetsPath = 'uploads/landing/';
+
+const scriptsAssetFile = assetsPath + 'scripts.js';
+const stylesAssetFile = assetsPath + 'styles.css';
 
 const localServerPrefix = '/'; // http://localhost:3000/';
 
@@ -54,7 +56,7 @@ const devtool = isDev
     ? 'inline-source-map'
     : 'source-map'
   : generateSourcesForProduction
-    ? 'inline-source-map'
+    ? 'source-map'
     : undefined;
 const minimizeAssets = !isDev || !useLocalServedScripts;
 
