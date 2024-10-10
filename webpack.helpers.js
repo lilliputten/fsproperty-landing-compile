@@ -2,13 +2,22 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 15:42
+ *  @changed 2024.10.10, 23:03
  */
+
+const fs = require('fs');
+const path = require('path');
 
 // eslint-disable-next-line no-unused-vars
 const webpack = require('webpack'); // Used only for typings
 
-const { scriptsAssetFile, stylesAssetFile, localServerPrefix } = require('./webpack.params');
+const {
+  scriptsAssetFile,
+  stylesAssetFile,
+  localServerPrefix,
+  customResources,
+  includeTemplateFile,
+} = require('./webpack.params');
 
 /** @param {webpack.sources.Source | webpack.sources.ConcatSource} asset */
 function getSourceContent(asset) {
@@ -49,7 +58,7 @@ function getCompilationScriptsContent(compilation, opts = {}) {
   if (opts.isDev && opts.useLocalServedScripts) {
     return [
       '<!-- DEV: Locally linked scripts & styles -->',
-      `<script src="${localServerPrefix}${scriptsAssetFile}"></script>`,
+      `<script type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}"></script>`,
       `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}" />`,
     ].join('\n');
   }
@@ -72,7 +81,7 @@ function getCompilationScriptsContent(compilation, opts = {}) {
   if (opts.isDebug) {
     return [
       `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
-      `<script src="data:text/javascript;base64,${btoa(scriptsContent)}"></script>`,
+      `<script type="text/javascript" src="data:text/javascript;base64,${btoa(scriptsContent)}"></script>`,
       `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
       '',
       `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
@@ -82,19 +91,41 @@ function getCompilationScriptsContent(compilation, opts = {}) {
   }
   return [
     `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
-    '<script>',
+    '<script type="text/javascript">',
     scriptsContent,
     '</script>',
     `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
     '',
     `<!-- Inline styles begin (${stylesAssetFile}) -->`,
-    '<style>',
+    '<style type="text/css">',
     stylesContent,
     '</style>',
     `<!-- Inline styles end (${stylesAssetFile}) -->`,
   ].join('\n');
 }
 
+/**
+ * @param {webpack.Compilation} compilation
+ * @param {object} [opts]
+ * @param {boolean} [opts.isDev]
+ * @param {boolean} [opts.isDebug]
+ * @param {boolean} [opts.useLocalServedScripts]
+ */
+function getIncludeFragment(compilation, opts) {
+  // Get scripts chunk content...
+  const includeContent = getCompilationScriptsContent(compilation, opts);
+  const includeFragment =
+    customResources +
+    fs
+      .readFileSync(path.resolve(__dirname, includeTemplateFile), {
+        encoding: 'utf8',
+      })
+      .trim()
+      .replace('{{CONTENT}}', includeContent);
+  return includeFragment;
+}
+
 module.exports = {
   getCompilationScriptsContent,
+  getIncludeFragment,
 };

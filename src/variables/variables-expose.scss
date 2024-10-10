@@ -8,15 +8,27 @@
 }
 
 :root {
-  --themeRedColor: #{$themeRedColor};
-  --themeMoodColor: #{$themeMoodColor};
-  --themeRedRBG: #{rgbComponents($themeRedColor)};
-  --themeMoodRBG: #{rgbComponents($themeMoodColor)};
+  // Colors...
 
-  --navbarHeight: #{$navbarHeight};
-  --topMenuHeight: #{$topMenuHeight};
+  --bgDarkColor: #{$bgDarkColor};
+  --bgDarkRGB: #{rgbComponents($bgDarkColor)};
 
-  --socialIconSize: #{$socialIconSize};
+  --headerDarkColor: #{$headerDarkColor};
+  --headerDarkRGB: #{rgbComponents($headerDarkColor)};
+
+  --goldColor: #{$goldColor};
+  --goldRGB: #{rgbComponents($goldColor)};
+
+  --grayLightColor: #{$grayLightColor};
+  --moodyMediumColor: #{$moodyMediumColor};
+  --buttonRedColor: #{$buttonRedColor};
+
+  // Fonts...
+
+  --softFont: #{$softFont};
+  --softFontIt: #{$softFontIt};
+
+  // Timeouts...
 
   --transitionTimeMs: #{$transitionTimeMs};
   --animationTimeMs: #{$animationTimeMs};

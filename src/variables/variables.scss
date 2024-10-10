@@ -1,21 +1,41 @@
-$themeRedColor: #d32;
-$themeMoodColor: #234;
+// Colors...
 
-$navbarHeight: 120px;
-$topMenuHeight: 50px;
+$bgDarkColor: #131014;
+$headerDarkColor: #404040;
+$grayLightColor: #CCCCCC;
+$moodyMediumColor: #78909C;
+$goldColor: #A39675;
+$buttonRedColor: #8C1515;
 
-$socialIconSize: 32px;
+// Fonts...
+
+$softFont: MinionPro-Regular, serif;
+$softFontIt: MinionPro-It, serif;
+
+/* Old variables...
+ *
+ * $themeRedColor: #d32;
+ * $themeMoodColor: #234;
+ *
+ * $navbarHeight: 120px;
+ * $topMenuHeight: 50px;
+ *
+ * $socialIconSize: 32px;
+ */
+
+// Timeouts...
 
 $transitionTimeMs: 250ms;
 $animationTimeMs: 500ms;
 $disappearTimeMs: 1000ms;
 
 // Adaptive layouts...
-$smallTreshold: 660px;
-$mobileTreshold: 980px;
-$wideTreshold: 1200px;
 
-// Export to TS code...
+$smTreshold: 768px;
+$mdTreshold: 992px;
+$lgTreshold: 1200px;
+
+// Export to TS code (TODO)...
 
 // Blocks
 $blockRootNode: '.t229';

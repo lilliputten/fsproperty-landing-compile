@@ -2,7 +2,7 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.10, 20:10
+ *  @changed 2024.10.10, 23:03
  */
 
 const fs = require('fs');
@@ -46,7 +46,7 @@ const outPath = isDev ? 'build-dev' : 'build';
 const scriptsAssetFile = 'scripts.js';
 const stylesAssetFile = 'styles.css';
 
-const localServerPrefix = 'http://localhost:3000/';
+const localServerPrefix = '/'; // http://localhost:3000/';
 
 // @see https://webpack.js.org/configuration/devtool/#devtool
 const devtool = isDev
@@ -57,6 +57,10 @@ const devtool = isDev
     ? 'inline-source-map'
     : undefined;
 const minimizeAssets = !isDev || !useLocalServedScripts;
+
+const customResources = `
+<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">
+`;
 
 // Info:
 console.log('DEV:', isDev); // eslint-disable-line no-console
@@ -102,4 +106,6 @@ module.exports = {
 
   devtool,
   minimizeAssets,
+
+  customResources,
 };

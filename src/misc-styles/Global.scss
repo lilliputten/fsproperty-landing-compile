@@ -1,3 +1,13 @@
-.body {
-  border: 2px solid red; // DEBUG
+body {
+  background-color: var(--bgDarkColor);
+}
+
+.sidebar {
+  display: none;
+}
+.main {
+  color: #fff;
+  .path {
+    display: none;
+  }
 }

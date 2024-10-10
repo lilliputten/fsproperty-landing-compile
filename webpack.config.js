@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.10, 20:02
+ *  @changed 2024.10.10, 23:03
  */
 
 const webpack = require('webpack');
@@ -13,7 +13,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { getCompilationScriptsContent } = require('./webpack.helpers');
+const { getCompilationScriptsContent, getIncludeFragment } = require('./webpack.helpers');
 const {
   isDev,
   isDebug,
@@ -35,12 +35,17 @@ module.exports = {
     // NOTE: See also `files` field in `tsconfig.json`
     './src/root.ts',
     // './src/styles.scss',
+    // './src/include-template.html',
   ],
   resolve: {
     extensions: ['.scss', '.sass', '.css', '.tsx', '.ts', '.js', '.svg'],
   },
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
       {
         test: /\.tsx?$/,
         // @see https://github.com/TypeStrong/ts-loader
@@ -151,22 +156,28 @@ module.exports = {
         /** @type {webpack.Compilation} */
         const compilation = args.compilation;
         // Get scripts chunk content...
-        const includeContent = getCompilationScriptsContent(compilation, {
+        // const includeContent = getCompilationScriptsContent(compilation, {
+        //   isDev,
+        //   isDebug,
+        //   useLocalServedScripts,
+        // });
+        // const content = fs
+        //   .readFileSync(path.resolve(__dirname, includeTemplateFile), {
+        //     encoding: 'utf8',
+        //   })
+        //   .trim()
+        //   .replace('{{CONTENT}}', includeContent);
+        // Get scripts chunk content...
+        const includeFragment = getIncludeFragment(compilation, {
           isDev,
           isDebug,
           useLocalServedScripts,
         });
-        const content = fs
-          .readFileSync(path.resolve(__dirname, includeTemplateFile), {
-            encoding: 'utf8',
-          })
-          .trim()
-          .replace('{{CONTENT}}', includeContent);
         return [
           // Combine template...
           '<!-- ' + appVersionHash + ' -->',
           '',
-          content,
+          includeFragment,
           '',
         ].join('\n');
       },
@@ -180,17 +191,11 @@ module.exports = {
         /** @type {webpack.Compilation} */
         const compilation = args.compilation;
         // Get scripts chunk content...
-        const includeContent = getCompilationScriptsContent(compilation, {
+        const includeFragment = getIncludeFragment(compilation, {
           isDev,
           isDebug,
           useLocalServedScripts,
         });
-        const includeFragment = fs
-          .readFileSync(path.resolve(__dirname, includeTemplateFile), {
-            encoding: 'utf8',
-          })
-          .trim()
-          .replace('{{CONTENT}}', includeContent);
         const previewFragment = fs
           .readFileSync(path.resolve(__dirname, previewTemplateFile), {
             encoding: 'utf8',
@@ -212,6 +217,7 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         extractComments: false,
+        // exclude: 'assets',
         terserOptions: {
           compress: {
             drop_debugger: false,
