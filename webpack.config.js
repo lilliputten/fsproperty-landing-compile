@@ -108,26 +108,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
         // More information here https://webpack.js.org/guides/asset-modules/
-        type: 'asset/inline',
-        // use: [
-        //   {
-        //     loader: 'url-loader',
-        //     options: {
-        //       limit: false,
-        //     },
-        //   },
-        // ],
-
-        // laoder: 'url',
-        /* generator: {
-         *   dataUrl: (content) => {
-         *     content = content.toString();
-         *     console.log('XXX', content);
-         *     process.exit(99);
-         *     return btoa(content); // svgToMiniDataURI(content);
-         *   },
-         * },
-         */
+        type: 'asset',
       },
     ],
   },
@@ -155,7 +136,6 @@ module.exports = {
       templateContent: (args) => {
         /** @type {webpack.Compilation} */
         const compilation = args.compilation;
-        // Get scripts chunk content...
         // Get scripts chunk content...
         const includeFragment = getIncludeFragment(compilation, {
           isDev,
@@ -219,6 +199,7 @@ module.exports = {
     filename: 'scripts.js',
     // NOTE: See also `outDir` field in `tsconfig.json`
     path: path.resolve(__dirname, outPath),
-    // assetModuleFilename: 'assets/[hash][ext][query]',
+    // @see https://webpack.js.org/configuration/output/#outputassetmodulefilename
+    assetModuleFilename: 'uploads/landing/[name]-[hash][ext][query]',
   },
 };

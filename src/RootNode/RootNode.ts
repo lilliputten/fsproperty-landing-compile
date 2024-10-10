@@ -1,6 +1,6 @@
 // import { blockRootNode } from '../variables';
 
-import './RootNode.styles.scss';
+// import './RootNode.styles.scss';
 
 export function initRootNode() {
   const sidebarNode = document.querySelector('.sidebar');

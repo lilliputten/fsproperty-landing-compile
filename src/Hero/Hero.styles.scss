@@ -1,7 +1,7 @@
 @import '../variables';
 
 .HeroMain {
-  $basicTreshold: $smTreshold;
+  $basicTreshold: $mdTreshold;
   $heroHeight: 540px;
   $heroHeightSmall: 240px;
 
@@ -48,13 +48,12 @@
       padding: 20px;
       // display: flex;
     }
-    .title {
+    .Title {
       color: var(--goldColor);
-      // font-size: 4em;
       font-size: 10vw;
       font-family: var(--softFontIt);
     }
-    .subtitle {
+    .SubTitle {
       color: var(--goldColor);
       font-size: 2em;
       font-size: 5vw;
@@ -67,6 +66,7 @@
       border-radius: 6px;
       display: block;
       margin-top: 2em;
+      margin-bottom: 2em;
       white-space: normal;
       transition: all var(--transitionTimeMs);
       &:hover {
@@ -85,16 +85,17 @@
     }
     .HeroMainBlock {
       flex: 1;
-      .title {
+      .Title {
         font-size: 4vw;
         font-family: $softFontIt;
       }
-      .subtitle {
+      .SubTitle {
         font-size: 2vw;
       }
       .LandingButton {
         font-size: 1.25em;
         margin-top: 3em;
+        margin-bottom: 0;
       }
     }
   }
