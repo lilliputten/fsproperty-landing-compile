@@ -1,0 +1,80 @@
+@import '../variables';
+
+.ServicesSection {
+  background-color: $servicesDarkColor;
+  .ServicesContent {
+    margin: 4em 2em;
+  }
+  .ItemsRow {
+    margin-top: 4em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    @media (width >= $mdTreshold) {
+      flex-direction: row;
+    }
+    > a {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      color: var(--goldColor);
+      transition: all var(--transitionTimeMs);
+      &:hover {
+        // color: var(--goldColor);
+        opacity: 0.8;
+      }
+    }
+  }
+  .ItemImg {
+    position: relative;
+    height: 120px;
+    border-radius: 8px;
+    &,
+    &:after {
+      // LazyImage:after
+      // background-image: url('../images/Services/estimate.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &#estimate {
+      &,
+      &:after {
+        background-image: url('../images/Services/estimate-thumb.jpg');
+      }
+    }
+    &#agreement {
+      &,
+      &:after {
+        background-image: url('../images/Services/agreement-thumb.jpg');
+      }
+    }
+    &#photo {
+      &,
+      &:after {
+        background-image: url('../images/Services/photo-thumb.jpg');
+      }
+    }
+    &#preparation {
+      &,
+      &:after {
+        background-image: url('../images/Services/preparation-thumb.jpg');
+      }
+    }
+    &#support {
+      &,
+      &:after {
+        background-image: url('../images/Services/support-thumb.jpg');
+      }
+    }
+  }
+  .ItemText {
+    font-family: var(--softFont);
+    font-size: 1.5em;
+    line-height: 1.3;
+    text-align: center;
+  }
+}
