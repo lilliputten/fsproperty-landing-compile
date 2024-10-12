@@ -5,6 +5,7 @@
     margin: 2em;
     position: relative;
     .Visual {
+      position: sticky;
       @mixin hSpace($size) {
         left: $size;
         right: $size;
@@ -22,13 +23,14 @@
         position: absolute;
       }
       display: block;
-      // content: '';
-      // border: 1px solid red !important; // DEBUG
-      // background-image: url('../assets/Star/advantbg.png');
-      background-image: url('../images/Star/advantbg-thumb.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
+      &,
+      &:after {
+        // LazyImage:after
+        background-image: url('../images/Star/advantbg-thumb.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
     }
     display: flex;
     flex-direction: column;

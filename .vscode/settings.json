@@ -1,5 +1,6 @@
 {
   "search.exclude": {
+    "preview-public": true,
     "compiled-assets": true,
     "static": true,
     "build": true,

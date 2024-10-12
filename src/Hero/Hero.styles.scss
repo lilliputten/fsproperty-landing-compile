@@ -34,18 +34,19 @@
     position: relative;
     overflow: hidden;
     .FullVisual {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      // border: 2px solid red;
-      background-image: url('../images/Hero/visual-background-thumb.jpg');
-      // background-image: url('../assets/Hero/visual-background-thumb.jpg');
-      // background-image-original: url('../assets/Hero/visual-background.jpg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+      &,
+      &:after {
+        // LazyImage:after
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url('../images/Hero/visual-background-thumb.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
     height: 50vmin; // $heroHeightSmall;
     min-height: 200px;
