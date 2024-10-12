@@ -4,7 +4,7 @@
   .content {
     margin: 2em;
     position: relative;
-    &:before {
+    .Visual {
       @mixin hSpace($size) {
         left: $size;
         right: $size;
@@ -22,9 +22,10 @@
         position: absolute;
       }
       display: block;
-      content: '';
+      // content: '';
       // border: 1px solid red !important; // DEBUG
-      background-image: url('../assets/Star/advantbg.png');
+      // background-image: url('../assets/Star/advantbg.png');
+      background-image: url('../images/Star/advantbg-thumb.png');
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;

@@ -13,6 +13,7 @@ import './misc-styles';
 
 import { initRootNode } from './RootNode';
 import { initHero } from './Hero';
+import { initLazyImages } from './LazyImages';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;
@@ -25,6 +26,7 @@ consoleMethod.call(console, appVersion);
 function initPage() {
   // console.log('[root:initPage]');
   // Start subcomponents...
+  initLazyImages();
   initRootNode();
   initHero();
 }

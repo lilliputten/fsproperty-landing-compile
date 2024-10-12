@@ -7,6 +7,8 @@
 
 const webpack = require('webpack');
 
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+
 const fs = require('fs');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -111,6 +113,11 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
         // More information here https://webpack.js.org/guides/asset-modules/
         type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 64 * 1024, // 4kb
+          },
+        },
       },
     ],
   },
@@ -128,6 +135,7 @@ module.exports = {
         // Files to copy...
         { from: appInfoFile },
         { from: 'preview-public' },
+        { from: 'src/images', to: 'uploads/landing/images' },
       ],
     }),
     new HtmlWebpackPlugin({
@@ -192,6 +200,23 @@ module.exports = {
         terserOptions: {
           compress: {
             drop_debugger: false,
+          },
+        },
+      }),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.sharpMinify,
+          options: {
+            /* resize: {
+             *   enabled: true,
+             *   width: 5,
+             *   unit: 'percent',
+             * },
+             */
+            encodeOptions: {
+              // Your options for `sharp`
+              // https://sharp.pixelplumbing.com/api-output
+            },
           },
         },
       }),
