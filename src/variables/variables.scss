@@ -1,5 +1,9 @@
 // Colors...
 
+$appId: 'for-owners';
+$appFolder: 'landing-#{$appId}';
+$uploadsFolder: 'uploads/#{$appFolder}';
+
 $bgDarkColor: #131014;
 $headerDarkColor: #404040;
 $grayLightColor: #cccccc;

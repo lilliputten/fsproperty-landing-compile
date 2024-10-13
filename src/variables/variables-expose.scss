@@ -10,6 +10,10 @@
 :root {
   // Colors...
 
+  --appId: #{$appId};
+  --appFolder: #{$appFolder};
+  --uploadsFolder: #{$uploadsFolder};
+
   --bgDarkColor: #{$bgDarkColor};
   --bgDarkRGB: #{rgbComponents($bgDarkColor)};
 

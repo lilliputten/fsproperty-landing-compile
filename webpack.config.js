@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.10, 23:03
+ *  @changed 2024.10.13, 18:41
  */
 
 const webpack = require('webpack');
@@ -29,6 +29,7 @@ const {
   minimizeAssets,
   scriptsAssetFile,
   stylesAssetFile,
+  appFolder,
 } = require('./webpack.params');
 
 module.exports = {
@@ -134,8 +135,9 @@ module.exports = {
       patterns: [
         // Files to copy...
         { from: appInfoFile },
+        { from: appInfoFile, to: `uploads/${appFolder}/` },
+        { from: 'src/images', to: `uploads/${appFolder}/images` },
         { from: 'preview-public' },
-        { from: 'src/images', to: 'uploads/landing/images' },
       ],
     }),
     new HtmlWebpackPlugin({
@@ -227,6 +229,6 @@ module.exports = {
     // NOTE: See also `outDir` field in `tsconfig.json`
     path: path.resolve(__dirname, outPath),
     // @see https://webpack.js.org/configuration/output/#outputassetmodulefilename
-    assetModuleFilename: 'uploads/landing/assets/[name][ext][query]',
+    assetModuleFilename: `uploads/${appFolder}/assets/[name][ext][query]`,
   },
 };
