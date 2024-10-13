@@ -1,6 +1,6 @@
 /** @module Scripts root module
  *  @since 2024.10.10, 15:26
- *  @changed 2024.10.10, 21:51
+ *  @changed 2024.10.13, 19:40
  */
 
 // NOTE: Templates are including only for dev-mode update
@@ -14,6 +14,7 @@ import './misc-styles';
 import { initRootNode } from './RootNode';
 import { initHero } from './Hero';
 import { initLazyImages } from './LazyImages';
+import { initRequestFormModal } from './RequestFormModal';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;
@@ -29,6 +30,7 @@ function initPage() {
   initLazyImages();
   initRootNode();
   initHero();
+  initRequestFormModal();
 }
 
 window.addEventListener('load', initPage);

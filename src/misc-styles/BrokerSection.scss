@@ -2,7 +2,7 @@
 
 .BrokerSection {
   border: 2px solid red;
-  $minWidth: 500px;
+  $minWidth: 650px;
   .BrokerContent {
     margin: 0;
   }
@@ -63,14 +63,18 @@
     }
   }
   .Items {
-    @media (width < $smTreshold) {
-      order: 1;
-      grid-column: span 2;
-    }
     position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
+    @media (width < $smTreshold) {
+      order: 1;
+      grid-column: span 2;
+      flex-direction: column;
+    }
+    @media (width < $minWidth) {
+      text-align: center;
+    }
     @media (width >= $mdTreshold) {
       gap: 1.75em;
     }
@@ -90,13 +94,16 @@
     }
   }
   .Buttons {
-    margin-bottom: 4em;
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     @media (width < $smTreshold) {
       order: 2;
     }
+    @media (width < $minWidth) {
+      justify-content: center;
+    }
+    margin-bottom: 4em;
     .BrokerButton {
       font-size: 1em;
       padding: 1em 2em;

@@ -2,7 +2,7 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.13, 18:46
+ *  @changed 2024.10.13, 19:26
  */
 
 const fs = require('fs');
@@ -49,7 +49,7 @@ const appFolder = `landing-${appId}`;
 const uploadsFolder = `uploads/${appFolder}`;
 
 /** Assets target path */
-const assetsPath = `uploads/${appFolder}/`;
+const assetsPath = `${uploadsFolder}/`;
 
 const scriptsAssetFile = assetsPath + 'scripts.js';
 const stylesAssetFile = assetsPath + 'styles.css';
@@ -67,9 +67,12 @@ const devtool = isDev
 const minimizeAssets = !isDev || !useLocalServedScripts;
 
 // Inluce other resources here, to protect webpack from changing the urls (and trying to find the resource and include to the build)
-const customResources = `
-<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">
-`;
+const customResources = [
+  '<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">',
+  // '<script src="https://cdn.jsdelivr.net/npm/bootstrap3@3.3.5/dist/js/bootstrap.min.js"></script>',
+]
+  .filter(Boolean)
+  .join('\n');
 
 // Info:
 console.log('DEV:', isDev); // eslint-disable-line no-console

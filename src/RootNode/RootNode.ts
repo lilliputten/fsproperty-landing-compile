@@ -1,5 +1,3 @@
-// import { blockRootNode } from '../variables';
-
 // import './RootNode.styles.scss';
 
 export function initRootNode() {

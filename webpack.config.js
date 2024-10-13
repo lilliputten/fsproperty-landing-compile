@@ -229,6 +229,6 @@ module.exports = {
     // NOTE: See also `outDir` field in `tsconfig.json`
     path: path.resolve(__dirname, outPath),
     // @see https://webpack.js.org/configuration/output/#outputassetmodulefilename
-    assetModuleFilename: `uploads/${appFolder}/assets/[name][ext][query]`,
+    assetModuleFilename: `uploads/${appFolder}/assets/[name]-[hash][ext][query]`,
   },
 };
