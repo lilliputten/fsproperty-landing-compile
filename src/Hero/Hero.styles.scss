@@ -58,7 +58,7 @@
     align-items: center;
     .Wrapper {
       padding: 20px;
-      // display: flex;
+      text-align: center;
     }
     .Title {
       color: var(--goldColor);
@@ -77,8 +77,9 @@
       text-transform: uppercase;
       border-radius: 6px;
       display: block;
-      margin-top: 2em;
-      margin-bottom: 2em;
+      // margin-top: 2em;
+      // margin-bottom: 2em;
+      margin: 2em auto;
       white-space: normal;
       transition: all var(--transitionTimeMs);
       &:hover {
@@ -97,6 +98,9 @@
     }
     .HeroMainBlock {
       flex: 1;
+      .Wrapper {
+        text-align: left;
+      }
       .Title {
         font-size: 4vw;
         font-family: $softFontIt;
@@ -106,8 +110,8 @@
       }
       .LandingButton {
         font-size: 1.25em;
+        margin: 0;
         margin-top: 3em;
-        margin-bottom: 0;
       }
     }
   }

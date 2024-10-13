@@ -2,4 +2,118 @@
 
 .BrokerSection {
   border: 2px solid red;
+  $minWidth: 500px;
+  .BrokerContent {
+    margin: 0;
+  }
+  .LandingTitle {
+    margin: 1.4em 0;
+  }
+  .Layout {
+    position: relative;
+    margin: 0 2em;
+    @media (width < $minWidth) {
+      display: flex;
+      flex-direction: column;
+      gap: 3em;
+    }
+    @media (width >= $minWidth) {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-gap: 2em;
+      align-items: center;
+    }
+    @media (width >= $mdTreshold) {
+      grid-template-columns: 1fr 3fr;
+      grid-gap: 3em;
+    }
+    @media (width < $smTreshold) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  .Visual {
+    position: sticky;
+    min-height: 420px;
+    height: 100%;
+    padding: 4em 0;
+    @media (width < $smTreshold) {
+      order: 3;
+    }
+    @media (width >=$smTreshold) {
+      grid-row: span 2;
+    }
+    @media (width < $minWidth) {
+      display: none;
+    }
+    &,
+    &:after {
+      // LazyImage:after
+      background-image: url('../images/Broker/office1-thumb.png');
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    @media (width < $smTreshold) {
+      // order: 2;
+      min-height: 200px;
+      &,
+      &:after {
+        background-position: right bottom;
+      }
+    }
+  }
+  .Items {
+    @media (width < $smTreshold) {
+      order: 1;
+      grid-column: span 2;
+    }
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    @media (width >= $mdTreshold) {
+      gap: 1.75em;
+    }
+    a {
+      @media (width >= $mdTreshold) {
+        width: 45%;
+      }
+      display: block;
+      font-family: var(--softFont);
+      color: var(--goldColor);
+      font-size: 1.75em;
+      line-height: 1.4;
+      transition: all var(--transitionTimeMs);
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  .Buttons {
+    margin-bottom: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    @media (width < $smTreshold) {
+      order: 2;
+    }
+    .BrokerButton {
+      font-size: 1em;
+      padding: 1em 2em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      display: inline-block;
+      // margin-top: 2em;
+      // margin-bottom: 2em;
+      white-space: normal;
+      transition: all var(--transitionTimeMs);
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  .MainContent {
+    flex: 2;
+    margin: 4em 0;
+  }
 }

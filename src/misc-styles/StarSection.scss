@@ -1,37 +1,9 @@
 @import '../variables';
 
 .StarSection {
-  .content {
+  .StarContent {
     margin: 2em;
     position: relative;
-    .Visual {
-      position: sticky;
-      @mixin hSpace($size) {
-        left: $size;
-        right: $size;
-      }
-      @mixin vSpace($size) {
-        top: $size;
-        bottom: $size;
-      }
-      @include hSpace(35%);
-      @media (width < $mdTreshold) {
-        height: 200px;
-      }
-      @media (width >= $mdTreshold) {
-        @include vSpace(2em);
-        position: absolute;
-      }
-      // display: block;
-      &,
-      &:after {
-        // LazyImage:after
-        background-image: url('../images/Star/advantbg-thumb.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-      }
-    }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,27 +13,55 @@
     @media (width >= $lgTreshold) {
       min-height: 500px;
     }
-    .ItemsRow {
-      display: flex;
-      @media (width < $mdTreshold) {
-        flex-direction: column;
-      }
-      flex-wrap: wrap;
-      justify-content: space-between;
+  }
+  .Visual {
+    position: sticky;
+    @mixin hSpace($size) {
+      left: $size;
+      right: $size;
     }
-    .Item {
-      @media (width >= $mdTreshold) {
-        width: 360px;
-      }
-      line-height: 1.3;
-      h2 {
-        font-family: var(--softFont);
-        color: var(--goldColor);
-        font-size: 2em;
-      }
-      p {
-        font-size: 1.2em;
-      }
+    @mixin vSpace($size) {
+      top: $size;
+      bottom: $size;
+    }
+    @include hSpace(35%);
+    @media (width < $mdTreshold) {
+      height: 200px;
+    }
+    @media (width >= $mdTreshold) {
+      @include vSpace(2em);
+      position: absolute;
+    }
+    // display: block;
+    &,
+    &:after {
+      // LazyImage:after
+      background-image: url('../images/Star/advantbg-thumb.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+  .ItemsRow {
+    display: flex;
+    @media (width < $mdTreshold) {
+      flex-direction: column;
+    }
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .Item {
+    @media (width >= $mdTreshold) {
+      width: 360px;
+    }
+    line-height: 1.3;
+    h2 {
+      font-family: var(--softFont);
+      color: var(--goldColor);
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.2em;
     }
   }
 }
