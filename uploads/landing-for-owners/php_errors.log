@@ -1,7 +1,0 @@
-[13-Oct-2024 16:17:09 UTC] PHP Parse error:  syntax error, unexpected token "{" in D:\Work\Myhoster\240930-fsproperty\compile\preview-public\uploads\landing-for-owners\dummy-submit-hook.php on line 8
-[13-Oct-2024 16:17:53 UTC] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
-[13-Oct-2024 16:17:53 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "ok" in D:\Work\Myhoster\240930-fsproperty\compile\preview-public\uploads\landing-for-owners\dummy-submit-hook.php:9
-Stack trace:
-#0 {main}
-  thrown in D:\Work\Myhoster\240930-fsproperty\compile\preview-public\uploads\landing-for-owners\dummy-submit-hook.php on line 9
-[13-Oct-2024 16:18:06 UTC] Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
