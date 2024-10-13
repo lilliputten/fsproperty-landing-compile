@@ -1,4 +1,4 @@
-<!-- DEBUG: fsproperty-landing-compile v.0.0.3 / 2024.10.13 00:54 +0300 -->
+<!-- DEBUG: fsproperty-landing-compile v.0.0.4 / 2024.10.13 15:58 +0300 -->
 
 <!--
 @desc Preview
@@ -456,7 +456,6 @@
 <!--
 @desc Include content
 @changed 2024.10.10, 21:50
-vim: ft=html
 -->
 
 <!-- Resources begin -->
@@ -465,14 +464,7 @@ vim: ft=html
 <link rel="stylesheet" type="text/css" href="/uploads/landing/styles.css" />
 <!-- Resources end -->
 
-<!-- BEFORE (from site template)
-<div class="main HeroMain">
-  <div class="container HeroContainer">
-    <div class="row HeroRow">
-      <div class="content HeroVisualBlock">
--->
-
-<!-- Hero block section begin -->
+        <!-- Hero block section begin -->
 
         <!-- Visual -->
         <div
@@ -480,18 +472,17 @@ vim: ft=html
           data-original-image="/uploads/landing/images/Hero/visual-background.jpg"
           data-lazy-mode="background-after"
         ></div>
-
       </div>
       <div class="content HeroMainBlock">
         <div class="Wrapper">
-
           <h2 class="Title">Собственникам</h2>
           <h3 class="SubTitle">Быстро и надёжно</h3>
-          <button class="btn LandingButton">Продать объект любой сложности</button>
-
+          <button class="btn LandingButton RequestFormButton">
+            Продать объект любой сложности
+          </button>
         </div>
 
-<!-- Hero block section end -->
+        <!-- Hero block section end -->
       </div>
     </div>
   </div>
@@ -502,23 +493,31 @@ vim: ft=html
   <div class="container WhyContainer">
     <div class="row WhyRow">
       <div class="content col-12 WhyContent">
-
         <h2 class="LandingTitle"><span>Почему FS-Property?</span></h2>
 
         <div class="WhyColumns">
           <div class="WhyItem">
             <p class="Number">25 <small>лет</small></p>
-            <p class="Explanation">на рынке элитной<br/> недвижимости</p>
+            <p class="Explanation">
+              на рынке элитной<br />
+              недвижимости
+            </p>
             <p class="Text">Наши эксперты — признанные лидеры</p>
           </div>
           <div class="WhyItem">
             <p class="Number">1250</p>
-            <p class="Explanation">Реализованных<br/> объектов</p>
+            <p class="Explanation">
+              Реализованных<br />
+              объектов
+            </p>
             <p class="Text">Мы сотрудничаем с ключевыми девелоперами элитного рынка недвижимости</p>
           </div>
           <div class="WhyItem">
             <p class="Number">125</p>
-            <p class="Explanation">Компания<br/> партнеров</p>
+            <p class="Explanation">
+              Компания<br />
+              партнеров
+            </p>
             <p class="Text">Мы сотрудничаем с ключевыми девелоперами элитного рынка недвижимости</p>
           </div>
         </div>
@@ -526,13 +525,13 @@ vim: ft=html
         <div class="AreaLogo">
           <a href="https://areaestate.ru/" target="_blank">
             <span class="Logo"></span>
-            <span class="Text1">Участник ассоциации агентств  элитной недвижимости</span>
+            <span class="Text1">Участник ассоциации агентств элитной недвижимости</span>
             <span class="Text2">since 2020</span>
             <!-- <img src="./assets/Why/area-logo.svg" width="132" height="30" /> -->
           </a>
         </div>
 
-<!-- Section end -->
+        <!-- Section end -->
       </div>
     </div>
   </div>
@@ -542,11 +541,9 @@ vim: ft=html
 <div class="main StarSection">
   <div class="container StarContainer">
     <div class="row StarRow">
-      <div
-        class="content col-12 StarContent"
-      >
-
-        <div class="Visual LazyImage"
+      <div class="content col-12 StarContent">
+        <div
+          class="Visual LazyImage"
           data-original-image="/uploads/landing/images/Star/advantbg.png"
           data-lazy-mode="background-after"
         ></div>
@@ -554,25 +551,40 @@ vim: ft=html
         <div class="ItemsRow">
           <div class="Item">
             <h2>Экспертиза</h2>
-            <p>Мы занимаемся продажей элитной недвижимости более 20 лет. Это 1200 успешно проведенных сделок разной категории сложности. Поэтому, мы понимаем, что необходимо нашим клиентам и ценим их деньги и время.</p>
+            <p>
+              Мы занимаемся продажей элитной недвижимости более 20 лет. Это 1200 успешно проведенных
+              сделок разной категории сложности. Поэтому, мы понимаем, что необходимо нашим клиентам
+              и ценим их деньги и время.
+            </p>
           </div>
           <div class="Item">
             <h2>Клиентская база</h2>
-            <p>В ресурсе компании огромная клиентская база, позволяющая в кратчайшие сроки и без рекламы найти покупателя на вашу недвижимость.</p>
+            <p>
+              В ресурсе компании огромная клиентская база, позволяющая в кратчайшие сроки и без
+              рекламы найти покупателя на вашу недвижимость.
+            </p>
           </div>
         </div>
         <div class="ItemsRow">
           <div class="Item">
             <h2>Репутация</h2>
-            <p>Наши топ-брокеры известны всему рынку недвижимости, как профессионалы высочайшего уровня, которым можно доверить решение самых сложных и неординарных задач. И не случайно, 60% из всех клиентских обращений в компанию носят рекомендательный характер.</p>
+            <p>
+              Наши топ-брокеры известны всему рынку недвижимости, как профессионалы высочайшего
+              уровня, которым можно доверить решение самых сложных и неординарных задач. И не
+              случайно, 60% из всех клиентских обращений в компанию носят рекомендательный характер.
+            </p>
           </div>
           <div class="Item">
             <h2>Безопасность</h2>
-            <p>Комфорт в общении с нашими экспертами, высочайший сервис и юридическая поддержка от профессиональных юристов, гарантируют полную безопасность проведения сделки и превратят для Вас сложный процесс продажи в удовольствие.</p>
+            <p>
+              Комфорт в общении с нашими экспертами, высочайший сервис и юридическая поддержка от
+              профессиональных юристов, гарантируют полную безопасность проведения сделки и
+              превратят для Вас сложный процесс продажи в удовольствие.
+            </p>
           </div>
         </div>
 
-<!-- Section end -->
+        <!-- Section end -->
       </div>
     </div>
   </div>
@@ -582,21 +594,17 @@ vim: ft=html
 <div class="main ServicesSection">
   <div class="container ServicesContainer">
     <div class="row ServicesRow">
-      <div
-        class="content col-12 ServicesContent"
-      >
-
+      <div class="content col-12 ServicesContent">
         <h2 class="LandingTitle"><span>Полный комплекс услуг</span></h2>
 
         <div class="ItemsRow">
-
           <a href="/estimate">
             <div
               id="estimate"
               class="ItemImg LazyImage"
               data-original-image="/uploads/landing/images/Services/estimate.jpg"
               data-lazy-mode="background-after"
-             ></div>
+            ></div>
             <div class="ItemText">Оценка</div>
           </a>
 
@@ -606,7 +614,7 @@ vim: ft=html
               class="ItemImg LazyImage"
               data-original-image="/uploads/landing/images/Services/agreement.jpg"
               data-lazy-mode="background-after"
-             ></div>
+            ></div>
             <div class="ItemText">Эксклюзивный договор</div>
           </a>
 
@@ -616,7 +624,7 @@ vim: ft=html
               class="ItemImg LazyImage"
               data-original-image="/uploads/landing/images/Services/preparation.jpg"
               data-lazy-mode="background-after"
-             ></div>
+            ></div>
             <div class="ItemText">Подготовка объекта</div>
           </a>
 
@@ -626,7 +634,7 @@ vim: ft=html
               class="ItemImg LazyImage"
               data-original-image="/uploads/landing/images/Services/photo.jpg"
               data-lazy-mode="background-after"
-             ></div>
+            ></div>
             <div class="ItemText">Профессиональная фотосессия и создание портфолио объекта</div>
           </a>
 
@@ -636,19 +644,46 @@ vim: ft=html
               class="ItemImg LazyImage"
               data-original-image="/uploads/landing/images/Services/support.jpg"
               data-lazy-mode="background-after"
-             ></div>
+            ></div>
             <div class="ItemText">Юридическое сопровождение</div>
           </a>
-
         </div>
 
-<!-- Section end -->
-<!-- AFTER (from site template)
+        <!-- Section end -->
       </div>
     </div>
   </div>
 </div>
--->
+
+<!-- Services section -->
+<div class="main BrokerSection">
+  <div class="container BrokerContainer">
+    <div class="row BrokerRow">
+      <div class="content col-12 BrokerContent">
+        <h2 class="LandingTitle"><span>Personal Broker</span></h2>
+
+        <div class="Layout">
+          <div
+            class="Visual LazyImage"
+            data-original-image="/uploads/landing/images/Broker/office1.png"
+            data-lazy-mode="background-after"
+          ></div>
+
+          <div class="Items">
+            <a href="/link">Оценит недвижимость</a>
+            <a href="/link">Подготовит объект к продаже</a>
+            <a href="/link">Подготовит документы</a>
+            <a href="/link">Профессионально презентует объект</a>
+            <a href="/link">Действует как доверенное лицо</a>
+            <a href="/link">Эксклюзивное представительство</a>
+          </div>
+          <div class="Buttons">
+            <a class="btn BrokerButton" href="tel:+7-123-4567890">Позвонить</a>
+            <button class="btn BrokerButton RequestFormButton">Оставить заявку</button>
+          </div>
+        </div>
+
+        <!-- Section end -->
 
               <!-- }}} CONTENT END -->
             </div>
