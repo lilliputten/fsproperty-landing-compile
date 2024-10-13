@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.13, 15:58
+ *  @changed 2024.10.13, 18:55
  */
 
 const fs = require('fs');
@@ -17,6 +17,10 @@ const {
   localServerPrefix,
   customResources,
   includeTemplateFile,
+  appVersionTag,
+  appId,
+  appFolder,
+  uploadsFolder,
 } = require('./webpack.params');
 
 /** @param {webpack.sources.Source | webpack.sources.ConcatSource} asset */
@@ -57,8 +61,8 @@ function getCompilationScriptsContent(_compilation, _opts = {}) {
   // if (opts.isDev && opts.useLocalServedScripts) {
   return [
     '<!-- DEV: Locally linked scripts & styles -->',
-    `<script type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}"></script>`,
-    `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}" />`,
+    `<script type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
+    `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}?${appVersionTag}" />`,
   ].join('\n');
   // }
   /* // Generate inline asets from the compilation...
@@ -110,6 +114,9 @@ function getIncludeTemplate() {
       encoding: 'utf8',
     })
     .replace(/{#[\s\S]+?#}/gm, '')
+    .replace(/\{\{appId\}\}/g, appId)
+    .replace(/\{\{appFolder\}\}/g, appFolder)
+    .replace(/\{\{uploadsFolder\}\}/g, uploadsFolder)
     .replace(/[ \t]+\n/gm, '\n')
     .replace(/\n{3,}/gm, '\n\n')
     .trim();

@@ -2,7 +2,7 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.10, 23:03
+ *  @changed 2024.10.13, 18:46
  */
 
 const fs = require('fs');
@@ -27,7 +27,7 @@ const appInfoContent = fs.readFileSync(path.resolve(__dirname, appInfoFile), {
   encoding: 'utf8',
 });
 const appInfo = JSON.parse(appInfoContent);
-const { projectName, version, timestamp } = appInfo;
+const { projectName, version, timestamp, timetag } = appInfo;
 const appVersionHash = [
   [
     // Debug & dev flags...
@@ -41,9 +41,15 @@ const appVersionHash = [
 ]
   .filter(Boolean)
   .join(': ');
+const appVersionTag = 'v.' + version + '-' + timetag;
 const outPath = isDev ? 'build-dev' : 'build';
 
-const assetsPath = 'uploads/landing/';
+const appId = 'for-owners';
+const appFolder = `landing-${appId}`;
+const uploadsFolder = `uploads/${appFolder}`;
+
+/** Assets target path */
+const assetsPath = `uploads/${appFolder}/`;
 
 const scriptsAssetFile = assetsPath + 'scripts.js';
 const stylesAssetFile = assetsPath + 'styles.css';
@@ -99,8 +105,13 @@ module.exports = {
   appInfoContent,
   appInfo,
   appVersionHash,
+  appVersionTag,
 
   outPath,
+
+  appId,
+  appFolder,
+  uploadsFolder,
 
   scriptsAssetFile,
   stylesAssetFile,
