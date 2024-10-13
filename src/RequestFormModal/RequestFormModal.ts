@@ -33,7 +33,7 @@ function getModalWrapperTemplate() {
         </button>
       </div>
       <div class="modal-body">
-        <div class="ShowFormo DemoForm">
+        <div class="ShowForm DemoForm">
           --- Форма заявки ---
         </div>
         <div class="ShowMessage">

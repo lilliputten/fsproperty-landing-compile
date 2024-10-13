@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.13, 18:41
+ *  @changed 2024.10.13, 23:17
  */
 
 const webpack = require('webpack');
@@ -31,6 +31,13 @@ const {
   stylesAssetFile,
   appFolder,
 } = require('./webpack.params');
+
+/** Exclusions for copy plugin */
+const globOptions = {
+  // dot: true,
+  gitignore: true,
+  // ignore: ['**/file.*', '**/ignored-directory/**'],
+};
 
 module.exports = {
   mode: 'production',
@@ -132,12 +139,14 @@ module.exports = {
       filename: stylesAssetFile,
     }),
     new CopyPlugin({
+      // @see https://webpack.js.org/plugins/copy-webpack-plugin/
+      // TODO: Exclude log, swap & temp files
       patterns: [
         // Files to copy...
         { from: appInfoFile },
         { from: appInfoFile, to: `uploads/${appFolder}/` },
-        { from: 'src/images', to: `uploads/${appFolder}/images` },
-        { from: 'preview-public' },
+        { from: 'src/images', to: `uploads/${appFolder}/images`, globOptions },
+        { from: 'preview-public', globOptions },
       ],
     }),
     new HtmlWebpackPlugin({
