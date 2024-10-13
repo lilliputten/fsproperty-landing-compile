@@ -105,6 +105,18 @@ function getCompilationScriptsContent(compilation, opts = {}) {
    */
 }
 
+function getIncludeTemplate() {
+  const content = fs
+    .readFileSync(path.resolve(__dirname, includeTemplateFile), {
+      encoding: 'utf8',
+    })
+    .replace(/{#[\s\S]+?#}/gm, '')
+    .replace(/[ \t]+\n/gm, '\n')
+    .replace(/\n{3,}/gm, '\n\n')
+    .trim();
+  return content;
+}
+
 /**
  * @param {webpack.Compilation} compilation
  * @param {object} [opts]
@@ -117,11 +129,12 @@ function getIncludeFragment(compilation, opts) {
   const includeContent = getCompilationScriptsContent(compilation, opts);
   const includeFragment =
     customResources +
-    fs
-      .readFileSync(path.resolve(__dirname, includeTemplateFile), {
-        encoding: 'utf8',
-      })
-      .trim()
+    getIncludeTemplate()
+      // fs
+      //   .readFileSync(path.resolve(__dirname, includeTemplateFile), {
+      //     encoding: 'utf8',
+      //   })
+      //   .trim()
       .replace('{{CONTENT}}', includeContent);
   return includeFragment;
 }

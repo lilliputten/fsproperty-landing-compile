@@ -19,7 +19,7 @@
 /utils
 
 /preview-public
-/src/*.html
+/src/preview-template*
 
 package-lock.*
 **/*_

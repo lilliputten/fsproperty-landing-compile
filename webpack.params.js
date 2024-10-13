@@ -60,6 +60,7 @@ const devtool = isDev
     : undefined;
 const minimizeAssets = !isDev || !useLocalServedScripts;
 
+// Inluce other resources here, to protect webpack from changing the urls (and trying to find the resource and include to the build)
 const customResources = `
 <link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">
 `;
