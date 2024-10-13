@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.11, 01:59
+ *  @changed 2024.10.13, 15:58
  */
 
 const fs = require('fs');
@@ -32,7 +32,7 @@ function getSourceContent(asset) {
 }
 
 /** @param {webpack.sources.Source | webpack.sources.ConcatSource} asset */
-function getAssetContent(asset) {
+function _getAssetContent(asset) {
   /** @type {string} */
   let content = '';
   // Extract content from a list of children or a single item...
@@ -40,7 +40,6 @@ function getAssetContent(asset) {
   if (typeof concatSourceAsset.getChildren === 'function') {
     const sources = concatSourceAsset.getChildren();
     content = sources.map(getSourceContent).join('');
-    // content = sources.map((s) => s.source()).join('');
   } else {
     content = getSourceContent(asset);
   }
@@ -48,13 +47,13 @@ function getAssetContent(asset) {
 }
 
 /**
- * @param {webpack.Compilation} compilation
- * @param {object} [opts]
- * @param {boolean} [opts.isDev]
- * @param {boolean} [opts.isDebug]
- * @param {boolean} [opts.useLocalServedScripts]
+ * @param {webpack.Compilation} _compilation
+ * @param {object} [_opts]
+ * @param {boolean} [_opts.isDev]
+ * @param {boolean} [_opts.isDebug]
+ * @param {boolean} [_opts.useLocalServedScripts]
  */
-function getCompilationScriptsContent(compilation, opts = {}) {
+function getCompilationScriptsContent(_compilation, _opts = {}) {
   // if (opts.isDev && opts.useLocalServedScripts) {
   return [
     '<!-- DEV: Locally linked scripts & styles -->',
