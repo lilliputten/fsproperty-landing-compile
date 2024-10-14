@@ -1,6 +1,6 @@
 @import '../variables';
 
-.HeroMain {
+.HeroSection {
   $basicTreshold: $mdTreshold;
   $heroHeight: 540px;
   $heroHeightSmall: 240px;
@@ -14,21 +14,21 @@
   display: flex;
   flex-direction: column;
 
-  .HeroContainer,
-  .HeroRow {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-  }
+  // .HeroContainer,
+  // .HeroRow {
+  //   display: flex;
+  //   flex: 1;
+  //   flex-direction: column;
+  // }
 
   // Reset basic styles
-  .container,
-  .row,
-  .content {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
+  // .container,
+  // .row,
+  // .content {
+  //   margin: 0;
+  //   padding: 0;
+  //   width: 100%;
+  // }
 
   .HeroVisualBlock {
     position: relative;
@@ -88,7 +88,7 @@
     }
   }
   @media (width >= $basicTreshold) {
-    .HeroRow {
+    & {
       flex-direction: row;
     }
     .HeroVisualBlock {

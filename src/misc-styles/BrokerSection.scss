@@ -1,11 +1,8 @@
 @import '../variables';
 
 .BrokerSection {
-  border: 2px solid red;
   $minWidth: 650px;
-  .BrokerContent {
-    margin: 0;
-  }
+  margin: 0;
   .LandingTitle {
     margin: 1.4em 0;
   }

@@ -20,7 +20,8 @@ const useInlineScripts = !useLocalServedScripts;
 const generateSourcesForProduction = true;
 
 const includeTemplateFile = 'src/include-template.html';
-const previewTemplateFile = 'src/preview-template-with-column.html';
+// const previewTemplateFile = 'src/preview-template-with-column.html';
+const previewTemplateFile = 'src/preview-template-no-column.html';
 
 const appInfoFile = 'src/app-info.json';
 const appInfoContent = fs.readFileSync(path.resolve(__dirname, appInfoFile), {
@@ -68,7 +69,7 @@ const minimizeAssets = !isDev || !useLocalServedScripts;
 
 // Inluce other resources here, to protect webpack from changing the urls (and trying to find the resource and include to the build)
 const customResources = [
-  '<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">',
+  // '<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">',
   // '<script src="https://cdn.jsdelivr.net/npm/bootstrap3@3.3.5/dist/js/bootstrap.min.js"></script>',
 ]
   .filter(Boolean)
