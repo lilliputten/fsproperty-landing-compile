@@ -2,7 +2,9 @@
 
 .BrokerSection {
   $minWidth: 650px;
-  margin: 0;
+  .BrokerContent {
+    margin: 0;
+  }
   .LandingTitle {
     margin: 1.4em 0;
   }

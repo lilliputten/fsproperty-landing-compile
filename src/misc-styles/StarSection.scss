@@ -1,16 +1,19 @@
 @import '../variables';
 
 .StarSection {
-  margin: 2em;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (width >= $mdTreshold) {
-    min-height: 600px;
-  }
-  @media (width >= $lgTreshold) {
-    min-height: 500px;
+  .StarContent {
+    margin: 3em 2em;
+    margin-bottom: 3em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media (width >= $mdTreshold) {
+      min-height: 600px;
+    }
+    @media (width >= $lgTreshold) {
+      min-height: 500px;
+    }
   }
   .Visual {
     position: sticky;

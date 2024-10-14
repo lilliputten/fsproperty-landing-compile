@@ -2,7 +2,9 @@
 
 .ServicesSection {
   background-color: $servicesDarkColor;
-  padding: 4em 2em;
+  .ServicesContent {
+    margin: 4em 2em;
+  }
   .ItemsRow {
     margin-top: 4em;
     position: relative;

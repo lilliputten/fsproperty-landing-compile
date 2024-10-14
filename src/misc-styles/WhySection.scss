@@ -2,7 +2,9 @@
 
 .WhySection {
   background-color: $whyDarkColor;
-  padding: 4em 2em;
+  .WhyContent {
+    margin: 4em 2em;
+  }
   .WhyColumns {
     display: flex;
     text-align: center;
