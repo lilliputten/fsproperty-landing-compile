@@ -14,7 +14,6 @@ body.WithModal {
     bottom: 0;
     right: 0;
     overflow: hidden;
-    // display: flex;
   }
   .SpinnerSplash {
     transition: opacity var(--transitionTimeMs);
@@ -29,8 +28,6 @@ body.WithModal {
     button {
       opacity: 0.2;
       pointer-events: none;
-      // background: none !important;
-      // border: none !important;
     }
   }
   &.modal-backdrop {
@@ -110,10 +107,6 @@ body.WithModal {
       padding: 1em 2em;
       text-transform: uppercase;
       border-radius: 6px;
-      // display: block;
-      // margin-top: 2em;
-      // margin-bottom: 2em;
-      // margin: 2em auto;
       white-space: normal;
       transition: all var(--transitionTimeMs);
       &:hover {

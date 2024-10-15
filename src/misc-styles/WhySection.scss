@@ -49,12 +49,12 @@
     }
     a {
       .Logo {
+        user-select: none;
         width: 132px;
         height: 30px;
         background-image: url('../images/Why/area-logo.svg');
         background-position: center;
         background-repeat: no-repeat;
-        // background-size: cover;
         margin-bottom: 1em;
       }
       span {

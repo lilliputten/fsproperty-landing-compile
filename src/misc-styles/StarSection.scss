@@ -16,6 +16,7 @@
     }
   }
   .Visual {
+    user-select: none;
     position: sticky;
     @mixin hSpace($size) {
       left: $size;
