@@ -1,74 +1,42 @@
 import { uploadsFolder } from '../variables';
+import { GenericError, getErrorText, quoteHtmlAttr } from '../core/helpers/strings';
+import { htmlToNode } from '../core/helpers/html';
+
+/*
+ * Data sending to `POST /uploads/landing-for-owners/dummy-submit-hook.php` as application/json with following fields:
+ *
+ * - name
+ * - email
+ * - phone
+ * - comment
+ *
+ * Expecting a json response with two optional fields:
+ *
+ * - ok, boolean: The true value if the operation was successful.
+ * - error, string: A brief text explaining the error (if any; it will be shown to the user). If successful, do not send anything (either NULL or an empty string).
+ *
+ */
+
+import { getModalWrapperTemplate } from './RequestFormModalContent';
 
 import './RequestFormModal.styles.scss';
 
+interface BaseRepsonse {
+  ok?: boolean;
+  error?: string;
+}
+
 let isVisible = false;
 let modalNode: HTMLElement;
+let formErrorNode: HTMLElement;
 
-let innerEl: HTMLElement;
-let outerEl: HTMLElement;
+let innerNode: HTMLElement;
 let pageWrapperNode: HTMLElement;
 
-function getModalWrapperTemplate() {
-  // Create modal dom nodes...
-  const modalWrapperTemplate = `
-<div
-  id="RequestFormModal"
-  class="RequestFormModal modal modal-backdrop"
-  -tabindex="-1"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="RequestFormModalLabel"
-  -style="display: block; opacity: 1"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="RequestFormModalLabel">
-          <span class="ShowForm">Отправить заявку</span>
-          <span class="ShowMessage">Спасибо!</span>
-        </h2>
-        <button type="button" class="close CloseModal" data-dismiss="modal" aria-label="Закрыть">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="ShowForm DemoForm">
-          --- Форма заявки ---
-        </div>
-        <div class="ShowMessage">
-          Ваша заявка принята и будет обработана в ближайшее время, Вы получите уведомление на адрес электронной почты.
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary CloseModal" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary SubmitButton">Отправить</button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-  return modalWrapperTemplate;
-}
+let formControls: NodeListOf<HTMLInputElement>;
+const formControlGroups: Record<string, HTMLElement> = {};
 
-function htmlToNode(html: string) {
-  const template = document.createElement('template');
-  template.innerHTML = html.trim();
-  const nNodes = template.content.childNodes.length;
-  if (nNodes !== 1) {
-    const error = new Error(
-      `html parameter must represent a single node; got ${nNodes}. ` +
-        'Note that leading or trailing spaces around an element in your ' +
-        'HTML, like " <img/> ", get parsed as text nodes neighbouring ' +
-        'the element; call .trim() on your input to avoid this.',
-    );
-    // eslint-disable-next-line no-console
-    console.error('[RequestFormModal:htmlToNode]', error);
-    debugger; // eslint-disable-line no-debugger
-    throw error;
-  }
-  return template.content.firstChild;
-}
+let dontCheckErrors = false;
 
 function createModalWrapper() {
   const modalWrapperTemplate = getModalWrapperTemplate();
@@ -87,13 +55,13 @@ function toggleModal(show?: boolean) {
     modalNode.classList.toggle('Message', false);
     pageWrapperNode.setAttribute('inert', 'true');
     document.addEventListener('keydown', onKeyPress);
-    outerEl.addEventListener('mousedown', onOuterClick);
-    innerEl.addEventListener('mousedown', onInnerClick);
+    modalNode.addEventListener('mousedown', onOuterClick);
+    innerNode.addEventListener('mousedown', onInnerClick);
   } else {
     pageWrapperNode.removeAttribute('inert');
     document.removeEventListener('keydown', onKeyPress);
-    outerEl.removeEventListener('mousedown', onOuterClick);
-    innerEl.removeEventListener('mousedown', onInnerClick);
+    modalNode.removeEventListener('mousedown', onOuterClick);
+    innerNode.removeEventListener('mousedown', onInnerClick);
   }
   modalNode.classList.toggle('show', show);
   isVisible = show;
@@ -103,6 +71,14 @@ function closeModal() {
   toggleModal(false);
 }
 
+function showModal() {
+  if (!modalNode) {
+    initModal();
+  }
+  resetForm();
+  requestAnimationFrame(() => toggleModal(true));
+}
+
 function onKeyPress(event: KeyboardEvent) {
   if (event.key === 'Escape') {
     closeModal();
@@ -110,20 +86,220 @@ function onKeyPress(event: KeyboardEvent) {
 }
 
 // Close modal on outer (not inner, see `onInnerClick` below) element click...
-function onOuterClick(_event: MouseEvent) {
+function onOuterClick() {
   closeModal();
 }
+
 // Prevent outer element click handle
 function onInnerClick(event: MouseEvent) {
   event.stopPropagation();
 }
 
-function submitForm() {
-  modalNode.classList.toggle('Message', true);
+/** Returns error status */
+function checkInputValue(id: string) {
+  if (dontCheckErrors) {
+    return true;
+  }
+  const group = formControlGroups[id]; // modalNode.querySelector('.form-group#' + id + '-group') as HTMLDivElement;
+  if (!group) {
+    throw new Error(`Not found form group for id '${id}'`);
+  }
+  const input = group.querySelector('.form-control') as HTMLInputElement;
+  const error = group.querySelector('.error');
+  const { value, dataset } = input;
+  const { required } = dataset;
+  const errors: string[] = [];
+  if (required && !value) {
+    errors.push('Необходимо заполнить поле');
+  }
+  const hasErrors = !!errors.length;
+  error.innerHTML = errors.map((str) => quoteHtmlAttr(str)).join('<br>\n');
+  group.classList.toggle('with-error', hasErrors);
+  /* console.log('[RequestFormModal:checkField]', {
+   *   hasErrors,
+   *   errors,
+   *   value,
+   *   dataset,
+   *   required,
+   * });
+   */
+  return !hasErrors;
+}
+
+function setLoading(status: boolean) {
+  modalNode.classList.toggle('Waiting', status);
+}
+
+function setSubmitError(error?: GenericError) {
+  // const formErrorNode = modalNode.querySelector('.form-error');
+  const errorText = getErrorText(error);
+  const hasError = !!errorText;
+  modalNode.classList.toggle('with-error', hasError);
+  formErrorNode.innerHTML = quoteHtmlAttr(errorText);
+}
+
+function setSent(isSent: boolean) {
+  modalNode.classList.toggle('Message', isSent);
+}
+
+function resetForm() {
+  dontCheckErrors = true;
+  setSent(false);
+  setSubmitError(undefined);
+  setLoading(false);
+  formControls.forEach((input) => {
+    input.value = ''; // Or default value?
+  });
+  Object.values(formControlGroups)
+    .filter(Boolean)
+    .forEach((node) => {
+      node.classList.toggle('with-error', false);
+    });
+  dontCheckErrors = false;
+}
+
+function onSubmit() {
+  let hasErrors = false;
+  const formData: Record<string, string> = {};
+  formControls.forEach((input) => {
+    const { id, value } = input;
+    if (!checkInputValue(id)) {
+      hasErrors = true;
+    }
+    formData[id] = value;
+  });
+  const submitUrl = `/${uploadsFolder}/dummy-submit-hook.php`;
+  const submitMethod = 'POST';
+  console.log('[RequestFormModal:onSubmit]', {
+    submitMethod,
+    submitUrl,
+    hasErrors,
+    formData,
+    uploadsFolder,
+    formControls,
+  });
+  if (hasErrors) {
+    return;
+  }
+  // Send form...
+  setLoading(true);
+  fetch(submitUrl, {
+    method: submitMethod,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((res) => {
+      const { headers, ok, status } = res;
+      if (!ok) {
+        const msg = `Ошибка отправки данных (код ${status})`;
+        const error = new Error(msg);
+        // eslint-disable-next-line no-console
+        console.error('[RequestFormModal:onSubmit] fetch result failed', status, {
+          error,
+          status,
+          res,
+        });
+        throw error;
+      }
+      const contentType = headers.get('content-type');
+      const isJson = contentType.startsWith('application/json');
+      console.log('[RequestFormModal:onSubmit] fetch result', {
+        contentType,
+        headers,
+        res,
+      });
+      return isJson ? res.json() : res.text();
+    })
+    .then((data: BaseRepsonse) => {
+      const dataType = typeof data;
+      console.log('[RequestFormModal:onSubmit] fetch data', dataType, {
+        data,
+      });
+      if (dataType !== 'object') {
+        // throw new Error(`Получен некорректный тип ответа сервера: ${dataType}`);
+        const errorText = 'Получен некорректный ответ сервера (см. отладочный вывод)';
+        const error = Error(errorText);
+        // eslint-disable-next-line no-console
+        console.error('[RequestFormModal:onSubmit] Data error:', errorText, {
+          error,
+          data,
+          dataType,
+        });
+        debugger; // eslint-disable-line no-debugger
+        throw error;
+      }
+      if (!data.ok || data.error) {
+        const errorText = data.error
+          ? 'Ошибка сервера: ' + data.error
+          : 'Неизвестная ошибка сервера (смотри логи сервера)';
+        const error = Error(errorText);
+        // eslint-disable-next-line no-console
+        console.error('[RequestFormModal:onSubmit] Server error:', errorText, {
+          error,
+          data,
+          dataType,
+        });
+        debugger; // eslint-disable-line no-debugger
+        throw error;
+      }
+      setSubmitError(undefined);
+      setSent(true);
+      // resetForm();
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error('[RequestFormModal:onSubmit] fetch error', {
+        error,
+      });
+      debugger; // eslint-disable-line no-debugger
+      setSubmitError(error);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
 }
 
 function clickControlButton(_event: PointerEvent) {
-  toggleModal();
+  showModal();
+}
+
+function onInputChange(event: Event) {
+  const target = event.target as HTMLInputElement;
+  const { id, value } = target;
+  console.log('[RequestFormModal:onInputChange]', {
+    id,
+    value,
+    target,
+    event,
+  });
+  // debugger;
+  checkInputValue(id);
+}
+
+function initModal() {
+  createModalWrapper();
+  modalNode = document.querySelector('#RequestFormModal');
+  if (!modalNode) {
+    const error = new Error('Not found modal node!');
+    throw error;
+  }
+  formErrorNode = modalNode.querySelector('.form-error');
+  innerNode = modalNode.querySelector('.modal-content');
+  const closeButtons = modalNode.querySelectorAll('.CloseModal');
+  const submitButton = modalNode.querySelector('.SubmitButton');
+  submitButton.addEventListener('click', onSubmit);
+  closeButtons.forEach((node) => {
+    node.addEventListener('click', closeModal);
+  });
+  formControls = modalNode.querySelectorAll('.form-control');
+  formControls.forEach((node) => {
+    const { id } = node;
+    node.addEventListener('change', onInputChange);
+    formControlGroups[id] = modalNode.querySelector(`.form-group#${id}-group`);
+  });
 }
 
 export function initRequestFormModal() {
@@ -139,14 +315,6 @@ export function initRequestFormModal() {
   controlButtons.forEach((node) => {
     node.addEventListener('click', clickControlButton);
   });
-  createModalWrapper();
-  modalNode = document.querySelector('#RequestFormModal');
-  outerEl = modalNode;
-  innerEl = modalNode.querySelector('.modal-content');
-  const closeButtons = modalNode.querySelectorAll('.CloseModal');
-  const submitButton = modalNode.querySelector('.SubmitButton');
-  submitButton.addEventListener('click', submitForm);
-  closeButtons.forEach((node) => {
-    node.addEventListener('click', closeModal);
-  });
+  // DEBUG
+  showModal();
 }

@@ -134,7 +134,9 @@ function getIncludeTemplate() {
 function getIncludeFragment(compilation, opts) {
   // Get scripts chunk content...
   const includeContent = getCompilationScriptsContent(compilation, opts);
-  const includeFragment = getIncludeTemplate().replace('{{CONTENT}}', includeContent);
+  const includeFragment = getIncludeTemplate()
+    .replace('{{CONTENT}}', includeContent)
+    .replace('{{APP_VERSION_TAG}}', appVersionTag);
   return includeFragment;
 }
 

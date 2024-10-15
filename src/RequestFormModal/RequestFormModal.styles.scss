@@ -1,12 +1,5 @@
 body.WithModal {
   overflow: hidden !important;
-  .page-wrapper {
-    // a, button{
-    //   // border: 2px solid red;
-    //   // pointer-events: none;
-    //   // user-select: none;
-    // }
-  }
 }
 
 .RequestFormModal {
@@ -23,8 +16,25 @@ body.WithModal {
     overflow: hidden;
     // display: flex;
   }
+  .SpinnerSplash {
+    transition: opacity var(--transitionTimeMs);
+  }
+  &:not(.Waiting) {
+    .SpinnerSplash {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  &.Waiting {
+    button {
+      opacity: 0.2;
+      pointer-events: none;
+      // background: none !important;
+      // border: none !important;
+    }
+  }
   &.modal-backdrop {
-    background: rgba(0 0 0 / 80%);
+    background-color: rgba(0 0 0 / 80%);
   }
   .modal-dialog,
   .modal-content {
@@ -82,6 +92,13 @@ body.WithModal {
     padding: 1em 1em;
     gap: 1em;
   }
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5em;
+    flex-wrap: wrap;
+  }
   .modal-title {
     color: var(--goldColor);
     font-size: 2.25em;
@@ -109,8 +126,87 @@ body.WithModal {
   &.Message .SubmitButton {
     display: none;
   }
-  .DemoForm {
-    margin: 16em 0;
+  .modal-body > * {
+    padding: 1em 0;
+  }
+  .EditForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  &:not(.with-error) {
+    > .form-error {
+      display: none;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .DullText {
     text-align: center;
+    opacity: 0.5;
+    font-size: 90%;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    .text-danger {
+      opacity: 0.65;
+    }
+    &:not(.with-error) {
+      > .error {
+        display: none;
+      }
+    }
+  }
+  $errorColor: #a94442;
+  $bgColor: var(--bgDarkColor);
+  $errorBgColor: rgba(red, 20%);
+  $textColor: rgba(255, 255, 255, 0.7);
+  $bottomLineColor: rgba(255, 255, 255, 0.3);
+  $bottomLineActiveColor: rgba(255, 255, 255, 0.5);
+  $placeholderColor: rgba(255, 255, 255, 0.15);
+  @mixin inputStyle($textColor, $bgColor, $bottomLineColor, $bottomLineActiveColor) {
+    & {
+      color: $textColor;
+      background-color: $bgColor;
+      box-shadow: 0px 1px 0px 0px $bottomLineColor;
+      &:focus,
+      &:active {
+        box-shadow: 0px 2px 0px 0px $bottomLineActiveColor;
+      }
+    }
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $textColor !important;
+    }
+    &:-webkit-autofill {
+      -webkit-box-shadow:
+        0 0 0 30px $bgColor inset,
+        0px 1px 0px 0px $bottomLineColor !important;
+      &:focus,
+      &:active {
+        box-shadow:
+          0 0 0 30px $bgColor inset,
+          0px 2px 0px 0px $bottomLineActiveColor !important;
+      }
+    }
+  }
+  .form-control {
+    &::placeholder {
+      color: $placeholderColor;
+    }
+    @include inputStyle($textColor, $bgColor, $bottomLineColor, $bottomLineActiveColor);
+  }
+  .with-error .form-control {
+    &::placeholder {
+      color: rgba($errorColor, 0.3);
+    }
+    @include inputStyle($errorColor, $bgColor, rgba($errorColor, 0.3), rgba($errorColor, 0.6));
+  }
+  textarea {
+    height: auto;
   }
 }
