@@ -2,8 +2,7 @@ import { uploadsFolder } from '../variables';
 import { GenericError, getErrorText, quoteHtmlAttr } from '../core/helpers/strings';
 import { htmlToNode } from '../core/helpers/html';
 
-/*
- * Data sending to `POST /uploads/landing-for-owners/dummy-submit-hook.php` as application/json with following fields:
+/* Data sending to `POST /uploads/landing-for-owners/dummy-submit-hook.php` as application/json with following fields:
  *
  * - name
  * - email
@@ -170,7 +169,7 @@ function onSubmit() {
   });
   const submitUrl = `/${uploadsFolder}/dummy-submit-hook.php`;
   const submitMethod = 'POST';
-  console.log('[RequestFormModal:onSubmit]', {
+  console.log('[RequestFormModal:onSubmit] start fetch', {
     submitMethod,
     submitUrl,
     hasErrors,
@@ -268,14 +267,14 @@ function clickControlButton(_event: PointerEvent) {
 
 function onInputChange(event: Event) {
   const target = event.target as HTMLInputElement;
-  const { id, value } = target;
-  console.log('[RequestFormModal:onInputChange]', {
-    id,
-    value,
-    target,
-    event,
-  });
-  // debugger;
+  const { id } = target;
+  /* console.log('[RequestFormModal:onInputChange]', {
+   *   id,
+   *   // value,
+   *   target,
+   *   event,
+   * });
+   */
   checkInputValue(id);
 }
 
@@ -305,16 +304,10 @@ function initModal() {
 export function initRequestFormModal() {
   pageWrapperNode = document.querySelector('.page-wrapper');
   const controlButtons = document.querySelectorAll('.RequestFormButton');
-  /* console.log('[RequestFormModal]', {
-   *   modalNode,
-   *   uploadsFolder,
-   *   controlButtons,
-   *   jq: $,
-   * });
-   */
   controlButtons.forEach((node) => {
     node.addEventListener('click', clickControlButton);
   });
-  // DEBUG
-  showModal();
+  /* // DEBUG: Show the modal immediately (for test purposes)
+   * showModal();
+   */
 }

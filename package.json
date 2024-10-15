@@ -1,8 +1,8 @@
 {
   "name": "fsproperty-landing-compile",
   "version": "0.0.8",
-  "timetag": "241015-0300",
-  "timestamp": "2024.10.15 03:00 +0300",
+  "timetag": "241015-0312",
+  "timestamp": "2024.10.15 03:12 +0300",
   "changed": "2024.10.13, 18:56",
   "description": "FS Property Yupi landing page project",
   "main": "index.html",
@@ -68,6 +68,7 @@
     "lint": "echo --Lint sources-- && eslint . --ext js,ts,tsx",
     "type-check": "echo --Run typescript linter-- && tsc --pretty --noEmit",
     "check-all": "echo --Run all pre-commit check-ups-- && npm-run-all prettier stylelint lint type-check && echo --All check-ups are passed--",
+    "build-publish": "echo --Build and publish-- && npm-run-all build publish",
     "serve": "serve build",
     "serve-dev": "serve build-dev",
     "serve-php": "php -S localhost:3000 -t build",
