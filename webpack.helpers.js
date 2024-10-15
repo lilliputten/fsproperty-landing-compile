@@ -118,6 +118,7 @@ function getIncludeTemplate() {
     .replace(/\{\{appId\}\}/g, appId)
     .replace(/\{\{appFolder\}\}/g, appFolder)
     .replace(/\{\{uploadsFolder\}\}/g, uploadsFolder)
+    .replace(/\{\{appVersionTag\}\}/g, appVersionTag)
     .replace(/[ \t]+\n/gm, '\n')
     .replace(/\n{3,}/gm, '\n\n')
     .trim();
@@ -135,8 +136,8 @@ function getIncludeFragment(compilation, opts) {
   // Get scripts chunk content...
   const includeContent = getCompilationScriptsContent(compilation, opts);
   const includeFragment = getIncludeTemplate()
-    .replace('{{CONTENT}}', includeContent)
-    .replace('{{APP_VERSION_TAG}}', appVersionTag);
+    // prettier-ignore
+    .replace(/\{\{CONTENT\}\}/g, includeContent);
   return includeFragment;
 }
 
