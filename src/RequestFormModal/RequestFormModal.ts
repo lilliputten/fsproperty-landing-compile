@@ -40,6 +40,13 @@ let gcaptchaId: number;
 /** DEBUG: Proceed submit even if errors have been found */
 const debugDoSubmitWithErrors = false && isDebug;
 
+const phoneMask = '+7 (000) 000-00-00';
+const phoneRegexpStr = '^' + phoneMask.replace(/([+()])/g, '\\$1').replace(/0/g, '\\d') + '$';
+const phoneRegexp = new RegExp(phoneRegexpStr);
+const emailRegexp =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+console.log('YYY', phoneRegexpStr, phoneRegexp);
+
 let isVisible = false;
 let modalNode: HTMLElement;
 let formErrorNode: HTMLElement;
@@ -126,7 +133,19 @@ function checkInputValue(id: string) {
   const { value, dataset } = input;
   const { required } = dataset;
   const errors: string[] = [];
-  if (required && !value) {
+  const isEmpty = !value;
+  if (!isEmpty) {
+    // TODO: Make constants...
+    const maxLength = id === 'comment' ? 200 : 60;
+    if (value.length > maxLength) {
+      errors.push('Введено слишком длинное значение');
+    }
+    if (id === 'phone' && !phoneRegexp.test(value)) {
+      errors.push(`Введите корректный номер телефона (${phoneMask})`);
+    } else if (id === 'email' && !emailRegexp.test(value)) {
+      errors.push('Введите корректный e-mail адрес');
+    }
+  } else if (required) {
     errors.push('Необходимо заполнить поле');
   }
   const hasErrors = !!errors.length;
@@ -141,6 +160,18 @@ function checkInputValue(id: string) {
    * });
    */
   return !hasErrors;
+}
+
+function initMask() {
+  const phone = formControlGroups['phone'];
+  const input = phone.querySelector('input');
+  /* console.log('[RequestFormModal:initMask]', {
+   *   input,
+   *   phone,
+   *   // formControlGroups,
+   * });
+   */
+  $(input).mask('+7 (000) 000-00-00');
 }
 
 function setLoading(status: boolean) {
@@ -382,10 +413,11 @@ function initModal() {
   formControls = modalNode.querySelectorAll('.form-control');
   formControls.forEach((node) => {
     const { id } = node;
-    node.addEventListener('change', onInputChange);
+    node.addEventListener('input', onInputChange);
     formControlGroups[id] = modalNode.querySelector(`.form-group#${id}-group`);
   });
   initRecaptcha();
+  initMask();
 }
 
 export function initRequestFormModal() {
@@ -395,9 +427,8 @@ export function initRequestFormModal() {
   controlButtons.forEach((node) => {
     node.addEventListener('click', clickControlButton);
   });
-  /* // DEBUG: Show the modal immediately (for test purposes)
-   * showModal();
-   */
+  // DEBUG: Show the modal immediately (for test purposes)
+  showModal();
 }
 
 // // @ts-ignore: DEBUG
