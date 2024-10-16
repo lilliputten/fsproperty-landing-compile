@@ -9,8 +9,8 @@ $fromEmail = 'fsp@fsproperty.ru';
 
 $toEmailDebug = 'dmia@yandex.ru';
 $toEmailProduction = [
-  // 'fsp@fsproperty.ru',
-  // 'master@masterstar.ru',
+  'fsp@fsproperty.ru',
+  'master@masterstar.ru',
   $toEmailDebug,
 ];
 

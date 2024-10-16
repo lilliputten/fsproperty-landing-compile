@@ -240,11 +240,8 @@ function captchaResponse(response: string) {
 function onSubmit() {
   let hasErrors = false;
   const formData: Record<string, string | boolean> = {};
-  if (isDebug) {
+  if (isDebug && isDev) {
     formData.debug = true;
-  }
-  if (isDev) {
-    formData.dev = true;
   }
   formControls.forEach((input) => {
     const { id, value } = input;
