@@ -43,6 +43,9 @@ export function getModalWrapperTemplate() {
               <textarea name="comment" id="comment" class="form-control" placeholder="Комментарий" rows="4"></textarea>
               <small class="error text-danger">Текст ошибки.</small>
             </div>
+            <div class="form-group" id="comment-group">
+              <div class="g-recaptcha"></div>
+            </div>
           </form>
           <p class="DullText">
             Нажимая кнопку «Отправить заявку» вы соглашаетесь с политикой

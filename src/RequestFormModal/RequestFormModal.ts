@@ -25,6 +25,14 @@ interface BaseRepsonse {
   error?: string;
 }
 
+const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ';
+// const gcaptchaSiteKey = '6LeiKGMqAAAAAEDkHP0n4mhtAWxuKHpzYbQR4k3e';
+
+let gcaptchaId: number;
+
+/** DEBUG: Proceed submit even if errors have been found */
+const debugDoSubmitWithErrors = true && process.env.DEBUG;
+
 let isVisible = false;
 let modalNode: HTMLElement;
 let formErrorNode: HTMLElement;
@@ -75,6 +83,9 @@ function showModal() {
     initModal();
   }
   resetForm();
+  if (gcaptchaId != null) {
+    grecaptcha.reset(gcaptchaId);
+  }
   requestAnimationFrame(() => toggleModal(true));
 }
 
@@ -142,6 +153,7 @@ function setSent(isSent: boolean) {
 }
 
 function resetForm() {
+  modalNode.classList.toggle('CaptchaPassed', false);
   dontCheckErrors = true;
   setSent(false);
   setSubmitError(undefined);
@@ -157,12 +169,51 @@ function resetForm() {
   dontCheckErrors = false;
 }
 
+function onRecaptchaLoad() {
+  console.log('[RequestFormModal:onRecaptchaLoad]', {
+    grecaptcha: typeof grecaptcha !== 'undefined' && grecaptcha,
+  });
+}
+
+function initRecaptcha() {
+  const hasRecaptcha = typeof grecaptcha !== 'undefined';
+  if (!hasRecaptcha) {
+    const error = new Error('Recaptcha code has not been initialized!');
+    // eslint-disable-next-line no-console
+    console.error('[RequestFormModal:initRecaptcha]', error.message, {
+      error,
+    });
+    debugger; // eslint-disable-line no-debugger
+    throw error;
+  }
+  const node = modalNode.querySelector('.g-recaptcha') as HTMLElement;
+  gcaptchaId = grecaptcha.render(node, {
+    sitekey: gcaptchaSiteKey,
+    hl: 'ru',
+    callback: captchaResponse,
+    theme: 'dark',
+  });
+  console.log('[RequestFormModal:initRecaptcha]', {
+    gcaptchaId,
+    grecaptcha,
+    node,
+  });
+  grecaptcha.reset(gcaptchaId);
+}
+
+function captchaResponse(response: string) {
+  console.log('[RequestFormModal:captchaResponse]', {
+    response,
+  });
+  modalNode.classList.toggle('CaptchaPassed', true);
+}
+
 function onSubmit() {
   let hasErrors = false;
   const formData: Record<string, string> = {};
   formControls.forEach((input) => {
     const { id, value } = input;
-    if (!checkInputValue(id)) {
+    if (!debugDoSubmitWithErrors && !checkInputValue(id)) {
       hasErrors = true;
     }
     formData[id] = value;
@@ -170,6 +221,10 @@ function onSubmit() {
   const submitUrl = `/${uploadsFolder}/dummy-submit-hook.php`;
   const submitMethod = 'POST';
   console.log('[RequestFormModal:onSubmit] Before fetch', {
+    // 'process.env.DEV': process.env.DEV,
+    // 'process.env.DEBUG': process.env.DEBUG,
+    // debugDoSubmitWithErrors,
+    grecaptcha: typeof grecaptcha !== 'undefined' && grecaptcha,
     submitMethod,
     submitUrl,
     hasErrors,
@@ -299,15 +354,29 @@ function initModal() {
     node.addEventListener('change', onInputChange);
     formControlGroups[id] = modalNode.querySelector(`.form-group#${id}-group`);
   });
+  initRecaptcha();
 }
 
 export function initRequestFormModal() {
+  /* NOTE: grecaptcha methods:
+   * execute : ƒ ()
+   * getPageId : ƒ ()
+   * getResponse : ƒ ()
+   * ready : ƒ (X)
+   * render : ƒ ()
+   * reset : ƒ ()
+   */
+  console.log('[RequestFormModal:initRequestFormModal]', {
+    grecaptcha: typeof grecaptcha !== 'undefined' && grecaptcha,
+  });
   pageWrapperNode = document.querySelector('.page-wrapper');
   const controlButtons = document.querySelectorAll('.RequestFormButton');
   controlButtons.forEach((node) => {
     node.addEventListener('click', clickControlButton);
   });
-  /* // DEBUG: Show the modal immediately (for test purposes)
-   * showModal();
-   */
+  // DEBUG: Show the modal immediately (for test purposes)
+  showModal();
 }
+
+// @ts-ignore: DEBUG
+window.onRecaptchaLoad = onRecaptchaLoad;

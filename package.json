@@ -1,8 +1,8 @@
 {
   "name": "fsproperty-landing-compile",
   "version": "0.0.9",
-  "timetag": "241016-1337",
-  "timestamp": "2024.10.16 13:37 +0300",
+  "timetag": "241016-1647",
+  "timestamp": "2024.10.16 16:47 +0300",
   "changed": "2024.10.13, 18:56",
   "description": "FS Property Yupi landing page project",
   "main": "index.html",
@@ -21,6 +21,7 @@
     "@babel/eslint-parser": "^7.22.9",
     "@babel/plugin-proposal-decorators": "^7.22.7",
     "@babel/preset-env": "^7.22.9",
+    "@types/grecaptcha": "^3.0.9",
     "@types/jquery": "^2.0.68",
     "@types/node": "^22.7.4",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
