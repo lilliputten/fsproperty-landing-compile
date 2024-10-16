@@ -169,7 +169,7 @@ function onSubmit() {
   });
   const submitUrl = `/${uploadsFolder}/dummy-submit-hook.php`;
   const submitMethod = 'POST';
-  console.log('[RequestFormModal:onSubmit] start fetch', {
+  console.log('[RequestFormModal:onSubmit] Before fetch', {
     submitMethod,
     submitUrl,
     hasErrors,
