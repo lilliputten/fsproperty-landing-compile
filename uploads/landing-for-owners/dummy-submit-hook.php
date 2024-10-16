@@ -5,12 +5,12 @@
  *  @changed 2024.10.16, 14:02
  */
 
-$postJson = file_get_contents('php://input');
-$postObject = json_decode($postJson);
-$postData = objectToArray($postObject);
+$rawInput = file_get_contents('php://input');
+$isJson = str_starts_with($rawInput, '{');
+$postData = $isJson ? objectToArray(json_decode($rawInput)) : $_POST;
 
 // Show data in `php_errors.log` file
-error_log('Data received: ' . print_r($postData, true));
+error_log('Data received: ' . print_r($_POST, true) . ' -- '. print_r($rawInput, true));
 
 // Construct default response data object
 // NOTE: Only `ok` (boolean, a sucess flag) and `error` (string, an error explanation) are expeced, but both of them are optional
@@ -27,11 +27,11 @@ if ($postData['name'] == 'test') {
 }
 
 // DEBUG: Emulate response delay
-sleep(3);
+sleep(1);
 
 // Return json response...
 header('Content-Type: application/json; charset=utf-8');
-print(json_encode($responseData));
+print(json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 
 // Helpers...
 
