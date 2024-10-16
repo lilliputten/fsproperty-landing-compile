@@ -1,20 +1,27 @@
 <?php
 /**
  * @descr Mail sending script
- * @changed 2024.10.16, 20:16
+ * @changed 2024.10.16, 21:44
  */
 
 // Write logs to a local file
 ini_set('log_errors', 1);
 ini_set('error_log', 'php_errors.log');
 
+// Display errors:
+ini_set('display_errors', 'On');
+// error_reporting(-1);
+// set_error_handler('var_dump'); // Dump variables into output
+
 // Send plain text response
 // header('Content-Type: text/plain');
 
 // Import required modules...
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
 require 'PHPMailer/Exception.php';
 
 // Import config...
@@ -163,13 +170,25 @@ function getPlainTextFromHtml($html) {
 }
 
 function sendMail() {
-  global $toEmail, $fromEmail, $fromName, $mailSubject;
+  global $isDebug, $postData, $toEmail, $fromEmail, $fromName, $mailSubject;
 
   // Create mail sender...
   $mail = new PHPMailer();
 
   // Configure mail sender...
-  $mail->SMTPDebug = 2;
+
+  // DEBUG: Use debug output
+  // $mail->SMTPDebug = 3;
+
+  // Setup smtp...
+  $mail->isSMTP(); // Set mailer to use SMTP
+  // $mail->Host = 'smtp.yandex.ru'; // Specify main and backup SMTP servers
+  // $mail->SMTPAuth = true; // Enable SMTP authentication
+  // $mail->Username = 'fsp@fsproperty.ru'; // SMTP username
+  // $mail->Password = 'secret'; // SMTP password
+  // $mail->SMTPSecure = 'ssl'; // Enable SSL encryption, TLS also accepted with port 465
+  // $mail->Port = 465; // TCP port to connect to
+
   $mail->IsHTML(true);
   $mail->CharSet = 'UTF-8';
   $mail->Encoding = 'base64';
@@ -178,7 +197,13 @@ function sendMail() {
   $mail->setFrom($fromEmail, $fromName);
 
   // Mail to...
-  $mail->addAddress($toEmail);
+  if (is_array($toEmail)) {
+    foreach ($toEmail as &$addr) {
+      $mail->addAddress($addr);
+    }
+  } else {
+    $mail->addAddress($toEmail);
+  }
 
   // Set subject...
   $mail->Subject = $mailSubject;
@@ -186,8 +211,9 @@ function sendMail() {
   // Set mail html message...
   $htmlBody = getMailHtmlBody();
   $mail->msgHTML($htmlBody);
-  // DEBUG
-  print("HTML:\n" . $htmlBody . "\n");
+  /* // DEBUG
+   * print("HTML:\n" . $htmlBody . "\n");
+   */
 
   // Set plain text message...
   $textBody = getPlainTextFromHtml($htmlBody);
@@ -197,27 +223,48 @@ function sendMail() {
    */
 
   $responseData = array(
-    'ok' => true, // True -- if the operation was successful
+    // 'ok' => true, // True -- if the operation was successful
     // 'error' => NULL, // A brief text explaining the error (if any; it will be shown to the user). If successful, do not send anything (either NULL or an empty string).
-    '_data_debug' => $postData, // DEBUG: Only for debug purposes
+    // '_data_debug' => $postData, // DEBUG: Only for debug purposes
   );
+
+  if ($isDebug && !empty($postData)) {
+    $responseData['_data_debug'] = $postData;
+  }
 
   // Send message...
   if ($mail->send()) {
+    $responseData['ok'] = true;
     http_response_code(200);
-    // echo "OK: The mail was successfuly sent\n";
   } else {
-    http_response_code(500);
+    // http_response_code(500);
     $errMsg = "Error: " . $mail->ErrorInfo . "\n";
     error_log($errMsg);
-    $responseData['ok'] = false;
     $responseData['error'] = $errMsg;
-    // echo $errMsg;
   }
 
   // Return json response...
   header('Content-Type: application/json; charset=utf-8');
-  print(json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+  print(json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n");
 }
 
-sendMail();
+// DEBUG: Sample error...
+if (@$postData['name'] == 'test') {
+  $responseData = array();
+  $responseData['error'] = 'Текст возникшей ошибки';
+  // http_response_code(500);
+  header('Content-Type: application/json; charset=utf-8');
+  print(json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n");
+  die;
+}
+
+try {
+  sendMail();
+} catch (Exception $e) {
+  http_response_code(500);
+  $errMsg = "Caught error: " . $e->getMessage() . "\n";
+  error_log($errMsg);
+  header('Content-Type: text/plain');
+  echo $errMsg;
+  die;
+}

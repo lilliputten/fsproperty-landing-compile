@@ -5,26 +5,26 @@
  */
 
 $fromName = 'FS-Property';
-$fromEmail = 'no-reply@fsproperty.ru';
+$fromEmail = 'fsp@fsproperty.ru';
 
 $toEmailDebug = 'dmia@yandex.ru';
-$toEmailProduction = 'lilliputten@yandex.ru';
-// $toEmailProduction = 'lilliputten@gmail.com';
-// TODO: Add multiple 'to' or 'cc' fields
-// fsp@fsproperty.ru
-// master@masterstar.ru
+$toEmailProduction = [
+  // 'fsp@fsproperty.ru',
+  // 'master@masterstar.ru',
+  $toEmailDebug,
+];
 
 $mailSubject = 'Заявка с сайта';
 
 $formFields = array(
-    'name' => 'Имя',
-    'email' => 'E-mail',
-    'phone' => 'Телефон',
-    'comment' => 'Комментарий',
-    '_pageId' => 'Страница',
-    '_pageUrl' => 'Адрес страницы на сайте',
-    '_ip' => 'IP адрес',
-    '_date' => 'Дата',
+  'name' => 'Имя',
+  'email' => 'E-mail',
+  'phone' => 'Телефон',
+  'comment' => 'Комментарий',
+  '_pageId' => 'Страница',
+  '_pageUrl' => 'Адрес страницы на сайте',
+  '_ip' => 'IP адрес',
+  '_date' => 'Дата',
 );
 
 $multilineFields = ['comment'];
