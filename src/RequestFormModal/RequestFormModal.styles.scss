@@ -209,8 +209,9 @@ body.WithModal {
     height: auto;
   }
   .g-recaptcha {
-    // * {
-    //   width: 100% !important;
-    // }
+    margin-top: 1.5em;
+    > * {
+      margin: 0 auto;
+    }
   }
 }

@@ -25,13 +25,20 @@ interface BaseRepsonse {
   error?: string;
 }
 
-const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ';
+const isDev = process.env.DEV;
+const isDebug = process.env.DEBUG;
+
+// const submitFile = 'dummy-submit-hook.php';
+const submitFile = 'accept-form.php';
+const submitUrl = `/${uploadsFolder}/${submitFile}`;
+
+const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz
 // const gcaptchaSiteKey = '6LeiKGMqAAAAAEDkHP0n4mhtAWxuKHpzYbQR4k3e';
 
 let gcaptchaId: number;
 
 /** DEBUG: Proceed submit even if errors have been found */
-const debugDoSubmitWithErrors = true && process.env.DEBUG;
+const debugDoSubmitWithErrors = false && isDebug;
 
 let isVisible = false;
 let modalNode: HTMLElement;
@@ -169,13 +176,23 @@ function resetForm() {
   dontCheckErrors = false;
 }
 
-function onRecaptchaLoad() {
-  console.log('[RequestFormModal:onRecaptchaLoad]', {
-    grecaptcha: typeof grecaptcha !== 'undefined' && grecaptcha,
-  });
-}
+/* NOTE: This method isn't used
+ * function onRecaptchaLoad() {
+ *   console.log('[RequestFormModal:onRecaptchaLoad]', {
+ *     grecaptcha: typeof grecaptcha !== 'undefined' && grecaptcha,
+ *   });
+ * }
+ */
 
 function initRecaptcha() {
+  /* NOTE: grecaptcha methods:
+   * execute : ƒ ()
+   * getPageId : ƒ ()
+   * getResponse : ƒ ()
+   * ready : ƒ (X)
+   * render : ƒ ()
+   * reset : ƒ ()
+   */
   const hasRecaptcha = typeof grecaptcha !== 'undefined';
   if (!hasRecaptcha) {
     const error = new Error('Recaptcha code has not been initialized!');
@@ -192,25 +209,43 @@ function initRecaptcha() {
     hl: 'ru',
     callback: captchaResponse,
     theme: 'dark',
+    'expired-callback': captchaReset,
+    'error-callback': captchaReset,
   });
   console.log('[RequestFormModal:initRecaptcha]', {
+    gcaptchaSiteKey,
     gcaptchaId,
     grecaptcha,
     node,
   });
   grecaptcha.reset(gcaptchaId);
+  modalNode.classList.toggle('CaptchaPassed', false);
 }
 
+/** Reset captcha result */
+function captchaReset() {
+  modalNode.classList.toggle('CaptchaPassed', false);
+}
+
+/** Confirm captcha */
 function captchaResponse(response: string) {
+  const isSuccess = !!response;
   console.log('[RequestFormModal:captchaResponse]', {
+    isSuccess,
     response,
   });
-  modalNode.classList.toggle('CaptchaPassed', true);
+  modalNode.classList.toggle('CaptchaPassed', isSuccess);
 }
 
 function onSubmit() {
   let hasErrors = false;
-  const formData: Record<string, string> = {};
+  const formData: Record<string, string | boolean> = {};
+  if (isDebug) {
+    formData.debug = true;
+  }
+  if (isDev) {
+    formData.dev = true;
+  }
   formControls.forEach((input) => {
     const { id, value } = input;
     if (!debugDoSubmitWithErrors && !checkInputValue(id)) {
@@ -218,7 +253,6 @@ function onSubmit() {
     }
     formData[id] = value;
   });
-  const submitUrl = `/${uploadsFolder}/dummy-submit-hook.php`;
   const submitMethod = 'POST';
   console.log('[RequestFormModal:onSubmit] Before fetch', {
     // 'process.env.DEV': process.env.DEV,
@@ -358,25 +392,16 @@ function initModal() {
 }
 
 export function initRequestFormModal() {
-  /* NOTE: grecaptcha methods:
-   * execute : ƒ ()
-   * getPageId : ƒ ()
-   * getResponse : ƒ ()
-   * ready : ƒ (X)
-   * render : ƒ ()
-   * reset : ƒ ()
-   */
-  console.log('[RequestFormModal:initRequestFormModal]', {
-    grecaptcha: typeof grecaptcha !== 'undefined' && grecaptcha,
-  });
+  // console.log('[RequestFormModal:initRequestFormModal]');
   pageWrapperNode = document.querySelector('.page-wrapper');
   const controlButtons = document.querySelectorAll('.RequestFormButton');
   controlButtons.forEach((node) => {
     node.addEventListener('click', clickControlButton);
   });
-  // DEBUG: Show the modal immediately (for test purposes)
-  showModal();
+  /* // DEBUG: Show the modal immediately (for test purposes)
+   * showModal();
+   */
 }
 
-// @ts-ignore: DEBUG
-window.onRecaptchaLoad = onRecaptchaLoad;
+// // @ts-ignore: DEBUG
+// window.onRecaptchaLoad = onRecaptchaLoad;

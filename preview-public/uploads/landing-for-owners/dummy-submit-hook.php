@@ -2,15 +2,19 @@
 
 /** @module Dummy submit hook for client form
  *  @since 2024.10.13, 19:15
- *  @changed 2024.10.16, 14:02
+ *  @changed 2024.10.16, 19:35
  */
 
-$postJson = file_get_contents('php://input');
-$postObject = json_decode($postJson);
-$postData = objectToArray($postObject);
+// Write logs to a local file
+ini_set('log_errors', 1);
+ini_set('error_log', 'php_errors.log');
+
+$rawInput = file_get_contents('php://input');
+$isJson = substr($rawInput, 0, 1) === '{'; // Does it start with json's '{', php-5 way
+$postData = $isJson ? objectToArray(json_decode($rawInput)) : $_POST;
 
 // Show data in `php_errors.log` file
-error_log('Data received: ' . print_r($postData, true));
+error_log('Data received: ' . print_r($rawInput, true));
 
 // Construct default response data object
 // NOTE: Only `ok` (boolean, a sucess flag) and `error` (string, an error explanation) are expeced, but both of them are optional
@@ -21,17 +25,18 @@ $responseData = array(
 );
 
 // Mock an error...
-if ($postData['name'] == 'test') {
+// if (array_key_exists('name', $postData) && $postData['name'] == 'test') {
+if (@$postData['name'] == 'test') {
   $responseData['ok'] = false;
   $responseData['error'] = 'Текст возникшей ошибки';
 }
 
 // DEBUG: Emulate response delay
-sleep(3);
+// sleep(1);
 
 // Return json response...
 header('Content-Type: application/json; charset=utf-8');
-print(json_encode($responseData));
+print(json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 
 // Helpers...
 

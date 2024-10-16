@@ -1,8 +1,8 @@
 {
   "name": "fsproperty-landing-compile",
-  "version": "0.0.9",
-  "timetag": "241016-1647",
-  "timestamp": "2024.10.16 16:47 +0300",
+  "version": "0.0.10",
+  "timetag": "241016-2148",
+  "timestamp": "2024.10.16 21:48 +0300",
   "changed": "2024.10.13, 18:56",
   "description": "FS Property Yupi landing page project",
   "main": "index.html",
