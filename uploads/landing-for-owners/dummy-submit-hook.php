@@ -2,7 +2,7 @@
 
 /** @module Dummy submit hook for client form
  *  @since 2024.10.13, 19:15
- *  @changed 2024.10.15, 02:44
+ *  @changed 2024.10.16, 14:02
  */
 
 $postJson = file_get_contents('php://input');
@@ -25,6 +25,9 @@ if ($postData['name'] == 'test') {
   $responseData['ok'] = false;
   $responseData['error'] = 'Текст возникшей ошибки';
 }
+
+// DEBUG: Emulate response delay
+sleep(3);
 
 // Return json response...
 header('Content-Type: application/json; charset=utf-8');
