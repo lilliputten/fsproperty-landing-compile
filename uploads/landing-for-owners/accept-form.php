@@ -169,6 +169,7 @@ function sendMail() {
   $mail = new PHPMailer();
 
   // Configure mail sender...
+  $mail->SMTPDebug = 2;
   $mail->IsHTML(true);
   $mail->CharSet = 'UTF-8';
   $mail->Encoding = 'base64';
