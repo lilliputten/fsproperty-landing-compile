@@ -21,6 +21,7 @@ $formFields = array(
   'email' => 'E-mail',
   'phone' => 'Телефон',
   'comment' => 'Комментарий',
+  'text' => 'Текст',
   '_pageId' => 'Страница',
   '_pageUrl' => 'Адрес страницы на сайте',
   '_ip' => 'IP адрес',

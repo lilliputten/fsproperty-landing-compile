@@ -33,6 +33,7 @@ const submitFile = 'accept-form.php';
 const submitUrl = `/${uploadsFolder}/${submitFile}`;
 
 const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz
+let gcaptchaResponse: string;
 // const gcaptchaSiteKey = '6LeiKGMqAAAAAEDkHP0n4mhtAWxuKHpzYbQR4k3e';
 
 let gcaptchaId: number;
@@ -97,9 +98,6 @@ function showModal() {
     initModal();
   }
   resetForm();
-  if (gcaptchaId != null) {
-    grecaptcha.reset(gcaptchaId);
-  }
   requestAnimationFrame(() => toggleModal(true));
 }
 
@@ -191,7 +189,11 @@ function setSent(isSent: boolean) {
 }
 
 function resetForm() {
-  modalNode.classList.toggle('CaptchaPassed', false);
+  captchaReset();
+  if (gcaptchaId != null) {
+    grecaptcha.reset(gcaptchaId);
+    gcaptchaId = undefined;
+  }
   dontCheckErrors = true;
   setSent(false);
   setSubmitError(undefined);
@@ -250,12 +252,13 @@ function initRecaptcha() {
     node,
   });
   grecaptcha.reset(gcaptchaId);
-  modalNode.classList.toggle('CaptchaPassed', false);
+  captchaReset();
 }
 
 /** Reset captcha result */
 function captchaReset() {
   modalNode.classList.toggle('CaptchaPassed', false);
+  gcaptchaResponse = '';
 }
 
 /** Confirm captcha */
@@ -266,6 +269,7 @@ function captchaResponse(response: string) {
     response,
   });
   modalNode.classList.toggle('CaptchaPassed', isSuccess);
+  gcaptchaResponse = response;
 }
 
 function onSubmit() {
@@ -273,6 +277,10 @@ function onSubmit() {
   const formData: Record<string, string | boolean> = {};
   if (isDebug && isDev) {
     formData.debug = true;
+  }
+  // TODO: Cancel form sending if no captcha response?
+  if (gcaptchaResponse) {
+    formData.gcaptcha = gcaptchaResponse;
   }
   formControls.forEach((input) => {
     const { id, value } = input;
