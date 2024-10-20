@@ -23,9 +23,10 @@ import './RequestFormModal.styles.scss';
 interface BaseRepsonse {
   ok?: boolean;
   error?: string;
+  erroInfo?: string | object;
 }
 
-const isDev = process.env.DEV;
+// const isDev = process.env.DEV;
 const isDebug = process.env.DEBUG;
 
 // const submitFile = 'dummy-submit-hook.php';
@@ -33,8 +34,8 @@ const submitFile = 'accept-form.php';
 const submitUrl = `/${uploadsFolder}/${submitFile}`;
 
 const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz
+// const gcaptchaSiteKey = '6Lf382QqAAAAABJ6FFdGgssGaXu4kqdNno7ZjZ01'; // DEBUG: From Pavel (w/o secure key)
 let gcaptchaResponse: string;
-// const gcaptchaSiteKey = '6LeiKGMqAAAAAEDkHP0n4mhtAWxuKHpzYbQR4k3e';
 
 let gcaptchaId: number;
 
@@ -46,7 +47,6 @@ const phoneRegexpStr = '^' + phoneMask.replace(/([+()])/g, '\\$1').replace(/0/g,
 const phoneRegexp = new RegExp(phoneRegexpStr);
 const emailRegexp =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-console.log('YYY', phoneRegexpStr, phoneRegexp);
 
 let isVisible = false;
 let modalNode: HTMLElement;
@@ -58,6 +58,7 @@ let pageWrapperNode: HTMLElement;
 let formControls: NodeListOf<HTMLInputElement>;
 const formControlGroups: Record<string, HTMLElement> = {};
 
+/** Allows to temporarily omit form errors check (eg, during m=anual updates/clear) */
 let dontCheckErrors = false;
 
 function createModalWrapper() {
@@ -189,11 +190,7 @@ function setSent(isSent: boolean) {
 }
 
 function resetForm() {
-  captchaReset();
-  if (gcaptchaId != null) {
-    grecaptcha.reset(gcaptchaId);
-    gcaptchaId = undefined;
-  }
+  // captchaReset();
   dontCheckErrors = true;
   setSent(false);
   setSubmitError(undefined);
@@ -237,6 +234,7 @@ function initRecaptcha() {
     throw error;
   }
   const node = modalNode.querySelector('.g-recaptcha') as HTMLElement;
+  captchaReset();
   gcaptchaId = grecaptcha.render(node, {
     sitekey: gcaptchaSiteKey,
     hl: 'ru',
@@ -251,12 +249,14 @@ function initRecaptcha() {
     grecaptcha,
     node,
   });
-  grecaptcha.reset(gcaptchaId);
-  captchaReset();
 }
 
 /** Reset captcha result */
 function captchaReset() {
+  if (gcaptchaId != undefined) {
+    grecaptcha.reset(gcaptchaId);
+    gcaptchaId = undefined;
+  }
   modalNode.classList.toggle('CaptchaPassed', false);
   gcaptchaResponse = '';
 }
@@ -275,10 +275,9 @@ function captchaResponse(response: string) {
 function onSubmit() {
   let hasErrors = false;
   const formData: Record<string, string | boolean> = {};
-  if (isDebug && isDev) {
+  if (isDebug /* && isDev */) {
     formData.debug = true;
   }
-  // TODO: Cancel form sending if no captcha response?
   if (gcaptchaResponse) {
     formData.gcaptcha = gcaptchaResponse;
   }
@@ -302,7 +301,8 @@ function onSubmit() {
     uploadsFolder,
     formControls,
   });
-  if (hasErrors) {
+  // Cancel form sending if errors or no captcha response present
+  if (hasErrors || !gcaptchaResponse) {
     return;
   }
   // Send form...
@@ -341,6 +341,7 @@ function onSubmit() {
       const dataType = typeof data;
       console.log('[RequestFormModal:onSubmit] fetch data', dataType, {
         data,
+        debug: data?.erroInfo,
       });
       if (dataType !== 'object') {
         // throw new Error(`Получен некорректный тип ответа сервера: ${dataType}`);
@@ -393,13 +394,6 @@ function clickControlButton(_event: PointerEvent) {
 function onInputChange(event: Event) {
   const target = event.target as HTMLInputElement;
   const { id } = target;
-  /* console.log('[RequestFormModal:onInputChange]', {
-   *   id,
-   *   // value,
-   *   target,
-   *   event,
-   * });
-   */
   checkInputValue(id);
 }
 
@@ -435,9 +429,13 @@ export function initRequestFormModal() {
   controlButtons.forEach((node) => {
     node.addEventListener('click', clickControlButton);
   });
-  // DEBUG: Show the modal immediately (for test purposes)
-  showModal();
+  if (isDebug) {
+    // eslint-disable-next-line no-console
+    console.log('[RequestFormModal:initRequestFormModal] DEBUG', {
+      'process.env.DEV': process.env.DEV,
+      'process.env.DEBUG': process.env.DEBUG,
+    });
+    // DEBUG: Show the modal immediately (for test purposes)
+    showModal();
+  }
 }
-
-// // @ts-ignore: DEBUG
-// window.onRecaptchaLoad = onRecaptchaLoad;

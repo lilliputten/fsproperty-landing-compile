@@ -1,8 +1,13 @@
 <?php
 /**
  * @descr Mail configuration
- * @changed 2024.10.16, 20:21
+ * @changed 2024.10.20, 17:21
  */
+
+$gcaptchaSecretKey = '6LdmGmMqAAAAAII1IhWwOlPfFnTNtXPgNBORvpEN';
+
+/** Return error if sent from another address */
+$checkPageUrl = 'https://fsproperty.ru/';
 
 $fromName = 'FS-Property';
 $fromEmail = 'fsp@fsproperty.ru';
@@ -28,4 +33,9 @@ $formFields = array(
   '_date' => 'Дата',
 );
 
+$requiredFields = array(
+  'name',
+  'email',
+  'phone',
+);
 $multilineFields = ['comment'];

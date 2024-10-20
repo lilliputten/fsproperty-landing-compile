@@ -79,9 +79,6 @@
       gap: 1.75em;
     }
     a {
-      @media (width >= $mdTreshold) {
-        width: 45%;
-      }
       display: block;
       font-family: var(--softFont);
       color: var(--goldColor);
@@ -91,19 +88,22 @@
       &:hover {
         opacity: 0.8;
       }
+      @media (width >= $mdTreshold) {
+        width: 45%;
+      }
     }
   }
   .Buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
+    margin-bottom: 4em;
     @media (width < $smTreshold) {
       order: 2;
     }
     @media (width < $minWidth) {
       justify-content: center;
     }
-    margin-bottom: 4em;
     .BrokerButton {
       font-size: 1em;
       padding: 1em 2em;

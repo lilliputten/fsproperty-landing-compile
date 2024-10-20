@@ -2,14 +2,14 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.13, 19:26
+ *  @changed 2024.10.20, 17:14
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const isDev = getTruthy(process.env.DEV);
-const isDebug = true; // getTruthy(process.env.DEBUG);
+const isDebug = getTruthy(process.env.DEBUG);
 
 /** Use locally served assets (only for debug mode) */
 const useLocalServedScripts = true;

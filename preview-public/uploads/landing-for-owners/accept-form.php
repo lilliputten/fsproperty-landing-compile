@@ -1,7 +1,7 @@
 <?php
 /**
  * @descr Mail sending script
- * @changed 2024.10.16, 21:44
+ * @changed 2024.10.20, 17:21
  */
 
 // Write logs to a local file
@@ -9,12 +9,10 @@ ini_set('log_errors', 1);
 ini_set('error_log', 'php_errors.log');
 
 // Display errors:
-ini_set('display_errors', 'On');
+// ini_set('display_errors', 'On');
+// error_reporting(E_ALL);
 // error_reporting(-1);
 // set_error_handler('var_dump'); // Dump variables into output
-
-// Send plain text response
-// header('Content-Type: text/plain');
 
 // Import required modules...
 use PHPMailer\PHPMailer\PHPMailer;
@@ -27,11 +25,13 @@ require 'PHPMailer/Exception.php';
 // Import config...
 include('mail-config.php');
 
+$clientIp = getClientIpAddress();
+
 $pageUrl = !empty(@$_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 $pageId = getPageIdFromUrl($pageUrl);
 
 $specialFields = array(
-  '_ip' => getClientIpAddress(),
+  '_ip' => $clientIp,
   '_date' => date('Y.m.d G:i'),
   '_pageUrl' => $pageUrl,
   '_pageId' => $pageId,
@@ -41,21 +41,90 @@ $rawInput = file_get_contents('php://input');
 $isJson = substr(@$rawInput, 0, 1) === '{'; // Does it start with json's '{' (php-5 way)?
 $postData = $isJson ? objectToArray(json_decode($rawInput)) : $_POST;
 
-// Show data in `php_errors.log` file
-// error_log('Data received: ' . print_r($rawInput, true));
-
 $isDebug = !empty(@$postData['debug']);
 
 // Fetch variables...
 $toEmail = $isDebug ? $toEmailDebug : $toEmailProduction;
 
-// error_log('toEmail: ' . print_r($toEmail, true));
-
-/* // DEBUG
- * print('Debug: ' . $isDebug . "\n");
- * print('toEmail: ' . $toEmail . "\n");
- * print('pageUrl: ' . $pageUrl . "\n");
+/* // DEBUG (ATTENTION: It can break json)
+ * if ($isDebug && !empty($postData)) {
+ *   print('Debug: ' . $isDebug . "\n");
+ *   print('clientIp: ' . $clientIp . "\n");
+ *   print('toEmail: ' . print_r($toEmail, true) . "\n");
+ *   print('pageUrl: ' . $pageUrl . "\n");
+ * }
  */
+
+function checkEnvironment() {
+  global $clientIp, $pageUrl, $checkPageUrl;
+  if (empty($clientIp)) {
+    sendError('Invalid environment (1)');
+    die;
+  }
+  if (empty($pageUrl)) {
+    sendError('Invalid environment (2)');
+    die;
+  }
+  if (substr($pageUrl, 0, strlen($checkPageUrl)) !== $checkPageUrl) {
+    sendError('Invalid environment (3)');
+    die;
+  }
+}
+
+function checkFormData() {
+  global $postData, $requiredFields;
+  if (empty($postData)) {
+    sendError('No client data');
+    die;
+  }
+  foreach ($requiredFields as $id) {
+    if (empty(@$postData[$id])) {
+      sendError('No cient data field: ' . $id);
+      die;
+    }
+  }
+}
+
+function checkCaptcha() {
+  global $gcaptchaSecretKey, $postData, $clientIp;
+  try {
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $gcaptchaResponse = @$postData['gcaptcha'];
+    if (empty($gcaptchaResponse)) {
+      sendError('No captcha provided');
+      die;
+    }
+    $data = [
+      'secret'   => $gcaptchaSecretKey,
+      'response' => $gcaptchaResponse,
+      'remoteip' => $clientIp,
+    ];
+    $options = [
+      'http' => [
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+      ]
+    ];
+    $context = stream_context_create($options);
+    $resultJson = file_get_contents($url, false, $context);
+    $result = json_decode($resultJson);
+    $success = $result->success;
+    /* DEBUG: Write captcha debug info...
+     * error_log('checkCaptcha: data: ' . print_r($data, true));
+     * error_log('checkCaptcha: options: ' . print_r($options, true));
+     * error_log('checkCaptcha: result: ' . print_r($result, true));
+     */
+    if (empty($success)) {
+      sendError('Captcha verification error ', $result);
+      die;
+    }
+    return $success;
+  }
+  catch (Exception $e) {
+    return null;
+  }
+}
 
 function getPageIdFromUrl($pageUrl) {
   $id = $pageUrl;
@@ -182,13 +251,6 @@ function sendMail() {
 
   // Setup smtp...
   $mail->isSMTP(); // Set mailer to use SMTP
-  // $mail->Host = 'smtp.yandex.ru'; // Specify main and backup SMTP servers
-  // $mail->SMTPAuth = true; // Enable SMTP authentication
-  // $mail->Username = 'fsp@fsproperty.ru'; // SMTP username
-  // $mail->Password = 'secret'; // SMTP password
-  // $mail->SMTPSecure = 'ssl'; // Enable SSL encryption, TLS also accepted with port 465
-  // $mail->Port = 465; // TCP port to connect to
-
   $mail->IsHTML(true);
   $mail->CharSet = 'UTF-8';
   $mail->Encoding = 'base64';
@@ -225,7 +287,7 @@ function sendMail() {
   $responseData = array(
     // 'ok' => true, // True -- if the operation was successful
     // 'error' => NULL, // A brief text explaining the error (if any; it will be shown to the user). If successful, do not send anything (either NULL or an empty string).
-    // '_data_debug' => $postData, // DEBUG: Only for debug purposes
+    // 'errorInfo' => $postData, // DEBUG: Only for debug purposes
   );
 
   if ($isDebug && !empty($postData)) {
@@ -238,9 +300,9 @@ function sendMail() {
     http_response_code(200);
   } else {
     // http_response_code(500);
-    $errMsg = "Error: " . $mail->ErrorInfo . "\n";
-    error_log($errMsg);
-    $responseData['error'] = $errMsg;
+    $errText = "Error: " . $mail->ErrorInfo . "\n";
+    sendError($errText);
+    die;
   }
 
   // Return json response...
@@ -250,21 +312,30 @@ function sendMail() {
 
 // DEBUG: Sample error...
 if (@$postData['name'] == 'test') {
-  $responseData = array();
-  $responseData['error'] = 'Текст возникшей ошибки';
-  // http_response_code(500);
-  header('Content-Type: application/json; charset=utf-8');
-  print(json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n");
+  sendError('Эмуляция ошибки (test)');
   die;
 }
 
+function sendError($errText, $debugData = NULL) {
+  $responseData = array();
+  $responseData['error'] = $errText;
+  if (!empty($debugData)) {
+    $responseData['errorInfo'] = $debugData;
+  }
+  error_log('Error: ' . $errText);
+  // http_response_code(500);
+  header('Content-Type: application/json; charset=utf-8');
+  print(json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n");
+}
+
 try {
+  checkEnvironment();
+  checkFormData();
+  checkCaptcha();
   sendMail();
 } catch (Exception $e) {
   http_response_code(500);
-  $errMsg = "Caught error: " . $e->getMessage() . "\n";
-  error_log($errMsg);
-  header('Content-Type: text/plain');
-  echo $errMsg;
+  $errText = "Caught error: " . $e->getMessage() . "\n";
+  sendError($errText);
   die;
 }
