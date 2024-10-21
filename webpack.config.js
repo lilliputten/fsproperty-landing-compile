@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.13, 23:17
+ *  @changed 2024.10.21, 11:09
  */
 
 const webpack = require('webpack');
@@ -146,7 +146,8 @@ module.exports = {
         { from: appInfoFile },
         { from: appInfoFile, to: `uploads/${appFolder}/` },
         { from: 'src/images', to: `uploads/${appFolder}/images`, globOptions },
-        { from: 'preview-public', globOptions },
+        { from: 'public', globOptions },
+        { from: 'public-uploads', to: `uploads/landing-for-owners`, globOptions },
       ],
     }),
     new HtmlWebpackPlugin({

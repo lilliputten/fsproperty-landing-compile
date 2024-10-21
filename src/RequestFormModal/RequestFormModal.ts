@@ -33,8 +33,8 @@ const isDebug = process.env.DEBUG;
 const submitFile = 'accept-form.php';
 const submitUrl = `/${uploadsFolder}/${submitFile}`;
 
-const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz
-// const gcaptchaSiteKey = '6Lf382QqAAAAABJ6FFdGgssGaXu4kqdNno7ZjZ01'; // DEBUG: From Pavel (w/o secure key)
+const gcaptchaSiteKey = '6Lf382QqAAAAABJ6FFdGgssGaXu4kqdNno7ZjZ01'; // By Pavel, 2024.10.21
+// const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz, works
 let gcaptchaResponse: string;
 
 let gcaptchaId: number;
