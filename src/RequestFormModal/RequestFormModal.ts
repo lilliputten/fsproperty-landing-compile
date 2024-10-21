@@ -35,7 +35,7 @@ const submitUrl = `/${uploadsFolder}/${submitFile}`;
 
 // Google captcha client key
 // const gcaptchaSiteKey = '6Lf382QqAAAAABJ6FFdGgssGaXu4kqdNno7ZjZ01'; // By Pavel, 2024.10.21
-const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz, works
+const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: By Igor, from wordwizzz, 2024.10.16 (ok works)
 
 /** Captcha response value, should be passed to the server to check a valid script invocation, with the secret key */
 let gcaptchaResponse: string;
