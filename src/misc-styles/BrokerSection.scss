@@ -78,16 +78,13 @@
     @media (width >= $mdTreshold) {
       gap: 1.75em;
     }
-    a {
+    li {
       display: block;
       font-family: var(--softFont);
       color: var(--goldColor);
       font-size: 1.75em;
       line-height: 1.4;
-      transition: all var(--transitionTimeMs);
-      &:hover {
-        opacity: 0.8;
-      }
+      margin: 0;
       @media (width >= $mdTreshold) {
         width: 45%;
       }

@@ -14,18 +14,14 @@
     @media (width >= $mdTreshold) {
       flex-direction: row;
     }
-    > a {
+    > li {
       flex: 1;
       position: relative;
       display: flex;
       flex-direction: column;
       gap: 1em;
       color: var(--goldColor);
-      transition: all var(--transitionTimeMs);
-      &:hover {
-        // color: var(--goldColor);
-        opacity: 0.8;
-      }
+      margin: 0;
     }
   }
   .ItemImg {
