@@ -1,11 +1,11 @@
 {
-  "appVersionHash": "fsproperty-landing-compile v.0.0.5 / 2024.10.13 19:19 +0300",
+  "appVersionHash": "fsproperty-landing-compile v.0.0.13 / 2024.10.21 11:39 +0300",
   "projectName": "fsproperty-landing-compile",
-  "timestamp": "2024.10.13 19:19 +0300",
-  "timetag": "241013-1919",
-  "version": "0.0.5",
-  "currentTimeStr": "2024.10.13 19:19 +0300",
-  "currentTimeTag": "241013-1919",
-  "gitCommitHash": "a06c9d2",
-  "gitBranch": "1-use-the-application-the-specific-landing-id-for-future-use"
+  "timestamp": "2024.10.21 11:39 +0300",
+  "timetag": "241021-1139",
+  "version": "0.0.13",
+  "currentTimeStr": "2024.10.21 11:39 +0300",
+  "currentTimeTag": "241021-1139",
+  "gitCommitHash": "da1c294",
+  "gitBranch": "2-form-popup-dialog"
 }

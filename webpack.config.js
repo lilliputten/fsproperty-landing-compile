@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.13, 18:41
+ *  @changed 2024.10.21, 11:09
  */
 
 const webpack = require('webpack');
@@ -31,6 +31,13 @@ const {
   stylesAssetFile,
   appFolder,
 } = require('./webpack.params');
+
+/** Exclusions for copy plugin */
+const globOptions = {
+  // dot: true,
+  gitignore: true,
+  // ignore: ['**/file.*', '**/ignored-directory/**'],
+};
 
 module.exports = {
   mode: 'production',
@@ -132,12 +139,15 @@ module.exports = {
       filename: stylesAssetFile,
     }),
     new CopyPlugin({
+      // @see https://webpack.js.org/plugins/copy-webpack-plugin/
+      // TODO: Exclude log, swap & temp files
       patterns: [
         // Files to copy...
         { from: appInfoFile },
         { from: appInfoFile, to: `uploads/${appFolder}/` },
-        { from: 'src/images', to: `uploads/${appFolder}/images` },
-        { from: 'preview-public' },
+        { from: 'src/images', to: `uploads/${appFolder}/images`, globOptions },
+        { from: 'public', globOptions },
+        { from: 'public-uploads', to: `uploads/landing-for-owners`, globOptions },
       ],
     }),
     new HtmlWebpackPlugin({
@@ -229,6 +239,6 @@ module.exports = {
     // NOTE: See also `outDir` field in `tsconfig.json`
     path: path.resolve(__dirname, outPath),
     // @see https://webpack.js.org/configuration/output/#outputassetmodulefilename
-    assetModuleFilename: `uploads/${appFolder}/assets/[name][ext][query]`,
+    assetModuleFilename: `uploads/${appFolder}/assets/[name]-[hash][ext][query]`,
   },
 };

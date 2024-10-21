@@ -60,12 +60,13 @@ function _getAssetContent(asset) {
 function getCompilationScriptsContent(_compilation, _opts = {}) {
   // if (opts.isDev && opts.useLocalServedScripts) {
   return [
-    '<!-- DEV: Locally linked scripts & styles -->',
-    `<script type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
+    '<!-- Locally linked scripts & styles -->',
+    customResources.trim(),
     `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}?${appVersionTag}" />`,
+    `<script type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
   ].join('\n');
   // }
-  /* // Generate inline asets from the compilation...
+  /* // TODO: (Temporarily unused) Generate inline assets from the compilation...
    * const { assets } = compilation;
    * // Get scripts chunk...
    * [>* @type {webpack.sources.Source} <]
@@ -117,6 +118,7 @@ function getIncludeTemplate() {
     .replace(/\{\{appId\}\}/g, appId)
     .replace(/\{\{appFolder\}\}/g, appFolder)
     .replace(/\{\{uploadsFolder\}\}/g, uploadsFolder)
+    .replace(/\{\{appVersionTag\}\}/g, appVersionTag)
     .replace(/[ \t]+\n/gm, '\n')
     .replace(/\n{3,}/gm, '\n\n')
     .trim();
@@ -133,15 +135,9 @@ function getIncludeTemplate() {
 function getIncludeFragment(compilation, opts) {
   // Get scripts chunk content...
   const includeContent = getCompilationScriptsContent(compilation, opts);
-  const includeFragment =
-    customResources +
-    getIncludeTemplate()
-      // fs
-      //   .readFileSync(path.resolve(__dirname, includeTemplateFile), {
-      //     encoding: 'utf8',
-      //   })
-      //   .trim()
-      .replace('{{CONTENT}}', includeContent);
+  const includeFragment = getIncludeTemplate()
+    // prettier-ignore
+    .replace(/\{\{CONTENT\}\}/g, includeContent);
   return includeFragment;
 }
 

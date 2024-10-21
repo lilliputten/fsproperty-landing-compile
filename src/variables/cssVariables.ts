@@ -4,17 +4,23 @@ import * as cssVariables from './variables-export.scss';
 
 // See pre-exports in `variables-export.scss`
 export interface TVariables {
-  blockRootNode: string;
+  appId: string;
+  appFolder: string;
+  uploadsFolder: string;
 }
 
 const vars = cssVariables as TVariables;
 
 const {
   // prettier-ignore
-  blockRootNode,
+  appId,
+  appFolder,
+  uploadsFolder,
 } = vars;
 
 export {
   // prettier-ignore
-  blockRootNode,
+  appId,
+  appFolder,
+  uploadsFolder,
 };

@@ -2,14 +2,14 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.13, 18:46
+ *  @changed 2024.10.20, 17:14
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const isDev = getTruthy(process.env.DEV);
-const isDebug = true; // getTruthy(process.env.DEBUG);
+const isDebug = getTruthy(process.env.DEBUG);
 
 /** Use locally served assets (only for debug mode) */
 const useLocalServedScripts = true;
@@ -20,7 +20,8 @@ const useInlineScripts = !useLocalServedScripts;
 const generateSourcesForProduction = true;
 
 const includeTemplateFile = 'src/include-template.html';
-const previewTemplateFile = 'src/preview-template-with-column.html';
+// const previewTemplateFile = 'src/preview-template-with-column.html';
+const previewTemplateFile = 'src/preview-template-no-column.html';
 
 const appInfoFile = 'src/app-info.json';
 const appInfoContent = fs.readFileSync(path.resolve(__dirname, appInfoFile), {
@@ -49,7 +50,7 @@ const appFolder = `landing-${appId}`;
 const uploadsFolder = `uploads/${appFolder}`;
 
 /** Assets target path */
-const assetsPath = `uploads/${appFolder}/`;
+const assetsPath = `${uploadsFolder}/`;
 
 const scriptsAssetFile = assetsPath + 'scripts.js';
 const stylesAssetFile = assetsPath + 'styles.css';
@@ -67,9 +68,12 @@ const devtool = isDev
 const minimizeAssets = !isDev || !useLocalServedScripts;
 
 // Inluce other resources here, to protect webpack from changing the urls (and trying to find the resource and include to the build)
-const customResources = `
-<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">
-`;
+const customResources = [
+  // '<link rel="stylesheet" type="text/css" href="/assets/b7f4f2a8/css/about.css">',
+  // '<script src="https://cdn.jsdelivr.net/npm/bootstrap3@3.3.5/dist/js/bootstrap.min.js"></script>',
+]
+  .filter(Boolean)
+  .join('\n');
 
 // Info:
 console.log('DEV:', isDev); // eslint-disable-line no-console
