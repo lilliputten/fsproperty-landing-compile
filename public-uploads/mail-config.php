@@ -4,7 +4,7 @@
  * @changed 2024.10.21, 11:17
  */
 
-// $gcaptchaSecretKey = '...'; // See in `mail-config-override.php`
+$gcaptchaServerKey = '6LdmGmMqAAAAAII1IhWwOlPfFnTNtXPgNBORvpEN';
 
 /** Return error if sent from another address */
 $checkPageUrl = 'https://fsproperty.ru/';

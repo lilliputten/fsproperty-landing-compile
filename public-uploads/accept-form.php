@@ -90,7 +90,7 @@ function checkFormData() {
 }
 
 function checkCaptcha() {
-  global $gcaptchaSecretKey, $postData, $clientIp;
+  global $gcaptchaServerKey, $postData, $clientIp;
   try {
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $gcaptchaResponse = @$postData['gcaptcha'];
@@ -99,7 +99,7 @@ function checkCaptcha() {
       die;
     }
     $data = [
-      'secret'   => $gcaptchaSecretKey,
+      'secret'   => $gcaptchaServerKey,
       'response' => $gcaptchaResponse,
       'remoteip' => $clientIp,
     ];

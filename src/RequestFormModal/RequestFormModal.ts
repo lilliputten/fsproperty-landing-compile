@@ -33,8 +33,11 @@ const isDebug = process.env.DEBUG;
 const submitFile = 'accept-form.php';
 const submitUrl = `/${uploadsFolder}/${submitFile}`;
 
-const gcaptchaSiteKey = '6Lf382QqAAAAABJ6FFdGgssGaXu4kqdNno7ZjZ01'; // By Pavel, 2024.10.21
-// const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz, works
+// Google captcha client key
+// const gcaptchaSiteKey = '6Lf382QqAAAAABJ6FFdGgssGaXu4kqdNno7ZjZ01'; // By Pavel, 2024.10.21
+const gcaptchaSiteKey = '6LdmGmMqAAAAABKSiuLlrVv1YmCuMC7wuIAXE3UZ'; // DEBUG: From wordwizzz, works
+
+/** Captcha response value, should be passed to the server to check a valid script invocation, with the secret key */
 let gcaptchaResponse: string;
 
 let gcaptchaId: number;
@@ -416,6 +419,7 @@ function initModal() {
   formControls.forEach((node) => {
     const { id } = node;
     node.addEventListener('input', onInputChange);
+    node.addEventListener('change', onInputChange);
     formControlGroups[id] = modalNode.querySelector(`.form-group#${id}-group`);
   });
   initRecaptcha();

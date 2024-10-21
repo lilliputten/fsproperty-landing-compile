@@ -1,7 +1,15 @@
 <?php
 /**
  * @descr Override mail configuration for the specific environment
- * @changed 2024.10.21, 11:17
+ * @changed 2024.10.21, 12:03
  */
 
-// $gcaptchaSecretKey = '...';
+// $gcaptchaServerKey = '...';
+//
+// $toEmailProduction = [
+//   'anybody@mail.com',
+// ];
+//
+// $mailSubject = 'Message subject';
+//
+// // etc...
